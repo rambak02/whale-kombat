@@ -22,7 +22,7 @@ export const ClickerBlock = styled.div`
   max-width: 400px;
   max-height: 400px;
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 1);
+  border: 8px solid rgba(255, 255, 255, 1);
   border-color: white;
   background: radial-gradient(
     50% 50% at 50% 50%,
@@ -44,8 +44,6 @@ export const ClickerBlock = styled.div`
   }
 `;
 export const ClickerImg = styled.img`
-  width: 80%;
-  height: 90%;
-  border-radius: 50%;
-  padding: 0px 0px 30px 0px;
+  width: 90%;
+  padding: 0px 0px 30px 10px;
 `;
