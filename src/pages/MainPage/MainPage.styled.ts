@@ -121,7 +121,7 @@ export const Balance = styled.div`
   font-family: "Roboto";
   font-weight: 700;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   line-height: 21px;
   color: black;
 `;
@@ -168,13 +168,34 @@ export const NavIconBybit = styled(NavIcon)`
   width: 44px;
   height: 15px;
 `;
+export const ProgressBarBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+`;
+export const LevelBlock = styled.div`
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  font-family: "Roboto";
+  font-weight: 500;
+`;
+export const LevelTitle = styled.div`
+`;
+export const Level = styled.div`
+display: flex;
+gap: 5px;
+`;
+export const LevelNumber = styled.div`
+color: rgba(94, 193, 202, 1);
+`
+
 export const ProgressBar = styled.div`
   width: 80%;
   height: 20px;
   background: linear-gradient(90deg, #fff176 0%, #f2891a 100%);
-  margin: 0 auto 1rem;
   border-radius: 10px;
-  @media (min-width: 800px) {
-    max-width: 400px;
-  }
 `;

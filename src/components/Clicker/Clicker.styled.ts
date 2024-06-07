@@ -25,6 +25,7 @@ export const ClickerBorder = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
+  margin-top: 0rem;
   &:active {
     animation: ${ClickeAnimation} 0.3s ease;
   }

@@ -43,7 +43,10 @@ export const MainPage = () => {
           <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
           <S.Balance> {balance}</S.Balance>
         </S.BalanceBlock>
+        <S.ProgressBarBlock>
+          <S.LevelBlock><S.LevelTitle>Название уровня {">"}</S.LevelTitle><S.Level>Level <S.LevelNumber>7/10</S.LevelNumber></S.Level></S.LevelBlock>
         <S.ProgressBar></S.ProgressBar>
+        </S.ProgressBarBlock>
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <S.NavGrid>
           <S.Nav>
