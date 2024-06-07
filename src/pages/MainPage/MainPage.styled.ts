@@ -108,15 +108,25 @@ export const CoinsUpCount = styled(ProfitOneClickCount)``;
 export const ProfitPerHour = styled(ProfitOneClick)``;
 export const ProfitPerHourTitle = styled(ProfitOneClickTitle)``;
 export const ProfitPerHourContent = styled(ProfitOneClickContent)``;
-export const ProfitPerHourCount = styled(ProfitOneClickCount)``; 
-
+export const ProfitPerHourCount = styled(ProfitOneClickCount)``;
+export const BalanceBlock = styled.div`
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+`;
 export const Balance = styled.div`
-  font-family: "Poppins";
+  font-family: "Roboto";
   font-weight: 700;
   text-align: center;
   font-size: 2rem;
-  color: #ffd700;
-  margin-bottom: 1rem;
+  line-height: 21px;
+  color: black;
+`;
+export const BalanceIcon = styled.img`
+  width: 59px;
+  height: 59px;
 `;
 export const NavGrid = styled.nav`
   display: flex;

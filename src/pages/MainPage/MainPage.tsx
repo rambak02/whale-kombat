@@ -39,7 +39,10 @@ export const MainPage = () => {
             </S.ProfitPerHourContent>
           </S.ProfitPerHour>
         </S.MiningInfo>
-        <S.Balance>$ {balance}</S.Balance>
+        <S.BalanceBlock>
+          <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
+        <S.Balance> {balance}</S.Balance>
+        </S.BalanceBlock>
         <S.ProgressBar></S.ProgressBar>
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <S.NavGrid>
