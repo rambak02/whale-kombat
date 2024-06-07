@@ -31,11 +31,6 @@ export const ClickerBorder = styled.div`
 
 export const ClickerBlock = styled(ClickerBorder)`
   background: radial-gradient(
-    93.33% 93.33% at 50% 50%,
-    #7ad4df 0%,
-    #03577f 100%
-  );
-  background: radial-gradient(
       93.33% 93.33% at 50% 50%,
       #7ad4df 0%,
       #03577f 100%
@@ -46,6 +41,7 @@ export const ClickerBlock = styled(ClickerBorder)`
   }
 `;
 export const ClickerImg = styled.img`
+max-height: 330px;
   width: 90%;
   padding: 0px 0px 30px 10px;
 `;

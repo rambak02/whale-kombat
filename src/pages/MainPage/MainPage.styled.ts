@@ -44,25 +44,72 @@ export const BybitBlock = styled.div`
   padding: 12px 16px 12px 16px;
   border-radius: 10px;
   display: flex;
-    align-items: center;
-    gap: 5px;
+  align-items: center;
+  gap: 5px;
 `;
 export const BybitImg = styled.img``;
 
 export const BybitText = styled.div`
-font-family: "Roboto";
-font-size: 12px;
-font-weight: 500;
-line-height: 21px;
-text-align: center;
-color: black;
-
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+  color: black;
 `;
 export const Content = styled.div`
+  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
+  border-top: 3px solid rgba(229, 153, 43, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 36px 36px 0px 0px;
+  height: 645px;
 `;
+export const MiningInfo = styled.div`
+  width: 100%;
+  display: flex;
+  margin: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+export const ProfitOneClick = styled.div`
+  background: rgba(94, 193, 202, 1);
+  min-width: 110px;
+  min-height: 48px;
+  border-radius: 10px;
+`;
+export const ProfitOneClickTitle = styled.div`
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+  color: black;
+`;
+export const ProfitOneClickContent = styled.div`
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+`;
+export const ProfitOneClickCount = styled.div`
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+  color: black;
+`;
+export const CoinsBeforeUp = styled(ProfitOneClick)``;
+export const CoinsUpTitle = styled(ProfitOneClickTitle)``;
+export const CoinsUpCount = styled(ProfitOneClickCount)``;
+export const ProfitPerHour = styled(ProfitOneClick)``;
+export const ProfitPerHourTitle = styled(ProfitOneClickTitle)``;
+export const ProfitPerHourContent = styled(ProfitOneClickContent)``;
+export const ProfitPerHourCount = styled(ProfitOneClickCount)``; 
+
 export const Balance = styled.div`
   font-family: "Poppins";
   font-weight: 700;
