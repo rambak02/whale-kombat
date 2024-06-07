@@ -12,35 +12,37 @@ const ClickeAnimation = keyframes`
   }
 `;
 
-export const ClickerBlock = styled.div`
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const ClickerBorder = styled.div`
   min-width: 200px;
   min-height: 200px;
   max-width: 400px;
   max-height: 400px;
-  border-radius: 50%;
-  border: 8px solid rgba(255, 255, 255, 1);
-  border-color: white;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    #ffffff 0%,
-    #6d83bc 61.5%,
-    #123692 100%
-  );
   margin: 3.5rem;
-  &:hover {
-    background: radial-gradient(
-      50% 50% at 50% 50%,
-      #ffffff 30%,
-      #6d83bc 61.5%,
-      #123692 100%
-    );
-  }
+  border-radius: 50%;
+  background: linear-gradient(180deg, #6ec7d5 0%, #085c83 100%);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:active {
-    animation: ${ClickeAnimation} 0.3s ease
+    animation: ${ClickeAnimation} 0.3s ease;
+  }
+`;
+
+export const ClickerBlock = styled(ClickerBorder)`
+  background: radial-gradient(
+    93.33% 93.33% at 50% 50%,
+    #7ad4df 0%,
+    #03577f 100%
+  );
+  background: radial-gradient(
+      93.33% 93.33% at 50% 50%,
+      #7ad4df 0%,
+      #03577f 100%
+    );
+  margin: 1.2rem;
+  &:active {
+    animation: none;
   }
 `;
 export const ClickerImg = styled.img`

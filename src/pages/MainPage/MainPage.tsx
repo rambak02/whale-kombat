@@ -6,7 +6,17 @@ export const MainPage = () => {
   const [balance, setBalance] = useState<number>(0);
   return (
     <S.Container>
-      <S.Title>Whale Kombat</S.Title>
+      <S.Header>
+        <S.UserBlock>
+          <S.UserImg alt="user" src="/public/Ellipse 2.png" />
+          <S.Username>Ivan</S.Username>
+        </S.UserBlock>
+
+        <S.BybitBlock>
+          <S.BybitImg src="/public/Bybit.svg" alt="bybit" />
+          <S.BybitText>Bybit</S.BybitText>
+        </S.BybitBlock>
+      </S.Header>
       <S.Content>
         <S.Balance>$ {balance}</S.Balance>
         <S.ProgressBar></S.ProgressBar>
