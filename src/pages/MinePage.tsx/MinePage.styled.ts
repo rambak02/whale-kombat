@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
+interface NavMineTextProps {
+  $focus: boolean;
+}
+
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   max-width: 100%;
   width: 100vw;
-  min-height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
 `;
 
@@ -39,8 +39,9 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 36px 36px 0px 0px;
-  height: 100vh;
   justify-content: space-around;
+  gap: 10px;
+  padding-bottom: 80px;
 `;
 export const BalanceBlock = styled.div`
   display: flex;
@@ -138,3 +139,39 @@ export const ComboCardText = styled.div`
   line-height: 21px;
   text-align: center;
 `;
+
+export const NavMineBlock = styled.div`
+  display: flex;
+  width: 93%;
+  height: 42px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background: radial-gradient(
+    149.3% 149.3% at 50% 50%,
+    #7ad4df 0%,
+    #03577f 100%
+  );
+`;
+export const NavMine = styled.div<NavMineTextProps>`
+  background: ${(props) => (props.$focus ? "#FFEBCD" : "")};
+  padding: 5px;
+  border-radius: 10px;
+`;
+export const NavMineText = styled.div<NavMineTextProps>`
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+  color: ${(props) => (props.$focus ? "black" : "white")};
+`;
+
+export const BoostsContainer = styled.div`
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+`

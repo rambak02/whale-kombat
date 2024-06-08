@@ -14,7 +14,6 @@ const ClickeAnimation = keyframes`
 
 export const ClickerBorder = styled.div`
   min-width: 200px;
-  min-height: 200px;
   max-width: 400px;
   max-height: 400px;
   margin: 3.5rem;

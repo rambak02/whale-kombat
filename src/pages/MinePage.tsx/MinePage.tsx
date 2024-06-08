@@ -3,8 +3,12 @@ import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MinePage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo.styled";
+import { Boost } from "../../components/Boosts/Boosts";
 
-export const MinePage = () => {
+export const MinePage: React.FC = () => {
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+
+  const menuItems = ["Markets", "PR&Team", "Legal", "Specials"];
   const [balance, setBalance] = useState<number>(0);
   return (
     <S.Container>
@@ -29,37 +33,43 @@ export const MinePage = () => {
         <S.ComboCardBlock>
           <S.ComboCard>
             <S.ComboCardContent>
-                <img src="/public/iconCombo1.png"/>
-                <S.ComboCardText>BisDev team</S.ComboCardText>
+              <img src="/public/iconCombo1.png" />
+              <S.ComboCardText>BisDev team</S.ComboCardText>
             </S.ComboCardContent>
           </S.ComboCard>
           <S.ComboCard>
             <S.ComboCardContent>
-                <img src="/public/comboIcon.png"/>
+              <img src="/public/comboIcon.png" />
             </S.ComboCardContent>
           </S.ComboCard>
           <S.ComboCard>
             <S.ComboCardContent>
-            <img src="/public/comboIcon.png"/>
+              <img src="/public/comboIcon.png" />
             </S.ComboCardContent>
           </S.ComboCard>
         </S.ComboCardBlock>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <S.NavMineBlock>
+          {menuItems.map((item, index) => (
+            <S.NavMine $focus={focusedIndex === index} key={index}>
+              <S.NavMineText
+                $focus={focusedIndex === index}
+                onClick={() => setFocusedIndex(index)}
+              >
+                {item}
+              </S.NavMineText>
+            </S.NavMine>
+          ))}
+        </S.NavMineBlock>
+        <S.BoostsContainer>
+          <Boost/>
+          <Boost/>
+          <Boost/>
+          <Boost/>
+          <Boost/>
+          <Boost/>
+          <Boost/>
+          <Boost/>
+        </S.BoostsContainer>
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <BottomNav />
       </S.Content>
