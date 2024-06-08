@@ -67,49 +67,7 @@ export const Content = styled.div`
   height: 90vh;
   justify-content: space-around;
 `;
-export const MiningInfo = styled.div`
-  width: 100%;
-  display: flex;
-  margin: 20px;
-  align-items: center;
-  justify-content: space-evenly;
-`;
-export const ProfitOneClick = styled.div`
-  background: rgba(94, 193, 202, 1);
-  min-width: 110px;
-  min-height: 48px;
-  border-radius: 10px;
-`;
-export const ProfitOneClickTitle = styled.div`
-  font-family: "Roboto";
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 21px;
-  text-align: center;
-  color: black;
-`;
-export const ProfitOneClickContent = styled.div`
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-`;
-export const ProfitOneClickCount = styled.div`
-  font-family: "Roboto";
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 21px;
-  text-align: center;
-  color: black;
-`;
-export const CoinsBeforeUp = styled(ProfitOneClick)``;
-export const CoinsUpTitle = styled(ProfitOneClickTitle)``;
-export const CoinsUpCount = styled(ProfitOneClickCount)``;
-export const ProfitPerHour = styled(ProfitOneClick)``;
-export const ProfitPerHourTitle = styled(ProfitOneClickTitle)``;
-export const ProfitPerHourContent = styled(ProfitOneClickContent)``;
-export const ProfitPerHourCount = styled(ProfitOneClickCount)``;
+
 export const BalanceBlock = styled.div`
   display: flex;
   gap: 5px;
@@ -129,45 +87,7 @@ export const BalanceIcon = styled.img`
   width: 59px;
   height: 59px;
 `;
-export const NavGrid = styled.nav`
-  align-items: center;
-  background: radial-gradient(
-    149.3% 149.3% at 50% 50%,
-    #7ad4df 0%,
-    #03577f 100%
-  );
-  border-radius: 24px;
-  display: flex;
-  justify-content: space-around;
-  gap: 10px;
-  width: 345px;
-  height: 65px;
-`;
-export const Nav = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-`;
-export const NavIcon = styled.img`
-  width: 24px;
-  height: 24px;
-`;
-export const NavText = styled.div`
-  color: black;
-  font-family: "Raleway";
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  text-align: center;
-`;
-export const NavTextBybit = styled(NavText)`
-  color: white;
-`;
-export const NavIconBybit = styled(NavIcon)`
-  width: 44px;
-  height: 15px;
-`;
+
 export const ProgressBarBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -183,15 +103,14 @@ export const LevelBlock = styled.div`
   font-family: "Roboto";
   font-weight: 500;
 `;
-export const LevelTitle = styled.div`
-`;
+export const LevelTitle = styled.div``;
 export const Level = styled.div`
-display: flex;
-gap: 5px;
+  display: flex;
+  gap: 5px;
 `;
 export const LevelNumber = styled.div`
-color: rgba(94, 193, 202, 1);
-`
+  color: rgba(94, 193, 202, 1);
+`;
 
 export const ProgressBar = styled.div`
   width: 80%;

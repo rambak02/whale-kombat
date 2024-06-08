@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
+import { BottomNav } from "../../components/BottomNav/BottomNav";
+import { MiningInfo } from "../../components/MiningInfo/MiningInfo.styled";
 
 export const MainPage = () => {
   const [balance, setBalance] = useState<number>(0);
@@ -18,58 +20,22 @@ export const MainPage = () => {
         </S.BybitBlock>
       </S.Header>
       <S.Content>
-        <S.MiningInfo>
-          <S.ProfitOneClick>
-            <S.ProfitOneClickTitle>Прибыль за тап</S.ProfitOneClickTitle>
-            <S.ProfitOneClickContent>
-              <img src="/public/Vector.svg"></img>
-              <S.ProfitOneClickCount>+2</S.ProfitOneClickCount>
-            </S.ProfitOneClickContent>
-          </S.ProfitOneClick>
-          <S.CoinsBeforeUp>
-            <S.CoinsUpTitle>Монет для апа</S.CoinsUpTitle>
-            <S.CoinsUpCount>10M</S.CoinsUpCount>
-          </S.CoinsBeforeUp>
-          <S.ProfitPerHour>
-            <S.ProfitPerHourTitle>Прибыль в час</S.ProfitPerHourTitle>
-            <S.ProfitPerHourContent>
-              <img src="/public/Vector.svg" />
-              <S.ProfitOneClickCount>+128,35K</S.ProfitOneClickCount>
-              <img src="/public/icons.svg" />
-            </S.ProfitPerHourContent>
-          </S.ProfitPerHour>
-        </S.MiningInfo>
+        <MiningInfo />
         <S.BalanceBlock>
           <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
           <S.Balance> {balance}</S.Balance>
         </S.BalanceBlock>
         <S.ProgressBarBlock>
-          <S.LevelBlock><S.LevelTitle>Название уровня {">"}</S.LevelTitle><S.Level>Level <S.LevelNumber>7/10</S.LevelNumber></S.Level></S.LevelBlock>
-        <S.ProgressBar></S.ProgressBar>
+          <S.LevelBlock>
+            <S.LevelTitle>Название уровня {">"}</S.LevelTitle>
+            <S.Level>
+              Level <S.LevelNumber>7/10</S.LevelNumber>
+            </S.Level>
+          </S.LevelBlock>
+          <S.ProgressBar></S.ProgressBar>
         </S.ProgressBarBlock>
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
-        <S.NavGrid>
-          <S.Nav>
-            <S.NavIconBybit src ="/public/BybitWhite.png"/>
-            <S.NavTextBybit>Exchange</S.NavTextBybit>
-          </S.Nav>
-          <S.Nav>
-            <S.NavIcon src="/public/healthicons_factory-worker.png" />
-            <S.NavText>Mine</S.NavText>
-          </S.Nav>
-          <S.Nav>
-            <S.NavIcon src="/public/fa-solid_user-friends.png" />
-            <S.NavText>Friends</S.NavText>
-          </S.Nav>
-          <S.Nav>
-            <S.NavIcon src="/public/ph_coins-fill.png"/>
-            <S.NavText>Earn</S.NavText>
-          </S.Nav>
-          <S.Nav>
-            <S.NavIcon src ="/public/whale.png"></S.NavIcon>
-            <S.NavText>Airdrop</S.NavText>
-          </S.Nav>
-        </S.NavGrid>
+        <BottomNav />
       </S.Content>
     </S.Container>
   );
