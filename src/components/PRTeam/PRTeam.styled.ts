@@ -10,7 +10,7 @@ export const BoostsContainer = styled.div`
 
 export const BlockContainer = styled.div`
   background: rgba(28, 28, 29, 0.7);
-  min-height: 500px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

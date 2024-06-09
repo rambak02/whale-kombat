@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const BoostContainer = styled.div`
-  background: #5ec1ca;
-  border-radius: 8px;
-  padding: 16px;
-  width: 165px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+    max-height: 110px;
+    background: #5ec1ca;
+    border-radius: 8px;
+    padding: 16px;
+    width: 165px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   
 `;
 

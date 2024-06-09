@@ -16,8 +16,9 @@ export const NavMine: React.FC<NavMineProps> = ({ setStatus }) => {
   };
 
   const handleMenuItemClick = (item: string, index: number) => {
-    setStatus(item);
+    scrollToSection(sectionMineBlock);
     setFocusedIndex(index);
+    setStatus(item);
   };
 
   return (
