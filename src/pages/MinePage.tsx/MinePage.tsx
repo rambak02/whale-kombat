@@ -2,14 +2,19 @@ import { useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MinePage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
-import { MiningInfo } from "../../components/MiningInfo/MiningInfo.styled";
-import { Boost } from "../../components/Boosts/Boosts";
+import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
+import { NavMine } from "../../components/NavMine/NavMine";
+import { Market } from "../../components/Market/Market";
+import { PRTeam } from "../../components/PRTeam/PRTeam";
 
 export const MinePage: React.FC = () => {
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
-
-  const menuItems = ["Markets", "PR&Team", "Legal", "Specials"];
+  const STATUS_MARKET = "Markets";
+  const STATUS_PRTEAM = "PR&Team";
+  const STATUS_LEGAL = "Legal";
+  const STATUS_SPECIALS = "Specials";
+  const [status, setStatus] = useState(STATUS_MARKET);
   const [balance, setBalance] = useState<number>(0);
+
   return (
     <S.Container>
       <S.Content>
@@ -48,28 +53,9 @@ export const MinePage: React.FC = () => {
             </S.ComboCardContent>
           </S.ComboCard>
         </S.ComboCardBlock>
-        <S.NavMineBlock>
-          {menuItems.map((item, index) => (
-            <S.NavMine $focus={focusedIndex === index} key={index}>
-              <S.NavMineText
-                $focus={focusedIndex === index}
-                onClick={() => setFocusedIndex(index)}
-              >
-                {item}
-              </S.NavMineText>
-            </S.NavMine>
-          ))}
-        </S.NavMineBlock>
-        <S.BoostsContainer>
-          <Boost/>
-          <Boost/>
-          <Boost/>
-          <Boost/>
-          <Boost/>
-          <Boost/>
-          <Boost/>
-          <Boost/>
-        </S.BoostsContainer>
+        <NavMine setStatus={setStatus} />
+        {status === STATUS_MARKET && <Market />}
+        {status === STATUS_PRTEAM && <PRTeam />}
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <BottomNav />
       </S.Content>

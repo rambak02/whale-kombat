@@ -1,3 +1,7 @@
 export interface NavMineTextProps {
-$focus: boolean;
+  $focus: boolean;
+}
+
+export interface NavMineProps {
+  setStatus: React.Dispatch<React.SetStateAction<string>>;
 }

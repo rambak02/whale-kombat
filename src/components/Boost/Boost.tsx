@@ -1,4 +1,4 @@
-import * as S from "./Boosts.styled";
+import * as S from "./Boost.styled";
 export const Boost = () => {
   return (
     <S.BoostContainer>

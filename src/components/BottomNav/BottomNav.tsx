@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as S from "./BottomNav.styled";
 
 export const BottomNav = () => {
@@ -5,11 +6,11 @@ export const BottomNav = () => {
     <S.NavGrid>
       <S.Nav>
         <S.NavIconBybit src="/public/BybitWhite.png" />
-        <S.NavTextBybit>Exchange</S.NavTextBybit>
+        <Link to="/"><S.NavTextBybit>Exchange</S.NavTextBybit></Link>
       </S.Nav>
       <S.Nav>
         <S.NavIcon src="/public/healthicons_factory-worker.png" />
-        <S.NavText>Mine</S.NavText>
+        <Link to="/mine"><S.NavText>Mine</S.NavText></Link>
       </S.Nav>
       <S.Nav>
         <S.NavIcon src="/public/fa-solid_user-friends.png" />

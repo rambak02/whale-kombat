@@ -14,9 +14,8 @@ export const NavGrid = styled.nav`
   width: 345px;
   height: 65px;
   position: fixed;
-    z-index: 1;
-    bottom: 180;
-    bottom: 15px;
+  z-index: 1;
+  bottom: 15px;
 `;
 export const Nav = styled.div`
   display: flex;

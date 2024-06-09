@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MiningInfo = styled.div`
+export const MiningInfoBlock = styled.div`
   width: 100%;
   display: flex;
   margin: 20px;

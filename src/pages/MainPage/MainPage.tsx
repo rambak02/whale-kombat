@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
-import { MiningInfo } from "../../components/MiningInfo/MiningInfo.styled";
+import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 
 export const MainPage = () => {
   const [balance, setBalance] = useState<number>(0);

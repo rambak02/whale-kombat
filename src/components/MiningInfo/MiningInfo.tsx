@@ -2,7 +2,7 @@ import * as S from "./MiningInfo.styled";
 
 export const MiningInfo = () => {
   return (
-    <S.MiningInfo>
+    <S.MiningInfoBlock>
       <S.ProfitOneClick>
         <S.ProfitOneClickTitle>Прибыль за тап</S.ProfitOneClickTitle>
         <S.ProfitOneClickContent>
@@ -22,6 +22,6 @@ export const MiningInfo = () => {
           <img src="/public/icons.svg" />
         </S.ProfitPerHourContent>
       </S.ProfitPerHour>
-    </S.MiningInfo>
+    </S.MiningInfoBlock>
   );
 };
