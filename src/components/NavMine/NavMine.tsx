@@ -7,7 +7,7 @@ export const NavMine: React.FC<NavMineProps> = ({ setStatus }) => {
   const menuItems = ["Markets", "PR&Team", "Legal", "Specials"];
 
   //Для прокрутки пользователя к определенной части страницы
-  const sectionBoosts = useRef<HTMLDivElement>(null);
+  const sectionMineBlock = useRef<HTMLDivElement>(null);
 
   //Пользователя направляет на определенную часть страницы
 
@@ -15,24 +15,24 @@ export const NavMine: React.FC<NavMineProps> = ({ setStatus }) => {
     section.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleMenuItemClick = (item: string) => {
-    scrollToSection(sectionBoosts);
+  const handleMenuItemClick = (item: string, index: number) => {
     setStatus(item);
+    setFocusedIndex(index);
   };
 
   return (
     <>
-      <div ref={sectionBoosts}></div>
-      <S.NavMineBlock ref={sectionBoosts}>
+      <div ref={sectionMineBlock}></div>
+      <S.NavMineBlock>
         {menuItems.map((item, index) => (
           <S.NavMine
-            onClick={() => handleMenuItemClick(item)}
+            onClick={() => scrollToSection(sectionMineBlock)}
             $focus={focusedIndex === index}
             key={index}
           >
             <S.NavMineText
               $focus={focusedIndex === index}
-              onClick={() => setFocusedIndex(index)}
+              onClick={() => handleMenuItemClick(item, index)}
             >
               {item}
             </S.NavMineText>

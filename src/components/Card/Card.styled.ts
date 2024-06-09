@@ -1,31 +1,42 @@
 import styled from "styled-components";
-
-export const BoostContainer = styled.div`
-  background: #5ec1ca;
-  border-radius: 8px;
-  padding: 16px;
-  width: 165px;
-  color: #fff;
+export const Card = styled.div`
+  background: linear-gradient(180deg, #7ad4df 0%, #03577f 100%);
+  min-width: 165.5px;
+  min-height: 200px;
+  border-radius: 10px;
+  border: 1px;
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
+  justify-content: center;
+`;
+export const CardImg = styled.img`
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  justify-content: space-between;
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
+export const CardTitle = styled.div`
+color: white;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
 `;
-
-export const Logo = styled.img`
-  width: 48px;
-  height: 48px;
+export const Description = styled.div`
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
 `;
-
 export const ProfitInf = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  gap: 10px;
 `;
 
 export const ProfitIcon = styled.div`
@@ -47,16 +58,14 @@ export const Profit = styled.div`
   align-items: center;
   flex-direction: column;
   align-items: flex-start;
-  
 `;
 export const ProfitCount = styled.div`
-color: black;
-font-family: "Roboto";
-font-size: 12px;
-font-weight: 500;
-line-height: 21px;
-text-align: center;
-
+  color: black;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
 `;
 
 export const CoinIcon = styled.img`
@@ -78,15 +87,14 @@ export const ProfitText = styled.div`
   line-height: 21px;
   text-align: center;
 `;
-
 export const LevelContainer = styled.div`
   display: flex;
   flex-direction: row;
-  border-top: 1px solid #469DB5;
+  border-top: 1px solid #469db5;
 `;
 
 export const Level = styled.div`
-  color: black;
+  color: white;
   font-family: "Roboto";
   font-size: 10px;
   font-weight: 500;
@@ -96,21 +104,21 @@ export const Level = styled.div`
   height: 7px;
 `;
 export const Cost = styled.div`
-  color: black;
+  color: white;
   font-family: "Roboto";
   font-size: 10px;
   font-weight: 500;
   line-height: 21px;
   text-align: center;
- 
+  padding-left: 5px;
 `;
 export const CoinIconCost = styled.img`
   width: 17px;
   height: 17px;
 `;
 export const LevelCost = styled.div`
-padding-left: 5px; 
- border-left: 1px solid #469DB5;
+  padding-left: 5px;
+  border-left: 1px solid #469db5;
   display: flex;
   flex-direction: row;
 `;

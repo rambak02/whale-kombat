@@ -6,6 +6,8 @@ import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import { NavMine } from "../../components/NavMine/NavMine";
 import { Market } from "../../components/Market/Market";
 import { PRTeam } from "../../components/PRTeam/PRTeam";
+import { Legal } from "../../components/Legal/Legal";
+import { Specials } from "../../components/Specials/Specials";
 
 export const MinePage: React.FC = () => {
   const STATUS_MARKET = "Markets";
@@ -56,6 +58,8 @@ export const MinePage: React.FC = () => {
         <NavMine setStatus={setStatus} />
         {status === STATUS_MARKET && <Market />}
         {status === STATUS_PRTEAM && <PRTeam />}
+        {status === STATUS_LEGAL && <Legal />}
+        {status === STATUS_SPECIALS && <Specials />}
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <BottomNav />
       </S.Content>
