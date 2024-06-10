@@ -1,12 +1,15 @@
 import { Route, Routes } from "react-router-dom"
 import { MainPage } from "./pages/MainPage/MainPage"
 import { MinePage } from "./pages/MinePage.tsx/MinePage"
+import { constRoutes } from "./paths"
+import { FriendsPage } from "./pages/FriendsPage/FriendsPage"
 
 export const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<MainPage />}/>
-            <Route path="/mine" element={<MinePage />}/>
+            <Route path={constRoutes.HOME} element={<MainPage />}/>
+            <Route path={constRoutes.MINE} element={<MinePage />}/>
+            <Route path={constRoutes.FRIENDS} element= {<FriendsPage />} />
         </Routes>
     )
 }

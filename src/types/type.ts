@@ -4,3 +4,7 @@ export type CLickerProps = {
 export type TextFocus = {
   $focus: boolean;
 }
+ export type GiftProps = {
+  cash: number;
+  title: string;
+ }
