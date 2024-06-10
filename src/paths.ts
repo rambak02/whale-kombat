@@ -1,6 +1,7 @@
 export const constRoutes = {
     HOME: "/",
     MINE: "/mine",
-    FRIENDS: "/friends"
+    FRIENDS: "/friends",
+    EARN: "/earn"
    }
    

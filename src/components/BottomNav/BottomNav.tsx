@@ -25,7 +25,7 @@ export const BottomNav = () => {
       </S.Nav>
       <S.Nav>
         <S.NavIcon src="/public/ph_coins-fill.png" />
-        <S.NavText>Earn</S.NavText>
+        <Link to={constRoutes.EARN}> <S.NavText>Earn</S.NavText></Link>
       </S.Nav>
       <S.Nav>
         <S.NavIcon src="/public/whale.png"></S.NavIcon>
