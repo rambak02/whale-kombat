@@ -8,3 +8,9 @@ export type TextFocus = {
   cash: number;
   title: string;
  }
+
+ export type CompanyProps = {
+  title: string;
+  image: string
+  completed: boolean;
+ }

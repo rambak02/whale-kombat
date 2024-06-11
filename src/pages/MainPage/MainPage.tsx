@@ -3,6 +3,8 @@ import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
+import { constRoutes } from "../../paths";
+import { Link } from "react-router-dom";
 
 export const MainPage = () => {
   const [balance, setBalance] = useState<number>(0);
@@ -14,10 +16,11 @@ export const MainPage = () => {
           <S.Username>Ivan</S.Username>
         </S.UserBlock>
 
-        <S.BybitBlock>
+       <Link to={constRoutes.CRYPTOCOMPANIES}><S.BybitBlock>
           <S.BybitImg src="/public/Bybit.svg" alt="bybit" />
           <S.BybitText>Bybit</S.BybitText>
         </S.BybitBlock>
+       </Link>
       </S.Header>
       <S.Content>
         <MiningInfo />

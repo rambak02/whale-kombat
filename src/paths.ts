@@ -3,6 +3,7 @@ export const constRoutes = {
     MINE: "/mine",
     FRIENDS: "/friends",
     EARN: "/earn",
-    AIRDROP: "/airdrop"
+    AIRDROP: "/airdrop",
+    CRYPTOCOMPANIES: "/companies"
    }
    
