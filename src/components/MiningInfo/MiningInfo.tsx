@@ -1,6 +1,10 @@
 import * as S from "./MiningInfo.styled";
 
-export const MiningInfo = () => {
+interface MiningInfoProps {
+  onClick: () => void;
+}
+
+export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
   return (
     <S.MiningInfoBlock>
       <S.ProfitOneClick>
@@ -19,7 +23,7 @@ export const MiningInfo = () => {
         <S.ProfitPerHourContent>
           <img src="/public/Vector.svg" />
           <S.ProfitOneClickCount>+128,35K</S.ProfitOneClickCount>
-          <img src="/public/icons.svg" />
+          <img id="popBoost" src="/public/icons.svg" onClick={onClick} />
         </S.ProfitPerHourContent>
       </S.ProfitPerHour>
     </S.MiningInfoBlock>

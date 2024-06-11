@@ -8,7 +8,7 @@ export const CryptoCompaniesPage = () => {
     <S.Container>
       <S.Title>Сменить биржу</S.Title>
       {companies.map((company) => (
-        <Company completed={company.completed} key={company.name} title={company.name} image={company.icon} />
+        <Company selected={company.selected} key={company.name} title={company.name} image={company.icon} />
       ))}
       <BottomNav/>
     </S.Container>

@@ -5,9 +5,20 @@ import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import { constRoutes } from "../../paths";
 import { Link } from "react-router-dom";
+import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 
 export const MainPage = () => {
+  const [isPopBoostOpen, setIsPopBoostOpen] = useState<boolean>(false);
   const [balance, setBalance] = useState<number>(0);
+
+  const handleOpenPopBoost = () => {
+    setIsPopBoostOpen(true);
+  };
+
+  const handleClosePopBoost = () => {
+    setIsPopBoostOpen(false);
+  };
+
   return (
     <S.Container>
       <S.Header>
@@ -16,14 +27,15 @@ export const MainPage = () => {
           <S.Username>Ivan</S.Username>
         </S.UserBlock>
 
-       <Link to={constRoutes.CRYPTOCOMPANIES}><S.BybitBlock>
-          <S.BybitImg src="/public/Bybit.svg" alt="bybit" />
-          <S.BybitText>Bybit</S.BybitText>
-        </S.BybitBlock>
-       </Link>
+        <Link to={constRoutes.CRYPTOCOMPANIES}>
+          <S.BybitBlock>
+            <S.BybitImg src="/public/Bybit.svg" alt="bybit" />
+            <S.BybitText>Bybit</S.BybitText>
+          </S.BybitBlock>
+        </Link>
       </S.Header>
       <S.Content>
-        <MiningInfo />
+        <MiningInfo onClick={handleOpenPopBoost} />
         <S.BalanceBlock>
           <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
           <S.Balance> {balance}</S.Balance>
@@ -40,6 +52,7 @@ export const MainPage = () => {
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <BottomNav />
       </S.Content>
+      {isPopBoostOpen && <PopBoost handleClosePopup={handleClosePopBoost} />}
     </S.Container>
   );
 };

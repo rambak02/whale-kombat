@@ -7,5 +7,9 @@ export interface NavMineProps {
 }
 
 export interface CompanyStyledProps {
-  $completed: boolean;
+  $selected: boolean;
+}
+
+export interface PopupProps {
+  $isOpen: boolean;
 }

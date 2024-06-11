@@ -155,7 +155,7 @@ export const InviteFriendContent = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const InviteFriendContentText = styled.div`
+export const InviteFriendContentText = styled.button`
   color: black;
   font-family: "Roboto";
   font-size: 20px;

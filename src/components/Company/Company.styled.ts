@@ -11,7 +11,7 @@ export const Container = styled.div<CompanyStyledProps>`
     #03577f 100%
   );
   background: ${(props) =>
-    props.$completed
+    props.$selected
       ? "radial-gradient(170.59% 170.59% at 50% 50%, #FFEDD1 0%, #DE8300 100%)"
       : "radial-gradient(149.3% 149.3% at 50% 50%, #7AD4DF 0%, #03577F 100%)"};
   display: flex;
@@ -39,7 +39,7 @@ font-weight: 700;
 line-height: 20px;
 text-align: left;
 color: ${(props) =>
-    props.$completed
+    props.$selected
       ? "black"
       : "white"};
 `;

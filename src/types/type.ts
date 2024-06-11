@@ -12,5 +12,5 @@ export type TextFocus = {
  export type CompanyProps = {
   title: string;
   image: string
-  completed: boolean;
+  selected: boolean;
  }
