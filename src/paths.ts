@@ -2,6 +2,7 @@ export const constRoutes = {
     HOME: "/",
     MINE: "/mine",
     FRIENDS: "/friends",
-    EARN: "/earn"
+    EARN: "/earn",
+    AIRDROP: "/airdrop"
    }
    
