@@ -4,6 +4,7 @@ interface MiningInfoProps {
   onClick: () => void;
 }
 
+
 export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
   return (
     <S.MiningInfoBlock>

@@ -21,7 +21,7 @@ export const NavMineBlock = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 2;
 `;
 export const NavMine = styled.div<NavMineTextProps>`
   background: ${(props) => (props.$focus ? "#FFEBCD" : "")};

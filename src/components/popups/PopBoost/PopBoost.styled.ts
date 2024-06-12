@@ -9,6 +9,17 @@ const slideIn = keyframes`
   }
 `;
 
+export const PopupBackground = styled.div`
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(170.59% 170.59% at 50% 50%, #ffedd1bf 0%, #de830005 100%);
+
+`
+ 
 export const ModalOverlay = styled.div`
   position: fixed;
   z-index: 2;
@@ -23,11 +34,29 @@ export const ModalOverlay = styled.div`
   border: 3px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 `;
 
-export const Text = styled.div`
+export const ModalButton = styled.button`
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  background: center;
+  border: none;
+`;
+
+export const Description = styled.div``;
+export const DescriptionOffline = styled.div``;
+
+export const Text = styled.div`
+  gap: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  text-align: center;
 `;
 
 export const Content = styled.div`
@@ -56,3 +85,24 @@ export const CloseButton = styled.span`
     cursor: pointer;
   }
 `;
+export const ButtonStartMine = styled.button`
+  border: none;
+  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
+  width: 93%;
+  height: 64px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+`;
+
+export const ButtonText = styled.div`
+font-family: "Roboto";
+font-size: 24px;
+font-weight: 500;
+line-height: 21px;
+text-align: center;
+
+`

@@ -13,3 +13,8 @@ export interface CompanyStyledProps {
 export interface PopupProps {
   $isOpen: boolean;
 }
+export interface PopBoostContextType {
+  isPopBoostOpen: boolean;
+  handleOpenPopBoost: () => void;
+  handleClosePopBoost: () => void;
+}

@@ -162,6 +162,8 @@ export const InviteFriendContentText = styled.button`
   font-weight: 500;
   line-height: 21px;
   text-align: center;
+  background: center;
+  border: none;
 `;
 export const CopyLink = styled.div`
   display: flex;

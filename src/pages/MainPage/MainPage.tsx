@@ -6,18 +6,14 @@ import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import { constRoutes } from "../../paths";
 import { Link } from "react-router-dom";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
+import { usePopBoostContext } from "../../context/hooks/usePopBoost";
 
 export const MainPage = () => {
-  const [isPopBoostOpen, setIsPopBoostOpen] = useState<boolean>(false);
+  
   const [balance, setBalance] = useState<number>(0);
 
-  const handleOpenPopBoost = () => {
-    setIsPopBoostOpen(true);
-  };
+  const { handleOpenPopBoost, isPopBoostOpen, handleClosePopBoost } = usePopBoostContext()
 
-  const handleClosePopBoost = () => {
-    setIsPopBoostOpen(false);
-  };
 
   return (
     <S.Container>
