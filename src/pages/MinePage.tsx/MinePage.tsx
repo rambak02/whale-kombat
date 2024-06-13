@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MinePage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
@@ -8,7 +8,7 @@ import { Market } from "../../components/Market/Market";
 import { PRTeam } from "../../components/PRTeam/PRTeam";
 import { Legal } from "../../components/Legal/Legal";
 import { Specials } from "../../components/Specials/Specials";
-import { usePopBoostContext } from "../../context/hooks/usePopBoost";
+import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 
 export const MinePage: React.FC = () => {
@@ -19,12 +19,13 @@ export const MinePage: React.FC = () => {
   const [status, setStatus] = useState(STATUS_MARKET);
   const [balance, setBalance] = useState<number>(0);
 
-  const { handleOpenPopBoost, isPopBoostOpen, handleClosePopBoost } = usePopBoostContext()
+  const { handleOpenPopup, isPopupOpen, currentPopup } =
+    usePopupContext();
 
   return (
     <S.Container>
       <S.Content>
-        <MiningInfo onClick={handleOpenPopBoost} />
+        <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
           <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
           <S.Balance> {balance}</S.Balance>
@@ -67,7 +68,7 @@ export const MinePage: React.FC = () => {
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <BottomNav />
       </S.Content>
-      {isPopBoostOpen && <PopBoost handleClosePopup={handleClosePopBoost} />}
+      {isPopupOpen && currentPopup === "boost" && <PopBoost />}
     </S.Container>
   );
 };

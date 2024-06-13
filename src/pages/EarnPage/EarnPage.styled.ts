@@ -17,6 +17,7 @@ export const Container = styled.div`
 export const Title = styled.div`
 width: 94%;
 margin-bottom: 15px;
+margin-top: 20px;
 font-family: "Roboto";
 font-size: 16px;
 font-weight: 700;

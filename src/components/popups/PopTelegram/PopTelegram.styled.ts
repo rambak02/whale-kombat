@@ -23,13 +23,8 @@ export const PopupBackground = styled.div`
   );
 `;
 
-export const Main = styled.div`
-
-`
-
 export const ModalOverlay = styled.div`
   box-shadow: 0px -5px 80px 70px rgba(229, 153, 43, 0.7);
-
   position: fixed;
   z-index: 2;
   left: 0;
@@ -44,7 +39,6 @@ export const ModalOverlay = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const ModalButton = styled.button`
@@ -56,9 +50,35 @@ export const ModalButton = styled.button`
   border: none;
 `;
 
-export const Description = styled.div``;
-export const DescriptionOffline = styled.div``;
-
+export const Description = styled.button`
+  width: 200px;
+  height: 48px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 20px;
+  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
+  border: none;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+`;
+export const RewardBlock = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+export const RewardImg = styled.img`
+  width: 36px;
+  height: 36px;
+`;
+export const Reward = styled.div`
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+`;
 export const Text = styled.div`
   gap: 25px;
   width: 100%;
@@ -78,7 +98,7 @@ export const Title = styled.div`
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 700;
-  line-height: 28.8px;
+  line-height: 32px;
   letter-spacing: -0.03em;
   text-align: center;
 `;
@@ -95,7 +115,7 @@ export const CloseButton = styled.span`
     cursor: pointer;
   }
 `;
-export const ButtonStartMine = styled.button`
+export const ButtonCheck = styled.button`
   border: none;
   background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
   width: 93%;

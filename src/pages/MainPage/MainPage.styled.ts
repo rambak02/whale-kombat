@@ -64,7 +64,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 36px 36px 0px 0px;
-  height: 90vh;
+  min-height: 90vh;
   justify-content: space-around;
 `;
 

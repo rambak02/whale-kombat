@@ -3,15 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-import { PopBoostProvider } from "./context/PopBoostContext.tsx";
+import { PopupProvider } from "./context/PopupContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-    <PopBoostProvider>
-      <App />
-      </PopBoostProvider>
+      <PopupProvider>
+        <App />
+      </PopupProvider>
     </BrowserRouter>
-
   </React.StrictMode>
 );

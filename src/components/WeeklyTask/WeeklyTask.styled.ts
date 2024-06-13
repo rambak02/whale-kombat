@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-width: 93%;
+  width: 93%;
   height: 65px;
   padding: 16px;
   background: radial-gradient(
@@ -20,10 +20,12 @@ justify-content: space-between;
 gap: 10px;
 `;
 export const TaskInfo = styled.div`
+  width: 80%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   gap: 8px;
+
 `;
 
 export const Title = styled.div`
@@ -32,10 +34,12 @@ export const Title = styled.div`
   font-weight: 700;
   line-height: 12px;
   text-align: left;
+  margin-top: 5px;
 `;
 export const RewardBlock = styled.div`
     display: flex;
     align-items: center;
+    gap: 5px;
 `
 
 export const TaskReward = styled.div`
@@ -45,3 +49,8 @@ export const TaskReward = styled.div`
   line-height: 21px;
   text-align: center;
 `;
+
+export const TaskImg = styled.img`
+width: 52px;
+height: 52px;
+`

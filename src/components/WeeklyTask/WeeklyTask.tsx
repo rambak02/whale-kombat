@@ -1,15 +1,16 @@
+import { WeeklyTaskProps } from "../../types/type";
 import * as S from "./WeeklyTask.styled"
 
-export const WeeklyTask = () => {
+export const WeeklyTask = ({title, image, reward, onClick}: WeeklyTaskProps) => {
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.TaskContent>
-        <img src="/public/calendar.png"/>
+        <S.TaskImg src={image}/>
         <S.TaskInfo>
-          <S.Title>Ежедневная награда</S.Title>
+          <S.Title>{title}</S.Title>
           <S.RewardBlock>
             <img src="/public/Vector.svg"/>
-            <S.TaskReward>+ 1000000</S.TaskReward>
+            <S.TaskReward>+ {reward}</S.TaskReward>
           </S.RewardBlock>
         </S.TaskInfo>
       </S.TaskContent>

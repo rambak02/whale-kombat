@@ -6,14 +6,12 @@ import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import { constRoutes } from "../../paths";
 import { Link } from "react-router-dom";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
-import { usePopBoostContext } from "../../context/hooks/usePopBoost";
+import { usePopupContext } from "../../context/hooks/usePopup";
 
 export const MainPage = () => {
-  
   const [balance, setBalance] = useState<number>(0);
 
-  const { handleOpenPopBoost, isPopBoostOpen, handleClosePopBoost } = usePopBoostContext()
-
+  const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
   return (
     <S.Container>
@@ -31,7 +29,7 @@ export const MainPage = () => {
         </Link>
       </S.Header>
       <S.Content>
-        <MiningInfo onClick={handleOpenPopBoost} />
+        <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
           <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
           <S.Balance> {balance}</S.Balance>
@@ -48,7 +46,7 @@ export const MainPage = () => {
         <Clicker onClick={() => setBalance((prev) => prev + 1)} />
         <BottomNav />
       </S.Content>
-      {isPopBoostOpen && <PopBoost handleClosePopup={handleClosePopBoost} />}
+      {isPopupOpen && currentPopup === "boost" && <PopBoost />}
     </S.Container>
   );
 };

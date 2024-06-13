@@ -14,3 +14,10 @@ export type TextFocus = {
   image: string
   selected: boolean;
  }
+
+ export type WeeklyTaskProps = {
+  onClick: () => void;
+  title: string;
+  image: string;
+  reward: number;
+ }
