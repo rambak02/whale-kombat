@@ -24,16 +24,18 @@ export const PopupBackground = styled.div`
 `;
 
 export const ModalOverlay = styled.div`
+  color: white;
   box-shadow: 0px -5px 80px 70px rgba(229, 153, 43, 0.7);
   position: fixed;
   z-index: 2;
   left: 0;
   bottom: 0;
-  overflow: hidden;
+  overflow: scroll;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 100%);
   animation: ${slideIn} 0.3s ease-in-out;
   min-width: 100%;
-  min-height: 50vh;
+  min-height: 72vh;
+  max-height: 90vh;
   border-radius: 36px 36px 0px 0px;
   border: 3px;
   display: flex;
@@ -50,42 +52,34 @@ export const ModalButton = styled.button`
   border: none;
 `;
 
-export const Subscribe = styled.button`
-  width: 200px;
-  height: 48px;
-  padding: 12px 16px 12px 16px;
-  border-radius: 20px;
-  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
-  border: none;
-  font-family: "Roboto";
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 21px;
-  text-align: center;
-`;
-export const RewardBlock = styled.div`
+export const DailyRewardContainer = styled.div`
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
 `;
-export const RewardImg = styled.img`
-  width: 36px;
-  height: 36px;
+
+export const DailyRewardImg = styled.img`
+  width: 107px;
+  height: 107px;
 `;
-export const Reward = styled.div`
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 21px;
+
+export const Description = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
   text-align: center;
 `;
+
 export const Text = styled.div`
   gap: 25px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
+  padding: 15px;
   text-align: center;
 `;
 

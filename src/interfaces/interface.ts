@@ -19,3 +19,7 @@ export interface PopupContextType {
   handleOpenPopup: (popupName: string) => void;
   handleClosePopup: () => void;
 }
+
+export interface DailyRewardsContainerType {
+ $collected: boolean;
+}

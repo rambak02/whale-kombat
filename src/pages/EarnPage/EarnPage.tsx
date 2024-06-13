@@ -3,6 +3,7 @@ import { WeeklyTask } from "../../components/WeeklyTask/WeeklyTask";
 import * as S from "./EarnPage.styled";
 import { PopTelegram } from "../../components/popups/PopTelegram/PopTelegram";
 import { usePopupContext } from "../../context/hooks/usePopup";
+import { PopDailyReward } from "../../components/popups/PopDailyRewards/PopDailyRewards";
 
 export const EarnPage = () => {
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
@@ -11,7 +12,7 @@ export const EarnPage = () => {
     <S.Container>
       <S.Title>Еженедельные задачи</S.Title>
       <WeeklyTask
-      onClick={()=> handleOpenPopup("telegram")}
+      onClick={()=> handleOpenPopup("dailyReward")}
         title="Ежедневная награда"
         image={"/public/calendar.png"}
         reward={1000000}
@@ -23,6 +24,7 @@ Telegram каналу" image={"/public/telegramIcon.png"} reward={5000}/>
       <WeeklyTask onClick={()=> handleOpenPopup("telegram")} title="Выберите биржу" image="/public/whale.png" reward={5000}/>
       <BottomNav />
        {isPopupOpen && currentPopup === "telegram" && <PopTelegram/>}
+       {isPopupOpen && currentPopup === "dailyReward" && <PopDailyReward/> }
     </S.Container>
   );
 };

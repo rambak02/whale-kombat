@@ -3,21 +3,26 @@ export type CLickerProps = {
 };
 export type TextFocus = {
   $focus: boolean;
-}
- export type GiftProps = {
+};
+export type GiftProps = {
   cash: number;
   title: string;
- }
+};
 
- export type CompanyProps = {
+export type CompanyProps = {
   title: string;
-  image: string
+  image: string;
   selected: boolean;
- }
+};
 
- export type WeeklyTaskProps = {
+export type WeeklyTaskProps = {
   onClick: () => void;
   title: string;
   image: string;
   reward: number;
+};
+export type DailyRewardsProps = {
+  day: number;
+  reward: number;
+  collected: boolean;
  }

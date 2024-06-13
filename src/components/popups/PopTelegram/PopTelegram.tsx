@@ -13,9 +13,9 @@ export const PopTelegram = () => {
           <img src="/public/telegramIcon.png" />
           <S.Text>
             <S.Title>Присоединяйся к нашему Telegram каналу</S.Title>
-            <S.Description>
+            <S.Subscribe>
               Подписаться
-            </S.Description>
+            </S.Subscribe>
             <S.RewardBlock><S.RewardImg src="/public/Vector.svg" /><S.Reward>+25 000</S.Reward></S.RewardBlock>
           </S.Text>
         </S.Content>
