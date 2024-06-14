@@ -10,11 +10,9 @@ export const Container = styled.div<DailyRewardsContainerType>`
   justify-content: center;
   gap: 2px;
   width: calc(25% - 20px);
-  min-height: 98px;
-
+  height: 98px;
   border-radius: 10px;
   color: ${(props) => (props.$collected ? "black" : "white")};
-  margin: 10px;
 `;
 
 export const Day = styled.div`

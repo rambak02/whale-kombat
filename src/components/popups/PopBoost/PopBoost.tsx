@@ -6,11 +6,11 @@ export const PopBoost = () => {
   const { handleClosePopup } = usePopupContext();
   return (
     <S.PopupBackground>
-      <S.ModalOverlay id="boostModal">
-        <S.Main>
-        <S.ModalButton onClick={handleClosePopup}>
+          <S.ModalButton onClick={handleClosePopup}>
           <img src="/public/close.svg" />
         </S.ModalButton>
+      <S.ModalOverlay id="boostModal">
+        <S.Main>
         <S.Content>
           <img src="/public/rocket.png" />
           <S.Text>

@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom"
 import { MainPage } from "./pages/MainPage/MainPage"
-import { MinePage } from "./pages/MinePage.tsx/MinePage"
+import { MinePage } from "./pages/MinePage/MinePage"
 import { constRoutes } from "./paths"
 import { FriendsPage } from "./pages/FriendsPage/FriendsPage"
 import { EarnPage } from "./pages/EarnPage/EarnPage"
-import { AirdropPage } from "./pages/AirdropPage.tsx/Airdrop"
+import { AirdropPage } from "./pages/AirdropPage/Airdrop"
 import { CryptoCompaniesPage } from "./pages/CryptoCompaniesPage/CryptoCompaniesPage"
 import { BoostPage } from "./pages/BoostPage/BoostPage"
 

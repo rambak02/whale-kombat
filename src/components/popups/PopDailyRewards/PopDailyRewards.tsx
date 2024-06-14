@@ -11,6 +11,7 @@ export const PopDailyReward = () => {
         <S.ModalButton onClick={handleClosePopup}>
           <img src="/public/close.svg" />
         </S.ModalButton>
+      
         <S.Content>
           <S.DailyRewardImg src="/public/dailyRewardIcon.png" />
           <S.Text>
@@ -21,6 +22,7 @@ export const PopDailyReward = () => {
               заново
             </S.Description>
           </S.Text>
+          
           <S.DailyRewardContainer>
             {dailyRewards.map((dayReward) => (
               <DayReward
@@ -30,8 +32,11 @@ export const PopDailyReward = () => {
               />
             ))}
           </S.DailyRewardContainer>
+          
         </S.Content>
+        <S.ButtonCheck>Возвращайтесь завтра</S.ButtonCheck>
       </S.ModalOverlay>
+      
     </S.PopupBackground>
   );
 };

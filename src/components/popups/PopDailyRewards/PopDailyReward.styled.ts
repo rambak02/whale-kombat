@@ -31,10 +31,11 @@ export const ModalOverlay = styled.div`
   left: 0;
   bottom: 0;
   overflow: scroll;
+  overflow-x: hidden;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 100%);
   animation: ${slideIn} 0.3s ease-in-out;
   min-width: 100%;
-  min-height: 72vh;
+  height: 70vh;
   max-height: 90vh;
   border-radius: 36px 36px 0px 0px;
   border: 3px;
@@ -44,6 +45,8 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalButton = styled.button`
+  position: fixed;
+  z-index: 3;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -57,6 +60,10 @@ export const DailyRewardContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  gap: 8px;
+  padding-left: 5%;
+  margin-right: -7vw;
+    
 `;
 
 export const DailyRewardImg = styled.img`
@@ -74,7 +81,6 @@ export const Description = styled.div`
 `;
 
 export const Text = styled.div`
-  gap: 25px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -84,6 +90,7 @@ export const Text = styled.div`
 `;
 
 export const Content = styled.div`
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,8 +117,8 @@ export const CloseButton = styled.span`
   }
 `;
 export const ButtonCheck = styled.button`
+background: #D9D9D9B2;
   border: none;
-  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
   width: 93%;
   height: 64px;
   padding: 12px 16px 12px 16px;
@@ -121,6 +128,14 @@ export const ButtonCheck = styled.button`
   justify-content: center;
   gap: 5px;
   margin-bottom: 20px;
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+  color: white;
+  bottom: 5px;
+  position: fixed;
 `;
 
 export const ButtonText = styled.div`
