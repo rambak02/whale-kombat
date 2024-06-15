@@ -1,9 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const appearanceAnimation = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   max-width: 100%;
   width: 100vw;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
+  overflow-x: hidden;
 `;
 
 export const TimeBlock = styled.div`
@@ -44,6 +60,7 @@ export const BalanceBlock = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  animation: ${appearanceAnimation} 0.3s;
 `;
 export const Balance = styled.div`
   font-family: "Roboto";

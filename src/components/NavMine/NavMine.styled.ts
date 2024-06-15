@@ -1,10 +1,23 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { NavMineTextProps } from "../../interfaces/interface";
 
+const left = keyframes`
+0% { transform: translateX(-15px);
+     opacity: 0; }
+50% { transform: translateX(-10px); 
+ opacity: 0.5;
+}
+100% { transform: translateX(0); 
+opacity: 1;
+}
+`;
+
+
+
 export const NavMineContainer = styled.div`
-width: 1px;
-height: 1px;
-`
+  width: 1px;
+  height: 1px;
+`;
 export const NavMineBlock = styled.div`
   display: flex;
   width: 93%;
@@ -22,6 +35,7 @@ export const NavMineBlock = styled.div`
   position: sticky;
   top: 0;
   z-index: 2;
+  animation: ${left} 0.2s;
 `;
 export const NavMine = styled.div<NavMineTextProps>`
   background: ${(props) => (props.$focus ? "#FFEBCD" : "")};

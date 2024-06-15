@@ -12,6 +12,21 @@ const ClickeAnimation = keyframes`
   }
 `;
 
+const appearanceAnimation = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`
+
 export const ClickerBorder = styled.div`
   min-width: 200px;
   max-width: 400px;
@@ -25,6 +40,7 @@ export const ClickerBorder = styled.div`
   align-items: center;
   margin-top: 10px;
   margin-bottom: 5rem;
+  animation: ${appearanceAnimation} 0.3s;
   &:active {
     animation: ${ClickeAnimation} 0.3s ease;
   }

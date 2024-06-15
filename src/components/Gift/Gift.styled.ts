@@ -1,4 +1,19 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const appearanceAnimation = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`
 
 export const Container = styled.div`
   height: 88px;
@@ -15,6 +30,7 @@ export const Container = styled.div`
 export const GiftIcon = styled.img`
   width: 64px;
   height: 64px;
+  animation: ${appearanceAnimation} 0.3S;
 `;
 export const Content = styled.div`
   height: 40px;

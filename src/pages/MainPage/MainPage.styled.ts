@@ -1,4 +1,30 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const left = keyframes`
+0% { transform: translateX(-15px);
+     opacity: 0; }
+50% { transform: translateX(-10px); 
+ opacity: 0.5;
+}
+100% { transform: translateX(0); 
+opacity: 1;
+}
+`;
+
+const appearanceAnimation = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -74,6 +100,7 @@ export const BalanceBlock = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  animation: ${appearanceAnimation} 0.3s;
 `;
 export const Balance = styled.div`
   font-family: "Roboto";
@@ -117,4 +144,5 @@ export const ProgressBar = styled.div`
   height: 20px;
   background: linear-gradient(90deg, #fff176 0%, #f2891a 100%);
   border-radius: 10px;
+  animation: ${left} 0.3s;
 `;

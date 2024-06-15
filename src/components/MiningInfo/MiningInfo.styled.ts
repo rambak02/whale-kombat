@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const right = keyframes`
+0% { transform: translateX(15px);
+     opacity: 0; }
+50% { transform: translateX(10px); 
+ opacity: 0.5;
+}
+100% { transform: translateX(0); 
+opacity: 1;
+}
+`;
 
 export const MiningInfoBlock = styled.div`
   width: 100%;
@@ -6,6 +17,7 @@ export const MiningInfoBlock = styled.div`
   margin: 20px;
   align-items: center;
   justify-content: space-evenly;
+  animation: ${right} 0.3s
 `;
 export const ProfitOneClick = styled.div`
   background: rgba(94, 193, 202, 1);

@@ -1,4 +1,49 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideUp = keyframes`
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+
+  }
+`;
+
+const left = keyframes`
+0% { transform: translateX(-15px);
+     opacity: 0; }
+50% { transform: translateX(-10px); 
+ opacity: 0.5;
+}
+100% { transform: translateX(0); 
+opacity: 1;
+}
+`;
+
+const right = keyframes`
+0% { transform: translateX(15px);
+     opacity: 0; }
+50% { transform: translateX(10px); 
+ opacity: 0.5;
+}
+100% { transform: translateX(0); 
+opacity: 1;
+}
+`;
 
 export const Container = styled.div`
   padding-top: 15px;
@@ -19,6 +64,7 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.div`
+ margin-top: 5px;
   color: white;
   font-family: "Roboto";
   font-size: 36px;
@@ -26,6 +72,7 @@ export const Title = styled.div`
   line-height: 21px;
   letter-spacing: -0.03em;
   text-align: center;
+  animation: ${left} 0.3s;
 `;
 export const Description = styled.div`
   font-family: "Roboto";
@@ -34,6 +81,7 @@ export const Description = styled.div`
   line-height: 21px;
   letter-spacing: -0.03em;
   text-align: center;
+  animation: ${right} 0.3s;
 `;
 export const GiftsContainer = styled.div`
   gap: 30px;
@@ -137,13 +185,14 @@ export const FriendName = styled.div`
 `;
 export const InviteFriend = styled.div`
   height: 64px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   position: absolute;
+  gap: 2px;
   bottom: 82px;
   z-index: 1;
+  animation: ${slideUp} 0.3s;
 `;
 export const InviteFriendContent = styled.div`
   gap: 10px;
@@ -154,6 +203,7 @@ export const InviteFriendContent = styled.div`
   width: 290px;
   align-items: center;
   justify-content: center;
+  animation: ${pulse} 1s infinite;
 `;
 export const InviteFriendContentText = styled.button`
   color: black;
