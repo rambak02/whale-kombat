@@ -27,7 +27,6 @@ export const Title = styled.div`
 export const TaskList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 20px;
   position: relative;
   font-family: "Roboto";
   font-size: 20px;
@@ -39,11 +38,11 @@ export const TaskList = styled.ul`
     content: "";
     position: absolute;
     left: 11px;
-    top: 42px;
+    top: 32px;
     bottom: 0;
     width: 2px;
     background: #cccccc59;
-    height: 156px;
+    height: 74%;
   }
 `;
 
