@@ -63,6 +63,7 @@ export const DailyRewardContainer = styled.div`
   gap: 8px;
   padding-left: 5%;
   margin-right: -7vw;
+  margin-bottom: 123px
     
 `;
 

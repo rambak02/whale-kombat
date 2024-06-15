@@ -1,39 +1,34 @@
-import * as S from "./FriendsProgressPage.styled"
+import { BottomNav } from "../../components/BottomNav/BottomNav";
+import { Friend } from "../../components/Friend/Friend";
+import * as S from "./FriendsProgressPage.styled";
 
 export const FriendsProgressPage = () => {
-    return (
-     <S.Container>
+  return (
+    <S.Container>
       <S.FriendsProgress>
-    <div></div>
-    <div>
-        <S.FriendCharacter>
+        <S.FriendsProgressContent>
+          <S.FriendPrev src="/public/prev.png" />
+          <S.FriendCharacter>
             <S.FriendCharacterBackground></S.FriendCharacterBackground>
-            <S.FriendCharacterImg src="/public/dolphin.jpg" />
-        </S.FriendCharacter>
-        <div>
-          <div>Lord</div>
-          <div>from 1B+</div>
-        </div>
-    </div>
-    <div></div>
+            <S.FriendCharacterImg src="/public/dolphin.png" />
+          </S.FriendCharacter>
+
+          <S.FriendNext src="/public/next.png" />
+        </S.FriendsProgressContent>
+
+        <S.FriendsTitle>
+          <S.Title>Lord</S.Title>
+          <S.Description>from 1B+</S.Description>
+        </S.FriendsTitle>
       </S.FriendsProgress>
       <S.FriendsList>
-        <div>
-            <img src="/public/userList.png"/>
-            <div>
-                <div>
-                    <img src="/public/Vector.svg"/>
-                    <div>Crypto Whale</div>
-                </div>
-                <div>
-                    <img src="/public/Vector.svg" />
-                    <div>2 785 396</div>
-                </div>
-            </div>
-            <div>1</div>
-        </div>
+       <Friend />
+       <Friend />
+       <Friend />
+       <Friend />
+       <Friend />
       </S.FriendsList>
-     </S.Container>
-
-    )
-}
+      <BottomNav />
+    </S.Container>
+  );
+};

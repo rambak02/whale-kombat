@@ -26,6 +26,7 @@ export const PopDailyReward = () => {
           <S.DailyRewardContainer>
             {dailyRewards.map((dayReward) => (
               <DayReward
+                key={dayReward.day}
                 day={dayReward.day}
                 reward={dayReward.reward}
                 collected={dayReward.collected}
