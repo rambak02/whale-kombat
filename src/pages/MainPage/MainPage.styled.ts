@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import {Img, ImgProps } from "react-image";
 
 const left = keyframes`
 0% { transform: translateX(-15px);
@@ -50,7 +51,7 @@ export const UserBlock = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-export const UserImg = styled.img``;
+export const UserImg = styled(Img)<ImgProps>``;
 export const Username = styled.div`
   font-family: "Roboto";
   font-size: 20px;
@@ -73,7 +74,7 @@ export const BybitBlock = styled.div`
   align-items: center;
   gap: 5px;
 `;
-export const BybitImg = styled.img``;
+export const BybitImg = styled(Img)<ImgProps>``;
 
 export const BybitText = styled.div`
   font-family: "Roboto";
@@ -110,7 +111,7 @@ export const Balance = styled.div`
   line-height: 21px;
   color: black;
 `;
-export const BalanceIcon = styled.img`
+export const BalanceIcon = styled(Img)<ImgProps>`
   width: 59px;
   height: 59px;
   @media (min-height: 931px) {

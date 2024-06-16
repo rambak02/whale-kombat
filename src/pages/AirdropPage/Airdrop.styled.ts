@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Img, ImgProps } from "react-image";
 
 const slideDown = keyframes`
   0% {
@@ -34,7 +35,7 @@ export const Container = styled.div`
   padding: 20px 20px 58px 20px;
 `;
 
-export const CoinImg = styled.img`
+export const CoinImg = styled(Img)<ImgProps>`
   width: 286px;
   height: 286px;
   animation: ${slideDown} 0.3s;

@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 
 const appearanceAnimation = keyframes`
@@ -13,7 +14,7 @@ const appearanceAnimation = keyframes`
     transform: scale(1);
     opacity: 1;
   }
-`
+`;
 
 export const Container = styled.div`
   height: 88px;
@@ -27,10 +28,10 @@ export const Container = styled.div`
   display: flex;
   align-items: flex-start;
 `;
-export const GiftIcon = styled.img`
+export const GiftIcon = styled(Img)<ImgProps>`
   width: 64px;
   height: 64px;
-  animation: ${appearanceAnimation} 0.3S;
+  animation: ${appearanceAnimation} 0.3s;
 `;
 export const Content = styled.div`
   height: 40px;
@@ -55,7 +56,7 @@ export const Description = styled.div`
   align-items: center;
 `;
 
-export const RewardIcon = styled.img`
+export const RewardIcon = styled(Img)<ImgProps>`
   width: 17px;
   height: 17px;
 `;

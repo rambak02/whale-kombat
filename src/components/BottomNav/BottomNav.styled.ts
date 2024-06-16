@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
 
 export const NavGrid = styled.nav`
@@ -24,7 +25,7 @@ export const Nav = styled.div`
   align-items: center;
   cursor: pointer;
 `;
-export const NavIcon = styled.img`
+export const NavIcon = styled(Img)<ImgProps>`
   width: 24px;
   height: 24px;
 `;

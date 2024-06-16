@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
 
 export const FriendContainer = styled.div`
@@ -26,7 +27,7 @@ export const FriendNameContainer = styled.div`
   gap: 5px;
   margin-left: 5px;
 `;
-export const CoinIcon = styled.img`
+export const CoinIcon = styled(Img)<ImgProps>`
   width: 20px;
   height: 20px;
 `;
@@ -45,7 +46,7 @@ export const FriendScore = styled.div`
   display: flex;
   align-items: center;
 `;
-export const ScoreImg = styled.img`
+export const ScoreImg = styled(Img)<ImgProps>`
   width: 14px;
   height: 14px;
 `;
@@ -59,7 +60,7 @@ export const Score = styled.div`
   color: #d9d9d9;
 `;
 
-export const FriendImg = styled.img``;
+export const FriendImg = styled(Img)<ImgProps>``;
 
 export const Friend = styled.li`
   display: flex;

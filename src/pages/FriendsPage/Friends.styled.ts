@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Img, ImgProps } from "react-image";
 
 const slideUp = keyframes`
   0% {
@@ -126,7 +127,7 @@ export const FriendsListTitle = styled.div`
   letter-spacing: -0.03em;
   text-align: left;
 `;
-export const FriendsListRefresh = styled.img`
+export const FriendsListRefresh = styled(Img)<ImgProps>`
   width: 24px;
   height: 24px;
 `;

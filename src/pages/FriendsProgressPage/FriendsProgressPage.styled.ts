@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Img, ImgProps } from "react-image";
 
 export const Container = styled.div`
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
@@ -53,16 +54,16 @@ export const FriendCharacterBackground = styled.div`
   z-index: 1;
 `;
 
-export const FriendCharacterImg = styled.img`
+export const FriendCharacterImg = styled(Img)<ImgProps>`
   width: 140.5px;
   height: 167.5px;
   position: relative;
   z-index: 2;
 `;
 
-export const FriendNext = styled.img``;
+export const FriendNext = styled(Img)<ImgProps>``;
 
-export const FriendPrev = styled.img``;
+export const FriendPrev = styled(Img)<ImgProps>``;
 
 export const FriendsTitle = styled.div`
   display: flex;

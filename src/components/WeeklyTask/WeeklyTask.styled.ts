@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Img, ImgProps } from "react-image";
 
 const appearanceAnimation = keyframes`
   0% {
@@ -29,10 +30,10 @@ export const Container = styled.div`
   border-radius: 10px;
 `;
 export const TaskContent = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 `;
 export const TaskInfo = styled.div`
   width: 80%;
@@ -40,7 +41,6 @@ export const TaskInfo = styled.div`
   align-items: flex-start;
   flex-direction: column;
   gap: 8px;
-
 `;
 
 export const Title = styled.div`
@@ -52,10 +52,10 @@ export const Title = styled.div`
   margin-top: 5px;
 `;
 export const RewardBlock = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 5px;
-`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
 
 export const TaskReward = styled.div`
   font-family: "Roboto";
@@ -65,8 +65,8 @@ export const TaskReward = styled.div`
   text-align: center;
 `;
 
-export const TaskImg = styled.img`
-width: 52px;
-height: 52px;
-animation: ${appearanceAnimation} 0.3s;
-`
+export const TaskImg = styled(Img)<ImgProps>`
+  width: 52px;
+  height: 52px;
+  animation: ${appearanceAnimation} 0.3s;
+`;

@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 
 const ClickeAnimation = keyframes`
@@ -25,7 +26,7 @@ const appearanceAnimation = keyframes`
     transform: scale(1);
     opacity: 1;
   }
-`
+`;
 
 export const ClickerBorder = styled.div`
   min-width: 200px;
@@ -48,17 +49,17 @@ export const ClickerBorder = styled.div`
 
 export const ClickerBlock = styled(ClickerBorder)`
   background: radial-gradient(
-      93.33% 93.33% at 50% 50%,
-      #7ad4df 0%,
-      #03577f 100%
-    );
+    93.33% 93.33% at 50% 50%,
+    #7ad4df 0%,
+    #03577f 100%
+  );
   margin: 1.2rem;
   &:active {
     animation: none;
   }
 `;
-export const ClickerImg = styled.img`
-max-height: 330px;
+export const ClickerImg = styled(Img)<ImgProps>`
+  max-height: 330px;
   width: 90%;
   padding: 0px 0px 30px 10px;
 `;

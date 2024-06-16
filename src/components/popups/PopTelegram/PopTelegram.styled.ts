@@ -68,7 +68,7 @@ export const RewardBlock = styled.div`
   align-items: center;
   gap: 10px;
 `;
-export const RewardImg = styled.img`
+export const RewardImg = styled(Img)<ImgProps>`
   width: 36px;
   height: 36px;
 `;

@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 
 const appearanceAnimation = keyframes`
@@ -38,7 +39,7 @@ export const Time = styled.div`
   line-height: 21px;
   text-align: right;
 `;
-export const TimeBlockIcon = styled.img`
+export const TimeBlockIcon = styled(Img)<ImgProps>`
   height: 20px;
   width: 20px;
 `;
@@ -72,7 +73,7 @@ export const Balance = styled.div`
     font-size: 4rem;
   }
 `;
-export const BalanceIcon = styled.img`
+export const BalanceIcon = styled(Img)<ImgProps>`
   width: 59px;
   height: 59px;
   @media (min-height: 931px) {
@@ -106,7 +107,7 @@ export const ComboCashBLock = styled.div`
   gap: 5px;
   align-items: center;
 `;
-export const ComboIcon = styled.img`
+export const ComboIcon = styled(Img)<ImgProps>`
   width: 17px;
   height: 17px;
 `;
@@ -117,7 +118,7 @@ export const ComboCash = styled.div`
   line-height: 21px;
   text-align: center;
 `;
-export const ComboIconCheck = styled.img`
+export const ComboIconCheck = styled(Img)<ImgProps>`
   width: 19.5px;
   height: 19.5px;
 `;

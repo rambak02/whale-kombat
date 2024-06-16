@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
 
 export const BoostContainer = styled.div`
@@ -19,7 +20,7 @@ export const Content = styled.div`
   gap: 5px;
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(Img)<ImgProps>`
   width: 48px;
   height: 48px;
 `;
@@ -59,7 +60,7 @@ export const ProfitCount = styled.div`
   text-align: center;
 `;
 
-export const CoinIcon = styled.img`
+export const CoinIcon = styled(Img)<ImgProps>`
   background-color: #ffeb3b;
   border-radius: 50%;
   width: 20px;
@@ -104,7 +105,7 @@ export const Cost = styled.div`
   line-height: 21px;
   text-align: center;
 `;
-export const CoinIconCost = styled.img`
+export const CoinIconCost = styled(Img)<ImgProps>`
   width: 17px;
   height: 17px;
 `;

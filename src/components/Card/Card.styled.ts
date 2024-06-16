@@ -10,7 +10,7 @@ export const Card = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const CardImg = styled.img`
+export const CardImg = styled(Img)<ImgProps>`
   width: 120px;
   height: 80px;
   border-radius: 10px;
@@ -18,7 +18,7 @@ export const CardImg = styled.img`
 `;
 
 export const CardTitle = styled.div`
-color: white;
+  color: white;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 500;
@@ -68,7 +68,7 @@ export const ProfitCount = styled.div`
   text-align: center;
 `;
 
-export const CoinIcon = styled.img`
+export const CoinIcon = styled(Img)<ImgProps>`
   background-color: #ffeb3b;
   border-radius: 50%;
   width: 20px;
@@ -112,7 +112,7 @@ export const Cost = styled.div`
   text-align: center;
   padding-left: 5px;
 `;
-export const CoinIconCost = styled.img`
+export const CoinIconCost = styled(Img)<ImgProps>`
   width: 17px;
   height: 17px;
 `;

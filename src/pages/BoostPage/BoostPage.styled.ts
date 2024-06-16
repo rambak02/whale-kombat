@@ -26,7 +26,7 @@ export const BalanceContainer = styled.div`
   align-items: center;
 `;
 
-export const BalanceIcon = styled.img`
+export const BalanceIcon = styled(Img)<ImgProps>`
   width: 59px;
   height: 59px;
 `;
@@ -113,7 +113,7 @@ export const BoostTitle = styled.div`
   color: "white";
 `;
 
-export const CoinIcon = styled.img`
+export const CoinIcon = styled(Img)<ImgProps>`
   width: 16px;
   height: 16px;
 `;

@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 
 const slideIn = keyframes`
@@ -63,11 +64,10 @@ export const DailyRewardContainer = styled.div`
   gap: 8px;
   padding-left: 5%;
   margin-right: -7vw;
-  margin-bottom: 123px
-    
+  margin-bottom: 123px;
 `;
 
-export const DailyRewardImg = styled.img`
+export const DailyRewardImg = styled(Img)<ImgProps>`
   width: 107px;
   height: 107px;
 `;
@@ -118,7 +118,7 @@ export const CloseButton = styled.span`
   }
 `;
 export const ButtonCheck = styled.button`
-background: #D9D9D9B2;
+  background: #d9d9d9b2;
   border: none;
   width: 93%;
   height: 64px;
