@@ -12,8 +12,6 @@ opacity: 1;
 }
 `;
 
-
-
 export const NavMineContainer = styled.div`
   width: 1px;
   height: 1px;
@@ -38,6 +36,10 @@ export const NavMineBlock = styled.div`
   animation: ${left} 0.2s;
 `;
 export const NavMine = styled.div<NavMineTextProps>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: ${(props) => (props.$focus ? "#FFEBCD" : "")};
   padding: 5px;
   border-radius: 10px;

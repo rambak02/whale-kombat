@@ -12,18 +12,27 @@ opacity: 1;
 `;
 
 export const MiningInfoBlock = styled.div`
-  width: 100%;
+  gap: 3px;
+  width: 93%;
   display: flex;
   margin: 20px;
   align-items: center;
   justify-content: space-evenly;
-  animation: ${right} 0.3s
+  animation: ${right} 0.3s;
 `;
-export const ProfitOneClick = styled.div`
+export const MiningInfoContainer = styled.div`
   background: rgba(94, 193, 202, 1);
   min-width: 110px;
   min-height: 48px;
   border-radius: 10px;
+  @media (min-height: 931px) {
+    display: flex;
+    width: 130px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 export const ProfitOneClickTitle = styled.div`
   font-family: "Roboto";
@@ -32,6 +41,9 @@ export const ProfitOneClickTitle = styled.div`
   line-height: 21px;
   text-align: center;
   color: black;
+  @media (min-height: 931px) {
+    font-size: 14px;
+  }
 `;
 export const ProfitOneClickContent = styled.div`
   color: black;
@@ -42,16 +54,15 @@ export const ProfitOneClickContent = styled.div`
 `;
 export const ProfitOneClickCount = styled.div`
   font-family: "Roboto";
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 21px;
   text-align: center;
   color: black;
 `;
-export const CoinsBeforeUp = styled(ProfitOneClick)``;
+
 export const CoinsUpTitle = styled(ProfitOneClickTitle)``;
 export const CoinsUpCount = styled(ProfitOneClickCount)``;
-export const ProfitPerHour = styled(ProfitOneClick)``;
 export const ProfitPerHourTitle = styled(ProfitOneClickTitle)``;
 export const ProfitPerHourContent = styled(ProfitOneClickContent)``;
 export const ProfitPerHourCount = styled(ProfitOneClickCount)``;

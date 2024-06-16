@@ -46,14 +46,15 @@ opacity: 1;
 `;
 
 export const Container = styled.div`
-  padding-top: 15px;
+  padding-bottom: 152px;
+  padding-top: 8px;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
   width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
 `;
 
@@ -64,7 +65,7 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.div`
- margin-top: 5px;
+  margin-top: 5px;
   color: white;
   font-family: "Roboto";
   font-size: 36px;
@@ -184,6 +185,7 @@ export const FriendName = styled.div`
   text-align: left;
 `;
 export const InviteFriend = styled.div`
+  width: 93%;
   height: 64px;
   display: flex;
   flex-direction: row;
@@ -200,7 +202,7 @@ export const InviteFriendContent = styled.div`
   background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
   display: flex;
   border-radius: 20px;
-  width: 290px;
+  width: 84%;
   align-items: center;
   justify-content: center;
   animation: ${pulse} 1s infinite;

@@ -1,4 +1,19 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const appearanceAnimation = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   width: 93%;
@@ -53,4 +68,5 @@ export const TaskReward = styled.div`
 export const TaskImg = styled.img`
 width: 52px;
 height: 52px;
+animation: ${appearanceAnimation} 0.3s;
 `

@@ -1,4 +1,26 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideDown = keyframes`
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
+const left = keyframes`
+0% { transform: translateX(-15px);
+     opacity: 0; }
+50% { transform: translateX(-10px); 
+ opacity: 0.5;
+}
+100% { transform: translateX(0); 
+opacity: 1;
+}
+`;
 
 export const Container = styled.div`
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
@@ -7,15 +29,15 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 5px;
   padding: 20px 20px 58px 20px;
-
 `;
 
 export const CoinImg = styled.img`
   width: 286px;
   height: 286px;
+  animation: ${slideDown} 0.3s;
 `;
 export const Title = styled.div`
   font-family: "Roboto";
@@ -23,6 +45,7 @@ export const Title = styled.div`
   font-weight: 700;
   line-height: 43.2px;
   text-align: center;
+  animation: ${left} 0.3s;
 `;
 export const TaskList = styled.ul`
   list-style: none;

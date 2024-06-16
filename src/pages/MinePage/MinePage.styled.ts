@@ -19,7 +19,6 @@ export const Container = styled.div`
   max-width: 100%;
   width: 100vw;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
-  overflow-x: hidden;
 `;
 
 export const TimeBlock = styled.div`
@@ -69,10 +68,17 @@ export const Balance = styled.div`
   font-size: 3rem;
   line-height: 21px;
   color: black;
+  @media (min-height: 931px) {
+    font-size: 4rem;
+  }
 `;
 export const BalanceIcon = styled.img`
   width: 59px;
   height: 59px;
+  @media (min-height: 931px) {
+    width: 65px;
+    height: 65px;
+  }
 `;
 
 export const ComboBlock = styled.div`
@@ -117,26 +123,27 @@ export const ComboIconCheck = styled.img`
 `;
 
 export const ComboCardBlock = styled.div`
+  width: 93%;
   display: flex;
   gap: 12px;
-  justify-content: space-between;
+  justify-content: center;
   height: 110px;
 `;
 
 export const ComboCard = styled.div`
   background: rgba(94, 193, 202, 1);
   border-top: 1px solid rgba(229, 153, 43, 1);
-  width: 110px;
-  height: 110px;
+  width: 28%;
+  height: 100%;
   padding: 8px;
-  gap: 12px;
   border-radius: 10px;
 `;
 
 export const ComboCardContent = styled.div`
+  width: 100%;
   background: rgba(60, 147, 173, 1);
   padding: 15px;
-  height: 94px;
+  height: 100%;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -146,8 +153,9 @@ export const ComboCardContent = styled.div`
 export const ComboCardText = styled.div`
   color: black;
   font-family: "Roboto";
-  font-size: 10px;
+  font-size: 0.8rem;
   font-weight: 500;
   line-height: 21px;
   text-align: center;
+  white-space: nowrap;
 `;

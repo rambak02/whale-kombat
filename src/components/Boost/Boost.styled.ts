@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const BoostContainer = styled.div`
-    max-height: 110px;
-    background: #5ec1ca;
-    border-radius: 8px;
-    padding: 16px;
-    width: 165px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
+  max-height: 110px;
+  background: #5ec1ca;
+  border-radius: 8px;
+  padding: 16px;
+  width: 43%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 `;
 
 export const Content = styled.div`
@@ -50,16 +49,14 @@ export const Profit = styled.div`
   align-items: center;
   flex-direction: column;
   align-items: flex-start;
-  
 `;
 export const ProfitCount = styled.div`
-color: black;
-font-family: "Roboto";
-font-size: 12px;
-font-weight: 500;
-line-height: 21px;
-text-align: center;
-
+  color: black;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
 `;
 
 export const CoinIcon = styled.img`
@@ -83,9 +80,10 @@ export const ProfitText = styled.div`
 `;
 
 export const LevelContainer = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  border-top: 1px solid #469DB5;
+  border-top: 1px solid #469db5;
+  justify-content: center;
 `;
 
 export const Level = styled.div`
@@ -105,15 +103,16 @@ export const Cost = styled.div`
   font-weight: 500;
   line-height: 21px;
   text-align: center;
- 
 `;
 export const CoinIconCost = styled.img`
   width: 17px;
   height: 17px;
 `;
 export const LevelCost = styled.div`
-padding-left: 5px; 
- border-left: 1px solid #469DB5;
+  gap: 3px;
+  padding-left: 5px;
+  border-left: 1px solid #469db5;
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;

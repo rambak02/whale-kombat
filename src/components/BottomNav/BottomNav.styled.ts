@@ -11,7 +11,7 @@ export const NavGrid = styled.nav`
   display: flex;
   justify-content: space-around;
   gap: 10px;
-  width: 345px;
+  width: 93%;
   height: 65px;
   position: fixed;
   z-index: 1;
