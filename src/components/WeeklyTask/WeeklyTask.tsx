@@ -1,5 +1,6 @@
 import { WeeklyTaskProps } from "../../types/type";
 import * as S from "./WeeklyTask.styled"
+import { Img } from "react-image";
 
 export const WeeklyTask = ({title, image, reward, onClick}: WeeklyTaskProps) => {
   return (
@@ -9,12 +10,12 @@ export const WeeklyTask = ({title, image, reward, onClick}: WeeklyTaskProps) => 
         <S.TaskInfo>
           <S.Title>{title}</S.Title>
           <S.RewardBlock>
-            <img src="/public/Vector.svg"/>
+            <Img src="/public/Vector.svg"/>
             <S.TaskReward>+ {reward}</S.TaskReward>
           </S.RewardBlock>
         </S.TaskInfo>
       </S.TaskContent>
-      <img src="/public/ic_round-done.png"/>
+      <Img src="/public/ic_round-done.png"/>
     </S.Container>
   );
 };

@@ -5,7 +5,7 @@ export const BoostContainer = styled.div`
   max-height: 110px;
   background: #5ec1ca;
   border-radius: 8px;
-  padding: 16px;
+  padding: 10px;
   width: 43%;
   color: #fff;
   display: flex;
@@ -18,6 +18,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: row;
   gap: 5px;
+  align-items: center;
 `;
 
 export const Logo = styled(Img)<ImgProps>`
@@ -84,7 +85,7 @@ export const LevelContainer = styled.div`
   width: 100%;
   display: flex;
   border-top: 1px solid #469db5;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const Level = styled.div`
@@ -104,6 +105,7 @@ export const Cost = styled.div`
   font-weight: 500;
   line-height: 21px;
   text-align: center;
+  
 `;
 export const CoinIconCost = styled(Img)<ImgProps>`
   width: 17px;

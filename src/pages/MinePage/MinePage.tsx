@@ -10,6 +10,7 @@ import { Legal } from "../../components/Legal/Legal";
 import { Specials } from "../../components/Specials/Specials";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
+import { Img } from "react-image";
 
 export const MinePage: React.FC = () => {
   const STATUS_MARKET = "Markets";
@@ -45,18 +46,18 @@ export const MinePage: React.FC = () => {
         <S.ComboCardBlock>
           <S.ComboCard>
             <S.ComboCardContent>
-              <img src="/public/iconCombo1.png" />
+              <Img src="/public/iconCombo1.png" />
               <S.ComboCardText>BisDev team</S.ComboCardText>
             </S.ComboCardContent>
           </S.ComboCard>
           <S.ComboCard>
             <S.ComboCardContent>
-              <img src="/public/comboIcon.png" />
+              <Img src="/public/comboIcon.png" />
             </S.ComboCardContent>
           </S.ComboCard>
           <S.ComboCard>
             <S.ComboCardContent>
-              <img src="/public/comboIcon.png" />
+              <Img src="/public/comboIcon.png" />
             </S.ComboCardContent>
           </S.ComboCard>
         </S.ComboCardBlock>

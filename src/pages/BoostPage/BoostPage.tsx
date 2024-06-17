@@ -1,6 +1,7 @@
 import { BottomNav } from "../../components/BottomNav/BottomNav";
-
+import { Img } from "react-image";
 import * as S from "./BoostPage.styled";
+
 
 export const BoostPage = () => {
   return (
@@ -15,7 +16,7 @@ export const BoostPage = () => {
         <S.BoostHeader>Бесплатные еженедельные усилители</S.BoostHeader>
         <S.BoostContainer>
           <S.Boost>
-            <img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="/public/emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Full energy</S.BoostTitle>
               <S.Description>6/6 доступно</S.Description>
@@ -24,7 +25,7 @@ export const BoostPage = () => {
         </S.BoostContainer>
         <S.BoostContainer>
           <S.Boost>
-            <img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="/public/emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Turbo</S.BoostTitle>
               <S.Description>Скоро будет</S.Description>
@@ -34,7 +35,7 @@ export const BoostPage = () => {
         <S.BoostHeader>Усилители</S.BoostHeader>
         <S.BoostContainer>
           <S.Boost>
-            <img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="/public/emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Multitap</S.BoostTitle>
               <S.BoostDescriptionBlock>
@@ -47,11 +48,11 @@ export const BoostPage = () => {
             </S.BoostInfo>
           </S.Boost>
 
-          <img src="/public/not-done.svg" />
+          <Img src="/public/not-done.svg" />
         </S.BoostContainer>
         <S.BoostContainer>
           <S.Boost>
-            <img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="/public/emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Energy limit</S.BoostTitle>
               <S.BoostDescriptionBlock>
@@ -63,7 +64,7 @@ export const BoostPage = () => {
               </S.BoostDescriptionBlock>
             </S.BoostInfo>
           </S.Boost>
-          <img src="/public/not-done.svg" />
+          <Img src="/public/not-done.svg" />
         </S.BoostContainer>
       </S.BoostContent>
       <BottomNav />

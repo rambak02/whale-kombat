@@ -25,4 +25,12 @@ export type DailyRewardsProps = {
   day: number;
   reward: number;
   collected: boolean;
- }
+};
+
+export type BoostType = {
+  name: string;
+  avatar: string;
+  profit: number;
+  level: number;
+  cost: number;
+}

@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface NavMineTextProps {
   $focus: boolean;
 }
@@ -22,4 +24,19 @@ export interface PopupContextType {
 
 export interface DailyRewardsContainerType {
  $collected: boolean;
+}
+export interface PopupProviderProps {
+  children: ReactNode;
+}
+
+export interface Boost {
+  name: string;
+  avatar: string;
+  profit: number;
+  level: number;
+  cost: number;
+  id: string;
+}
+export interface BoostsContext {
+  boosts: Boost[];
 }

@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
 export const Card = styled.div`
   background: linear-gradient(180deg, #7ad4df 0%, #03577f 100%);

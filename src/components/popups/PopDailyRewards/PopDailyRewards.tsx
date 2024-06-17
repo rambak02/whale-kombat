@@ -2,6 +2,7 @@ import { usePopupContext } from "../../../context/hooks/usePopup";
 import * as S from "./PopDailyReward.styled";
 import { dailyRewards } from "../../../utils/dailyRewards";
 import { DayReward } from "./DayReward/DayReward";
+import { Img } from "react-image";
 
 export const PopDailyReward = () => {
   const { handleClosePopup } = usePopupContext();
@@ -9,9 +10,9 @@ export const PopDailyReward = () => {
     <S.PopupBackground>
       <S.ModalOverlay id="boostModal">
         <S.ModalButton onClick={handleClosePopup}>
-          <img src="/public/close.svg" />
+          <Img src="/public/close.svg" />
         </S.ModalButton>
-      
+
         <S.Content>
           <S.DailyRewardImg src="/public/dailyRewardIcon.png" />
           <S.Text>
@@ -22,7 +23,7 @@ export const PopDailyReward = () => {
               заново
             </S.Description>
           </S.Text>
-          
+
           <S.DailyRewardContainer>
             {dailyRewards.map((dayReward) => (
               <DayReward
@@ -33,11 +34,9 @@ export const PopDailyReward = () => {
               />
             ))}
           </S.DailyRewardContainer>
-          
         </S.Content>
         <S.ButtonCheck>Возвращайтесь завтра</S.ButtonCheck>
       </S.ModalOverlay>
-      
     </S.PopupBackground>
   );
 };

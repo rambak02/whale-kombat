@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { DailyRewardsContainerType } from "../../../../interfaces/interface";
+import { Img, ImgProps } from "react-image";
 
 export const Container = styled.div<DailyRewardsContainerType>`
   background: ${(props) =>

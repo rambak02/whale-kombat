@@ -1,5 +1,6 @@
 import { usePopupContext } from "../../../context/hooks/usePopup";
 import * as S from "./PopTelegram.styled"
+import { Img } from "react-image";
 
 export const PopTelegram = () => {
   const {handleClosePopup} = usePopupContext()
@@ -7,10 +8,10 @@ export const PopTelegram = () => {
       <S.PopupBackground>
       <S.ModalOverlay id="boostModal">
         <S.ModalButton onClick={handleClosePopup}>
-          <img src="/public/close.svg" />
+          <Img src="/public/close.svg" />
         </S.ModalButton>
         <S.Content>
-          <img src="/public/telegramIcon.png" />
+          <Img src="/public/telegramIcon.png" />
           <S.Text>
             <S.Title>Присоединяйся к нашему Telegram каналу</S.Title>
             <S.Subscribe>

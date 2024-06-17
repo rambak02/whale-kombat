@@ -20,7 +20,7 @@ export const PRTeam = () => {
         </S.BoostsContainer>
       ) : (
         <S.BlockContainer>
-            <img src="/public/ph_coins-fill-white.png" />
+            <mg src="/public/ph_coins-fill-white.png" />
             <S.BlockText>Присоединяйтесь к нашему каналу
             в Telegram, чтобы разброкировать</S.BlockText>
             <S.BlockButton onClick={() => setSubTelegram(true)}>Unlock</S.BlockButton>

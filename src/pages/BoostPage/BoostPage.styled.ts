@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
 
 export const Container = styled.div`
