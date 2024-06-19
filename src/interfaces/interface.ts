@@ -40,3 +40,14 @@ export interface Boost {
 export interface BoostsContext {
   boosts: Boost[];
 }
+
+export interface clickNumbers {
+  id: number;
+  x: number;
+  y: number;
+}
+
+export interface NumberProps {
+  $left: number;
+  $top: number;
+}

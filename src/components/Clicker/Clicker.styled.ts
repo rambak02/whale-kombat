@@ -1,5 +1,6 @@
 import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
+import { NumberProps } from "../../interfaces/interface";
 
 const ClickeAnimation = keyframes`
   0% {
@@ -13,22 +14,19 @@ const ClickeAnimation = keyframes`
   }
 `;
 
-const appearanceAnimation = keyframes`
+const slideUp = keyframes`
   0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1);
-    opacity: 1
+    transform: translateY(0);
+    opacity: 1;
   }
   100% {
-    transform: scale(1);
-    opacity: 1;
+    transform: translateY(-50px);
+    opacity: 0;
   }
 `;
 
 export const ClickerBorder = styled.div`
+  
   min-width: 200px;
   max-width: 400px;
   max-height: 400px;
@@ -41,9 +39,10 @@ export const ClickerBorder = styled.div`
   align-items: center;
   margin-top: 10px;
   margin-bottom: 5rem;
-  animation: ${appearanceAnimation} 0.3s;
+  &:hover {
+  }
   &:active {
-    animation: ${ClickeAnimation} 0.3s ease;
+    animation: ${ClickeAnimation} 0.1s ease;
   }
 `;
 
@@ -53,6 +52,7 @@ export const ClickerBlock = styled(ClickerBorder)`
     #7ad4df 0%,
     #03577f 100%
   );
+  animation: none;
   margin: 1.2rem;
   &:active {
     animation: none;
@@ -62,4 +62,18 @@ export const ClickerImg = styled(Img)<ImgProps>`
   max-height: 330px;
   width: 90%;
   padding: 0px 0px 30px 10px;
+`;
+export const Number = styled.div<NumberProps>`
+  max-width: 100%;
+  max-height: 100px;
+  overflow: hidden;
+  position: absolute;
+  left: ${props => props.$left}px;
+  top: ${props => props.$top}px;
+  animation: ${slideUp} 1s ease-out;
+  pointer-events: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 2;
 `;

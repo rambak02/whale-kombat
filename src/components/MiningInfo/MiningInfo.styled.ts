@@ -22,12 +22,11 @@ export const MiningInfoBlock = styled.div`
 `;
 export const MiningInfoContainer = styled.div`
   background: rgba(94, 193, 202, 1);
-  min-width: 110px;
+  min-width: 30%;
   min-height: 48px;
   border-radius: 10px;
   @media (min-height: 931px) {
     display: flex;
-    width: 130px;
     height: 60px;
     justify-content: center;
     align-items: center;
