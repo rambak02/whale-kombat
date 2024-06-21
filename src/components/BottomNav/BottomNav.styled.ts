@@ -1,6 +1,10 @@
 import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
 
+interface NavProps  {
+  $isSelected: boolean;
+}
+
 export const NavGrid = styled.nav`
   align-items: center;
   background: radial-gradient(
@@ -26,19 +30,18 @@ export const Nav = styled.div`
   cursor: pointer;
 `;
 export const NavIcon = styled(Img)<ImgProps>`
-  width: 24px;
   height: 24px;
 `;
-export const NavText = styled.div`
-  color: black;
+export const NavText = styled.div<NavProps>`
+   color: ${(props) => (props.$isSelected ? "white": "black")};
   font-family: "Raleway";
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
   text-align: center;
 `;
-export const NavTextBybit = styled(NavText)`
-  color: white;
+export const NavTextBybit = styled(NavText)<NavProps>`
+  color: ${(props) => (props.$isSelected ? "white": "black")};
 `;
 export const NavIconBybit = styled(NavIcon)`
   width: 44px;

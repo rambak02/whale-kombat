@@ -26,7 +26,6 @@ const slideUp = keyframes`
 `;
 
 export const ClickerBorder = styled.div`
-  
   min-width: 200px;
   max-width: 400px;
   max-height: 400px;
@@ -59,6 +58,10 @@ export const ClickerBlock = styled(ClickerBorder)`
   }
 `;
 export const ClickerImg = styled(Img)<ImgProps>`
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   max-height: 330px;
   width: 90%;
   padding: 0px 0px 30px 10px;
@@ -68,8 +71,8 @@ export const Number = styled.div<NumberProps>`
   max-height: 100px;
   overflow: hidden;
   position: absolute;
-  left: ${props => props.$left}px;
-  top: ${props => props.$top}px;
+  left: ${(props) => props.$left}px;
+  top: ${(props) => props.$top}px;
   animation: ${slideUp} 1s ease-out;
   pointer-events: none;
   color: white;

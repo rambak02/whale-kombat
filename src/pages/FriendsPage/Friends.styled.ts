@@ -132,6 +132,7 @@ export const FriendsListRefresh = styled(Img)<ImgProps>`
   height: 24px;
 `;
 export const Friends = styled.div`
+color: white;
   display: flex;
   background: radial-gradient(
     149.3% 149.3% at 50% 50%,

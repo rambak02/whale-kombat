@@ -23,13 +23,10 @@ export const PopupBackground = styled.div`
   );
 `;
 
-export const Main = styled.div`
-
-`
+export const Main = styled.div``;
 
 export const ModalOverlay = styled.div`
   box-shadow: 0px -5px 80px 70px rgba(229, 153, 43, 0.7);
-
   position: fixed;
   z-index: 2;
   left: 0;
@@ -44,7 +41,6 @@ export const ModalOverlay = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const ModalButton = styled.button`
@@ -98,7 +94,7 @@ export const CloseButton = styled.span`
 export const ButtonStartMine = styled.button`
   border: none;
   background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
-  width: 93%;
+  width: 93vw;
   height: 64px;
   padding: 12px 16px 12px 16px;
   border-radius: 20px;
