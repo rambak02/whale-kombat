@@ -192,7 +192,7 @@ export const InviteFriend = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: absolute;
+  position: fixed;
   gap: 2px;
   bottom: 82px;
   z-index: 1;

@@ -23,8 +23,7 @@ const tg = window.Telegram.WebApp;
 export const MainPage = () => {
   const [balance, setBalance] = useState<number>(0);
   const [userData, setUserData] = useState<{
-    username: string;
-    balance: number;
+   first_name: string;
   } | null>(null);
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
@@ -39,12 +38,13 @@ export const MainPage = () => {
     };
     fetchUserData();
   }, []);
+  
   return (
     <S.Container>
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src="../../..//Ellipse 2.png" />
-          <S.Username>{userData ? userData.username : ""}</S.Username>
+          <S.Username>{userData ? userData.first_name : ""}</S.Username>
         </S.UserBlock>
 
         <Link to={constRoutes.CRYPTOCOMPANIES}>
