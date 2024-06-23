@@ -50,7 +50,7 @@ export const MainPage = () => {
         <S.UserBlock>
           <S.UserImg alt="user" src="../../..//Ellipse 2.png" />
           <S.Username>
-            {tg.initDataUnsafe?.user?.username}
+            {tg.initDataUnsafe?.user?.first_name}
           </S.Username>
         </S.UserBlock>
 
