@@ -4,13 +4,13 @@ export const Boost = ({ name, avatar, profit, level, cost }: BoostType) => {
   return (
     <S.BoostContainer>
       <S.Content>
-        <S.Logo src={avatar} alt="img"/>
+        <S.Logo src={avatar} alt="img" />
         <S.Profit>
           <S.Title>{name}</S.Title>
           <S.ProfitInf>
             <S.ProfitText>Прибыль в час</S.ProfitText>
             <S.ProfitIcon>
-              <S.CoinIcon src="/public/Vector.svg" />
+              <S.CoinIcon src="../../..//Vector.svg" />
               <S.ProfitCount>+{profit}</S.ProfitCount>
             </S.ProfitIcon>
           </S.ProfitInf>
@@ -19,7 +19,7 @@ export const Boost = ({ name, avatar, profit, level, cost }: BoostType) => {
       <S.LevelContainer>
         <S.Level>lvl {level}</S.Level>
         <S.LevelCost>
-          <S.CoinIconCost src="/public/Vector.svg" />
+          <S.CoinIconCost src="../../..//Vector.svg" />
           <S.Cost>{cost}</S.Cost>
         </S.LevelCost>
       </S.LevelContainer>

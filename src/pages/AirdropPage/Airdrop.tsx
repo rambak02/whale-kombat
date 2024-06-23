@@ -4,7 +4,7 @@ import * as S from "./Airdrop.styled";
 export const AirdropPage = () => {
   return (
     <S.Container>
-      <S.CoinImg src="/public/coinairdrop.png" />
+      <S.CoinImg src="../../..//coinairdrop.png" />
       <S.Title>Приготовьтесь, Airdrop уже скоро!</S.Title>
       <S.TaskList>
         <S.Task className="completed">Переговоры с биржами</S.Task>

@@ -2,13 +2,12 @@ import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { Img } from "react-image";
 import * as S from "./BoostPage.styled";
 
-
 export const BoostPage = () => {
   return (
     <S.Container>
       <S.Title>Ваш баланс</S.Title>
       <S.BalanceContainer>
-        <S.BalanceIcon src="/public/Vector.svg" />
+        <S.BalanceIcon src="../../..//Vector.svg" />
         <S.Balance>10000000</S.Balance>
       </S.BalanceContainer>
       <S.Tutorial>Как работает усиление</S.Tutorial>
@@ -16,7 +15,7 @@ export const BoostPage = () => {
         <S.BoostHeader>Бесплатные еженедельные усилители</S.BoostHeader>
         <S.BoostContainer>
           <S.Boost>
-            <Img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="../../..//emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Full energy</S.BoostTitle>
               <S.Description>6/6 доступно</S.Description>
@@ -25,7 +24,7 @@ export const BoostPage = () => {
         </S.BoostContainer>
         <S.BoostContainer>
           <S.Boost>
-            <Img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="../../..//emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Turbo</S.BoostTitle>
               <S.Description>Скоро будет</S.Description>
@@ -35,12 +34,12 @@ export const BoostPage = () => {
         <S.BoostHeader>Усилители</S.BoostHeader>
         <S.BoostContainer>
           <S.Boost>
-            <Img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="../../..//emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Multitap</S.BoostTitle>
               <S.BoostDescriptionBlock>
                 <S.Description>
-                  <S.CoinIcon src="/public/Vector.svg" />
+                  <S.CoinIcon src="../../..//Vector.svg" />
                   2K ·
                 </S.Description>
                 <S.Level>2 lvl</S.Level>
@@ -48,23 +47,23 @@ export const BoostPage = () => {
             </S.BoostInfo>
           </S.Boost>
 
-          <Img src="/public/not-done.svg" />
+          <Img src="../../..//not-done.svg" />
         </S.BoostContainer>
         <S.BoostContainer>
           <S.Boost>
-            <Img src="/public/emojione-monotone_nerd-face.png" />
+            <Img src="../../..//emojione-monotone_nerd-face.png" />
             <S.BoostInfo>
               <S.BoostTitle>Energy limit</S.BoostTitle>
               <S.BoostDescriptionBlock>
                 <S.Description>
-                  <S.CoinIcon src="/public/Vector.svg" />
+                  <S.CoinIcon src="../../..//Vector.svg" />
                   2K ·
                 </S.Description>
                 <S.Level>2 lvl</S.Level>
               </S.BoostDescriptionBlock>
             </S.BoostInfo>
           </S.Boost>
-          <Img src="/public/not-done.svg" />
+          <Img src="../../..//not-done.svg" />
         </S.BoostContainer>
       </S.BoostContent>
       <BottomNav />

@@ -10,11 +10,11 @@ export const PopDailyReward = () => {
     <S.PopupBackground>
       <S.ModalOverlay id="boostModal">
         <S.ModalButton onClick={handleClosePopup}>
-          <Img src="/public/close.svg" />
+          <Img src="../../..//close.svg" />
         </S.ModalButton>
 
         <S.Content>
-          <S.DailyRewardImg src="/public/dailyRewardIcon.png" />
+          <S.DailyRewardImg src="../../..//dailyRewardIcon.png" />
           <S.Text>
             <S.Title>Ежедневная награда</S.Title>
             <S.Description>

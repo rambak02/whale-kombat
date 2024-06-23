@@ -20,44 +20,43 @@ export const MinePage: React.FC = () => {
   const [status, setStatus] = useState(STATUS_MARKET);
   const [balance, setBalance] = useState<number>(0);
 
-  const { handleOpenPopup, isPopupOpen, currentPopup } =
-    usePopupContext();
+  const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
   return (
     <S.Container>
       <S.Content>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
-          <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
+          <S.BalanceIcon src="../../..//Vector.svg"></S.BalanceIcon>
           <S.Balance> {balance}</S.Balance>
         </S.BalanceBlock>
         <S.TimeBlock>
           <S.Time>19:56:45</S.Time>
-          <S.TimeBlockIcon src="/public/iconsBlack.png" />
+          <S.TimeBlockIcon src="../../..//iconsBlack.png" />
         </S.TimeBlock>
         <S.ComboBlock>
           <S.ComboTitle>Комбо</S.ComboTitle>
           <S.ComboCashBLock>
-            <S.ComboIcon src="/public/Vector.svg" />
+            <S.ComboIcon src="../../..//Vector.svg" />
             <S.ComboCash>+ 5 000 000</S.ComboCash>
-            <S.ComboIconCheck src="/public/Subtract.png" />
+            <S.ComboIconCheck src="../../..//Subtract.png" />
           </S.ComboCashBLock>
         </S.ComboBlock>
         <S.ComboCardBlock>
           <S.ComboCard>
             <S.ComboCardContent>
-              <Img src="/public/iconCombo1.png" />
+              <Img src="../../..//iconCombo1.png" />
               <S.ComboCardText>BisDev team</S.ComboCardText>
             </S.ComboCardContent>
           </S.ComboCard>
           <S.ComboCard>
             <S.ComboCardContent>
-              <Img src="/public/comboIcon.png" />
+              <Img src="../../..//comboIcon.png" />
             </S.ComboCardContent>
           </S.ComboCard>
           <S.ComboCard>
             <S.ComboCardContent>
-              <Img src="/public/comboIcon.png" />
+              <Img src="../../..//comboIcon.png" />
             </S.ComboCardContent>
           </S.ComboCard>
         </S.ComboCardBlock>

@@ -89,7 +89,7 @@ export const Task = styled.li`
     width: 24px;
     height: 24px;
     background: #4caf50;
-    background-image: url("/public/check-circle-filled-done.png");
+    background-image: url("../../..//check-circle-filled-done.png");
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center;

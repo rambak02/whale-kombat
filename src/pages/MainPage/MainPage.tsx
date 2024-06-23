@@ -43,13 +43,13 @@ export const MainPage = () => {
     <S.Container>
       <S.Header>
         <S.UserBlock>
-          <S.UserImg alt="user" src="/public/Ellipse 2.png" />
+          <S.UserImg alt="user" src="../../..//Ellipse 2.png" />
           <S.Username>{userData ? userData.username : ""}</S.Username>
         </S.UserBlock>
 
         <Link to={constRoutes.CRYPTOCOMPANIES}>
           <S.BybitBlock>
-            <S.BybitImg src="/public/Bybit.svg" alt="bybit" />
+            <S.BybitImg src="../../..//Bybit.svg" alt="bybit" />
             <S.BybitText>Bybit</S.BybitText>
           </S.BybitBlock>
         </Link>
@@ -57,7 +57,7 @@ export const MainPage = () => {
       <S.Content>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
-          <S.BalanceIcon src="/public/Vector.svg"></S.BalanceIcon>
+          <S.BalanceIcon src="../../..//Vector.svg"></S.BalanceIcon>
           <S.Balance> {balance}</S.Balance>
         </S.BalanceBlock>
         <S.ProgressBarBlock>

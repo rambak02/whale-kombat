@@ -4,10 +4,8 @@ import * as S from "./Clicker.styled";
 import { clickNumbers } from "../../interfaces/interface";
 
 export const Clicker = ({ onClick }: CLickerProps) => {
-
   //цифры появляющиеся при клике
   const [clickNumbers, setClickNumbers] = useState<clickNumbers[]>([]);
-
 
   //элемент появляется в том месте, где был совершен клик
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -37,7 +35,10 @@ export const Clicker = ({ onClick }: CLickerProps) => {
     <>
       <S.ClickerBorder>
         <S.ClickerBlock onClick={onClick}>
-          <S.ClickerImg src="/public/whale.png" onClick={handleClick} />
+          <S.ClickerImg
+            src="../../..../../..//whale.png"
+            onClick={handleClick}
+          />
           {clickNumbers.map((click) => (
             <S.Number key={click.id} $left={click.x} $top={click.y}>
               +1

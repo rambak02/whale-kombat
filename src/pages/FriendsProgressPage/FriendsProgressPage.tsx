@@ -7,13 +7,13 @@ export const FriendsProgressPage = () => {
     <S.Container>
       <S.FriendsProgress>
         <S.FriendsProgressContent>
-          <S.FriendPrev src="/public/prev.png" />
+          <S.FriendPrev src="../../..//prev.png" />
           <S.FriendCharacter>
             <S.FriendCharacterBackground></S.FriendCharacterBackground>
-            <S.FriendCharacterImg src="/public/dolphin.png" />
+            <S.FriendCharacterImg src="../../..//dolphin.png" />
           </S.FriendCharacter>
 
-          <S.FriendNext src="/public/next.png" />
+          <S.FriendNext src="../../..//next.png" />
         </S.FriendsProgressContent>
 
         <S.FriendsTitle>
@@ -22,11 +22,11 @@ export const FriendsProgressPage = () => {
         </S.FriendsTitle>
       </S.FriendsProgress>
       <S.FriendsList>
-       <Friend />
-       <Friend />
-       <Friend />
-       <Friend />
-       <Friend />
+        <Friend />
+        <Friend />
+        <Friend />
+        <Friend />
+        <Friend />
       </S.FriendsList>
       <BottomNav />
     </S.Container>

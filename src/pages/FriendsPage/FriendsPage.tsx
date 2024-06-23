@@ -22,23 +22,23 @@ export const FriendsPage = () => {
       <S.FriendsContainer>
         <S.FriendsListHeader>
           <S.FriendsListTitle>Список ваших друзей</S.FriendsListTitle>
-          <S.FriendsListRefresh src="/public/mynaui_refresh.svg" />
+          <S.FriendsListRefresh src="../../..//mynaui_refresh.svg" />
         </S.FriendsListHeader>
         <Link to={constRoutes.FRIENDSPROGRESS}>
           <S.Friends>
             <S.FriendBlock>
-              <Img src="/public/iconFriends.png" />
+              <Img src="../../..//iconFriends.png" />
               <S.FriendInfo>
                 <S.FriendName>Name</S.FriendName>
                 <S.FriendLevel>
                   <S.Level>Уровень</S.Level>
-                  <Img src="/public/Vector.svg" />
+                  <Img src="../../..//Vector.svg" />
                   <S.FriendCash>5,09K</S.FriendCash>
                 </S.FriendLevel>
               </S.FriendInfo>
             </S.FriendBlock>
             <S.FriendReward>
-              <Img src="/public/Vector.svg" />
+              <Img src="../../..//Vector.svg" />
               <div>+25K</div>
             </S.FriendReward>
           </S.Friends>
@@ -49,10 +49,10 @@ export const FriendsPage = () => {
           <S.InviteFriendContentText>
             Пригласите друга
           </S.InviteFriendContentText>
-          <Img src="/public/mage_user-plus.png" />
+          <Img src="../../..//mage_user-plus.png" />
         </S.InviteFriendContent>
         <S.CopyLink>
-          <Img src="/public/fluent_copy-20-regular.svg" />
+          <Img src="../../..//fluent_copy-20-regular.svg" />
         </S.CopyLink>
       </S.InviteFriend>
       <BottomNav />

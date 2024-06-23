@@ -10,11 +10,11 @@ export const PopBoost = () => {
     <S.PopupBackground>
       <S.ModalOverlay id="boostModal">
         <S.ModalButton onClick={handleClosePopup}>
-          <Img src="/public/close.svg" />
+          <Img src="../../..//close.svg" />
         </S.ModalButton>
         <S.Main>
           <S.Content>
-            <Img src="/public/rocket.png" />
+            <Img src="../../..//rocket.png" />
             <S.Text>
               <S.Title>Увеличьте вашу прибыль</S.Title>
               <S.Description>
@@ -30,7 +30,7 @@ export const PopBoost = () => {
         <Link to={constRoutes.BOOST}>
           <S.ButtonStartMine>
             <S.ButtonText>Начать добычу</S.ButtonText>
-            <Img src="/public/Vector.svg" alt="" />
+            <Img src="../../..//Vector.svg" alt="" />
           </S.ButtonStartMine>
         </Link>
       </S.ModalOverlay>
