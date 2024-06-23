@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
@@ -14,37 +14,44 @@ declare global {
     Telegram: {
       WebApp: {
         initData: string;
+        initDataUnsafe: WebAppInitData;
       };
     };
   }
 }
-const tg = window.Telegram.WebApp;
+
+interface WebAppInitData {
+  query_id: string;
+  user: WebAppUser;
+  auth_date: number;
+  hash: string;
+}
+
+interface WebAppUser {
+  id: number;
+  first_name: string;
+  last_name?: string;
+  username?: string;
+  language_code?: string;
+}
 
 export const MainPage = () => {
+  const tg = window.Telegram.WebApp;
   const [balance, setBalance] = useState<number>(0);
-  const [userData, setUserData] = useState<{
-   first_name: string;
-  } | null>(null);
+
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
-  useEffect(() => {
-    const initData = tg.initData;
+  const initData = tg.initData;
+  authUser(initData);
 
-    const fetchUserData = async () => {
-      const data = await authUser(initData);
-      if (data) {
-        setUserData(data);
-      }
-    };
-    fetchUserData();
-  }, []);
-  
   return (
     <S.Container>
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src="../../..//Ellipse 2.png" />
-          <S.Username>{userData ? userData.first_name : ""}</S.Username>
+          <S.Username>
+            {tg.initDataUnsafe?.user?.username}
+          </S.Username>
         </S.UserBlock>
 
         <Link to={constRoutes.CRYPTOCOMPANIES}>
