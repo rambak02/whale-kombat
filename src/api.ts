@@ -8,7 +8,7 @@ export async function getBoosts() {
 
 export const authUser = async (initData: string) => {
   try {
-    const response = await fetch("", {
+    const response = await fetch("/validate-init-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
