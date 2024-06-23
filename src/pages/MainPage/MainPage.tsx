@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
@@ -7,18 +7,25 @@ import { constRoutes } from "../../paths";
 import { Link } from "react-router-dom";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
+import { authUser } from "../../api";
+
+const tg = window.Telegram.WebApp
 
 export const MainPage = () => {
   const [balance, setBalance] = useState<number>(0);
-
+  const [userData, setUserData] = useState<any>(null);
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
+  useEffect(() => {
+    const initData = tg.initData;
+    setUserData(authUser(initData));
+  }, [])
   return (
     <S.Container>
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src="/public/Ellipse 2.png" />
-          <S.Username>Ivan</S.Username>
+          <S.Username>{userData ? userData.username : '' }</S.Username>
         </S.UserBlock>
 
         <Link to={constRoutes.CRYPTOCOMPANIES}>
