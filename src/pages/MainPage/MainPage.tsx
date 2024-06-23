@@ -9,23 +9,42 @@ import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { authUser } from "../../api";
 
-const tg = window.Telegram.WebApp
+declare global {
+  interface Window {
+    Telegram: {
+      WebApp: {
+        initData: string;
+      };
+    };
+  }
+}
+const tg = window.Telegram.WebApp;
 
 export const MainPage = () => {
   const [balance, setBalance] = useState<number>(0);
-  const [userData, setUserData] = useState<any>(null);
+  const [userData, setUserData] = useState<{
+    username: string;
+    balance: number;
+  } | null>(null);
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
   useEffect(() => {
     const initData = tg.initData;
-    setUserData(authUser(initData));
-  }, [])
+
+    const fetchUserData = async () => {
+      const data = await authUser(initData);
+      if (data) {
+        setUserData(data);
+      }
+    };
+    fetchUserData();
+  }, []);
   return (
     <S.Container>
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src="/public/Ellipse 2.png" />
-          <S.Username>{userData ? userData.username : '' }</S.Username>
+          <S.Username>{userData ? userData.username : ""}</S.Username>
         </S.UserBlock>
 
         <Link to={constRoutes.CRYPTOCOMPANIES}>
