@@ -33,6 +33,7 @@ interface WebAppUser {
   last_name?: string;
   username?: string;
   language_code?: string;
+  photo_url?: string;
 }
 
 export const MainPage = () => {
@@ -48,7 +49,7 @@ export const MainPage = () => {
     <S.Container>
       <S.Header>
         <S.UserBlock>
-          <S.UserImg alt="user" src="../../..//Ellipse 2.png" />
+          <S.UserImg alt="user" src={tg.initDataUnsafe.user.photo_url || ""}/>
           <S.Username>
             {tg.initDataUnsafe?.user?.first_name}
           </S.Username>
