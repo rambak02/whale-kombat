@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
@@ -8,11 +7,13 @@ import { Link } from "react-router-dom";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { authUser } from "../../api";
+import { useUserContext } from "../../context/hooks/useUser";
 
 declare global {
   interface Window {
     Telegram: {
       WebApp: {
+        ready(): unknown;
         initData: string;
         initDataUnsafe: WebAppInitData;
       };
@@ -38,9 +39,9 @@ interface WebAppUser {
 
 export const MainPage = () => {
   const tg = window.Telegram.WebApp;
-  const [balance, setBalance] = useState<number>(0);
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
+  const { user } = useUserContext()
 
   const initData = tg.initData;
   authUser(initData);
@@ -49,7 +50,7 @@ export const MainPage = () => {
     <S.Container>
       <S.Header>
         <S.UserBlock>
-          <S.UserImg alt="user" src={tg.initDataUnsafe?.user?.photo_url }/>
+          <S.UserImg alt="user" src="../../../public/whale.png" />
           <S.Username>
             {tg.initDataUnsafe?.user?.first_name}
           </S.Username>
@@ -66,18 +67,18 @@ export const MainPage = () => {
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
           <S.BalanceIcon src="../../..//Vector.svg"></S.BalanceIcon>
-          <S.Balance> {balance}</S.Balance>
+          <S.Balance> {user?.coins}</S.Balance>
         </S.BalanceBlock>
         <S.ProgressBarBlock>
           <S.LevelBlock>
             <S.LevelTitle>Название уровня {">"}</S.LevelTitle>
             <S.Level>
-              Level <S.LevelNumber>7/10</S.LevelNumber>
+              Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
             </S.Level>
           </S.LevelBlock>
           <S.ProgressBar></S.ProgressBar>
         </S.ProgressBarBlock>
-        <Clicker onClick={() => setBalance((prev) => prev + 1)} />
+        <Clicker />
         <BottomNav />
       </S.Content>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}

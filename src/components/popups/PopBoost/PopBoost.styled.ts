@@ -106,6 +106,7 @@ export const ButtonStartMine = styled.button`
 `;
 
 export const ButtonText = styled.div`
+  color: black;
   font-family: "Roboto";
   font-size: 24px;
   font-weight: 500;

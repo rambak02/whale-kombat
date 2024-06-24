@@ -28,3 +28,34 @@ export const authUser = async (initData: string) => {
     console.error(error);
   }
 };
+
+export async function getUserProfile() {
+  try {
+    const response = await fetch("auth/users/me");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error user profile:", error);
+    throw error;
+  }
+}
+
+export const postMiningTaps = async (
+  current_energy: number,
+  earned: number
+) => {
+  try {
+    const response = await fetch("mining/taps", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ current_energy, earned }),
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error ыtaps:", error);
+  }
+};

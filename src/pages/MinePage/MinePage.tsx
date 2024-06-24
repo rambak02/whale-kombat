@@ -11,6 +11,7 @@ import { Specials } from "../../components/Specials/Specials";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { Img } from "react-image";
+import { useUserContext } from "../../context/hooks/useUser";
 
 export const MinePage: React.FC = () => {
   const STATUS_MARKET = "Markets";
@@ -18,17 +19,17 @@ export const MinePage: React.FC = () => {
   const STATUS_LEGAL = "Legal";
   const STATUS_SPECIALS = "Specials";
   const [status, setStatus] = useState(STATUS_MARKET);
-  const [balance, setBalance] = useState<number>(0);
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
+  const { user } = useUserContext();
   return (
     <S.Container>
       <S.Content>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
           <S.BalanceIcon src="../../..//Vector.svg"></S.BalanceIcon>
-          <S.Balance> {balance}</S.Balance>
+          <S.Balance>{user?.coins}</S.Balance>
         </S.BalanceBlock>
         <S.TimeBlock>
           <S.Time>19:56:45</S.Time>
@@ -65,7 +66,7 @@ export const MinePage: React.FC = () => {
         {status === STATUS_PRTEAM && <PRTeam />}
         {status === STATUS_LEGAL && <Legal />}
         {status === STATUS_SPECIALS && <Specials />}
-        <Clicker onClick={() => setBalance((prev) => prev + 1)} />
+        <Clicker />
         <BottomNav />
       </S.Content>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}

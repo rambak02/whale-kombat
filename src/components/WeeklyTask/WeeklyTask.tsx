@@ -20,7 +20,7 @@ export const WeeklyTask = ({
           </S.RewardBlock>
         </S.TaskInfo>
       </S.TaskContent>
-      <Img src="../../..//ic_round-done.png" />
+      <S.DoneImg src="../../..//ic_round-done.png" />
     </S.Container>
   );
 };

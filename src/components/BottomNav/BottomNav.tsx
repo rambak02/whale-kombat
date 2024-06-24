@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import * as S from "./BottomNav.styled";
 import { constRoutes } from "../../paths";
 import { useEffect, useState } from "react";
-import { preloadImage } from "./helpers/helper";
 
 const navItems = [
   {
@@ -42,10 +41,6 @@ const navItems = [
   },
 ];
 
-const preloadImages = () => {
-  const promises = navItems.map(item => preloadImage(item.iconSrc).then(() => preloadImage(item.iconSelectedSrc)));
-  return Promise.all(promises);
-};
 
 export const BottomNav = () => {
   const location = useLocation();
@@ -56,7 +51,6 @@ export const BottomNav = () => {
   useEffect(() => {
     setIsSelected(location.pathname);
 
-    preloadImages();
   }, [location.pathname]);
 
   return (

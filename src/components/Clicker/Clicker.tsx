@@ -1,11 +1,17 @@
-import { useState } from "react";
-import { CLickerProps } from "../../types/type";
+import { useCallback, useEffect, useState } from "react";
 import * as S from "./Clicker.styled";
 import { clickNumbers } from "../../interfaces/interface";
+import { postMiningTaps } from "../../api";
+import { throttle } from "lodash";
+import { useUserContext } from "../../context/hooks/useUser";
 
-export const Clicker = ({ onClick }: CLickerProps) => {
+export const Clicker = () => {
   //цифры появляющиеся при клике
   const [clickNumbers, setClickNumbers] = useState<clickNumbers[]>([]);
+  const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
+  const [accumulatedEnergy, setAccumulatedEnergy] = useState<number>(0);
+
+  const { user } = useUserContext();
 
   //элемент появляется в том месте, где был совершен клик
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -29,12 +35,36 @@ export const Clicker = ({ onClick }: CLickerProps) => {
       );
       return () => clearTimeout(timeOut);
     }, 900);
+    if (user) {
+      setAccumulatedCoins((prevCoins) => prevCoins + (1 + user?.multitap_lvl));
+      setAccumulatedEnergy(
+        (prevEnergy) => prevEnergy + (1 + user?.multitap_lvl)
+      );
+    }
   };
 
+  const throttledPostMiningTaps = useCallback(
+    throttle(async () => {
+      if (accumulatedCoins > 0 || accumulatedEnergy > 0) {
+        await postMiningTaps(accumulatedEnergy, accumulatedCoins);
+        setAccumulatedCoins(0);
+        setAccumulatedEnergy(0);
+      }
+    }, 5000),
+    [accumulatedCoins, accumulatedEnergy]
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      throttledPostMiningTaps();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [throttledPostMiningTaps]);
   return (
     <>
       <S.ClickerBorder>
-        <S.ClickerBlock onClick={onClick}>
+        <S.ClickerBlock >
           <S.ClickerImg
             src="../../..../../..//whale.png"
             onClick={handleClick}

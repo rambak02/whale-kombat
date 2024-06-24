@@ -1,6 +1,9 @@
 import { BoostType } from "../../types/type";
 import * as S from "./Boost.styled";
 export const Boost = ({ name, avatar, profit, level, cost }: BoostType) => {
+   
+
+
   return (
     <S.BoostContainer>
       <S.Content>

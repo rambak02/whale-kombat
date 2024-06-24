@@ -70,3 +70,8 @@ export const TaskImg = styled(Img)<ImgProps>`
   height: 52px;
   animation: ${appearanceAnimation} 0.3s;
 `;
+
+export const DoneImg = styled(Img)<ImgProps>`
+ width: 33px;
+ height: 32px;
+`
