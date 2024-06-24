@@ -49,7 +49,7 @@ export const MainPage = () => {
     <S.Container>
       <S.Header>
         <S.UserBlock>
-          <S.UserImg alt="user" src={tg.initDataUnsafe.user.photo_url || ""}/>
+          <S.UserImg alt="user" src={tg.initDataUnsafe?.user?.photo_url }/>
           <S.Username>
             {tg.initDataUnsafe?.user?.first_name}
           </S.Username>
