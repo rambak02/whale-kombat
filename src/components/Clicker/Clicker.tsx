@@ -11,7 +11,7 @@ export const Clicker = () => {
   const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
   const [accumulatedEnergy, setAccumulatedEnergy] = useState<number>(0);
 
-  const { user } = useUserContext();
+  const { user, updateCoins } = useUserContext();
 
   //элемент появляется в том месте, где был совершен клик
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -36,23 +36,22 @@ export const Clicker = () => {
       return () => clearTimeout(timeOut);
     }, 900);
     if (user) {
-      setAccumulatedCoins((prevCoins) => prevCoins + (1 + user?.multitap_lvl));
-      setAccumulatedEnergy(
-        (prevEnergy) => prevEnergy + (1 + user?.multitap_lvl)
-      );
+      const formulaTap = 1 + user.multitap_lvl;
+      updateCoins(user.coins + formulaTap);
+      setAccumulatedCoins((prevCoins) => prevCoins + formulaTap);
+      setAccumulatedEnergy((prevEnergy) => prevEnergy + formulaTap);
     }
   };
 
-  const throttledPostMiningTaps = useCallback(
+  const throttledPostMiningTaps = useCallback(() => {
     throttle(async () => {
       if (accumulatedCoins > 0 || accumulatedEnergy > 0) {
         await postMiningTaps(accumulatedEnergy, accumulatedCoins);
         setAccumulatedCoins(0);
         setAccumulatedEnergy(0);
       }
-    }, 5000),
-    [accumulatedCoins, accumulatedEnergy]
-  );
+    }, 5000);
+  }, [accumulatedCoins, accumulatedEnergy]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,7 +63,7 @@ export const Clicker = () => {
   return (
     <>
       <S.ClickerBorder>
-        <S.ClickerBlock >
+        <S.ClickerBlock>
           <S.ClickerImg
             src="../../..../../..//whale.png"
             onClick={handleClick}

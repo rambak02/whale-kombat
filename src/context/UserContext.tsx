@@ -20,6 +20,7 @@ export interface User {
 interface UserContextProps {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  updateCoins: (coins: number) => void; 
 }
 interface UserProviderProps {
   children: ReactNode;
@@ -29,6 +30,15 @@ export const UserContext = createContext<UserContextProps | null>(null);
 
 export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+
+  const updateCoins = (coins: number) => {
+    if (user) {
+      setUser({
+        ...user,
+        coins,
+      });
+    }
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -44,7 +54,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, updateCoins }}>
       {children}
     </UserContext.Provider>
   );
