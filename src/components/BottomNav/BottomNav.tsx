@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import * as S from "./BottomNav.styled";
 import { constRoutes } from "../../paths";
-import { useState } from "react";
+import { useSelectedPage } from "../../context/hooks/useSelectedPage";
 
 export const BottomNav = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
+ const {selectedIndex, setSelectedIndex} = useSelectedPage();
   const navItems = [
     {
       route: constRoutes.HOME,
