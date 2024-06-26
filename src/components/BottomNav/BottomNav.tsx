@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import * as S from "./BottomNav.styled";
 import { constRoutes } from "../../paths";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const BottomNav = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const navItems = [
     {
       route: constRoutes.HOME,
-      iconSvg: <img src= "../../..//bybit.png"/>,
+      iconSvg: <img src="../../..//bybit.png" />,
       text: "Exchange",
       textComponent: S.NavTextBybit,
     },
@@ -95,22 +95,23 @@ export const BottomNav = () => {
     },
     {
       route: constRoutes.AIRDROP,
-      iconSvg: <img src ="../../..//whale.png"/>,
+      iconSvg: <img src="../../..//whale.png" height={24} width={25} />,
       text: "Airdrop",
       textComponent: S.NavText,
     },
   ];
 
-  useEffect(() => 
-    setSelectedIndex(selectedIndex)
-  , [selectedIndex])
   return (
     <S.NavGrid>
       {navItems.map((item, index) => {
         const isSelected = selectedIndex === index;
         return (
-          <Link to={item.route} key={item.route}>
-            <S.Nav onClick={() => setSelectedIndex(index)}>
+          <Link
+            to={item.route}
+            key={item.route}
+            onClick={() => setSelectedIndex(index)}
+          >
+            <S.Nav>
               {item.iconSvg}
               <item.textComponent $isSelected={isSelected}>
                 {item.text}
