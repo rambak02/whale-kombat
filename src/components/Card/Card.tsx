@@ -1,11 +1,25 @@
 import * as S from "./Card.styled";
 
-export const Card = () => {
+type CardProps = {
+  onClick: () => void,
+  boost: Boost;
+};
+
+type Boost = {
+  id: string;
+  name: string;
+  image: string;
+  profit_per_hour: number;
+  level: number;
+  cost: number;
+};
+
+export const Card = ({ onClick, boost }: CardProps) => {
   return (
-    <S.Card>
+    <S.Card onClick={onClick}>
       <S.CardImg src="../../..//random.png" />
       <div>
-        <S.CardTitle>Название</S.CardTitle>
+        <S.CardTitle>{boost.name}</S.CardTitle>
         <S.Description>Описание</S.Description>
         <S.Profit>
           <S.ProfitInf>

@@ -1,4 +1,3 @@
-
 export type TextFocus = {
   $focus: boolean;
 };
@@ -25,10 +24,3 @@ export type DailyRewardsProps = {
   collected: boolean;
 };
 
-export type BoostType = {
-  name: string;
-  avatar: string;
-  profit: number;
-  level: number;
-  cost: number;
-}

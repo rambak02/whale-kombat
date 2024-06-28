@@ -12,6 +12,8 @@ import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { Img } from "react-image";
 import { useUserContext } from "../../context/hooks/useUser";
+import { PopMine } from "../../components/popups/PopEarn/PopMine";
+import { Boost } from "../../interfaces/interface";
 
 export const MinePage: React.FC = () => {
   const STATUS_MARKET = "Markets";
@@ -21,6 +23,8 @@ export const MinePage: React.FC = () => {
   const [status, setStatus] = useState(STATUS_MARKET);
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
+
+  const [currentPopMine, setCurrentPopBoost] = useState<Boost| null>(null);
 
   const { user } = useUserContext();
   return (
@@ -62,14 +66,21 @@ export const MinePage: React.FC = () => {
           </S.ComboCard>
         </S.ComboCardBlock>
         <NavMine setStatus={setStatus} />
-        {status === STATUS_MARKET && <Market />}
-        {status === STATUS_PRTEAM && <PRTeam />}
-        {status === STATUS_LEGAL && <Legal />}
-        {status === STATUS_SPECIALS && <Specials />}
+        {status === STATUS_MARKET && <Market onClick={setCurrentPopBoost} handleOpenPopup={() => handleOpenPopup("boost")} />}
+        {status === STATUS_PRTEAM && <PRTeam 
+        onClick={setCurrentPopBoost} 
+        handleOpenPopup={() => handleOpenPopup("boost")} />}
+        {status === STATUS_LEGAL && <Legal 
+        onClick={setCurrentPopBoost}
+        handleOpenPopup={() => handleOpenPopup("boost")}/>}
+        {status === STATUS_SPECIALS && <Specials 
+        onClick={setCurrentPopBoost}
+        handleOpenPopup={() => handleOpenPopup("boost")} />}
         <Clicker />
         <BottomNav />
       </S.Content>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}
+      {isPopupOpen && currentPopup === "mine" && <PopMine boost={currentPopMine} />}
     </S.Container>
   );
 };

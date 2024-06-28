@@ -3,21 +3,35 @@ import { useState } from "react";
 import * as S from "./PRTeam.styled";
 import { Img } from "react-image";
 
-export const PRTeam = () => {
-  const [subTelegram, setSubTelegram] = useState<boolean>(false);
+import { Dispatch, SetStateAction } from "react";
+import { useBoostsContext } from "../../context/hooks/useBoosts";
+import { BoostsContext } from "../../interfaces/interface";
+import { Boost } from "../Boost/Boost";
 
+type Boost = {
+  id: string;
+  name: string;
+  image: string;
+  profit_per_hour: number;
+  level: number;
+  cost: number;
+};
+
+type PRTeamProps = {
+  handleOpenPopup: () => void;
+  onClick: Dispatch<SetStateAction<Boost | null>>;
+};
+
+export const PRTeam = ({ handleOpenPopup, onClick }: PRTeamProps) => {
+  const [subTelegram, setSubTelegram] = useState<boolean>(false);
+  const { boosts }: BoostsContext = useBoostsContext();
   return (
     <>
       {subTelegram ? (
-        <S.BoostsContainer>
-          {/* <Boost />
-          <Boost />
-          <Boost />
-          <Boost />
-          <Boost />
-          <Boost />
-          <Boost />
-          <Boost /> */}
+        <S.BoostsContainer onClick ={handleOpenPopup}>
+          {boosts.map((boost) => (
+            <Boost onClick={() => onClick(boost)} boost={boost} />
+          ))}
         </S.BoostsContainer>
       ) : (
         <S.BlockContainer>

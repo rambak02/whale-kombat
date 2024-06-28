@@ -31,8 +31,8 @@ export interface PopupProviderProps {
 
 export interface Boost {
   name: string;
-  avatar: string;
-  profit: number;
+  image: string;
+  profit_per_hour: number;
   level: number;
   cost: number;
   id: string;

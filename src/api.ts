@@ -59,3 +59,33 @@ export const postMiningTaps = async (
     console.error("Error ыtaps:", error);
   }
 };
+
+export async function getMiningOffers(type: string) {
+  try {
+    const response = await fetch(`mining/offers/${type}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const postMiningPurchase = async ( 
+  offer_id: number, 
+  level: number
+) => {
+  try {
+    const response = await fetch("mining/purchase", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ offer_id, level }),
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+};
