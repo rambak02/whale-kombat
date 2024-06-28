@@ -24,7 +24,7 @@ export const MinePage: React.FC = () => {
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
-  const [currentPopMine, setCurrentPopBoost] = useState<Boost| null>(null);
+  const [currentPopMine, setCurrentPopMine] = useState<Boost| null>(null);
 
   const { user } = useUserContext();
   return (
@@ -66,16 +66,16 @@ export const MinePage: React.FC = () => {
           </S.ComboCard>
         </S.ComboCardBlock>
         <NavMine setStatus={setStatus} />
-        {status === STATUS_MARKET && <Market onClick={setCurrentPopBoost} handleOpenPopup={() => handleOpenPopup("boost")} />}
+        {status === STATUS_MARKET && <Market onClick={setCurrentPopMine} handleOpenPopup={() => handleOpenPopup("mine")} />}
         {status === STATUS_PRTEAM && <PRTeam 
-        onClick={setCurrentPopBoost} 
-        handleOpenPopup={() => handleOpenPopup("boost")} />}
+        onClick={setCurrentPopMine} 
+        handleOpenPopup={() => handleOpenPopup("mine")} />}
         {status === STATUS_LEGAL && <Legal 
-        onClick={setCurrentPopBoost}
-        handleOpenPopup={() => handleOpenPopup("boost")}/>}
+        onClick={setCurrentPopMine}
+        handleOpenPopup={() => handleOpenPopup("mine")}/>}
         {status === STATUS_SPECIALS && <Specials 
-        onClick={setCurrentPopBoost}
-        handleOpenPopup={() => handleOpenPopup("boost")} />}
+        onClick={setCurrentPopMine}
+        handleOpenPopup={() => handleOpenPopup("mine")} />}
         <Clicker />
         <BottomNav />
       </S.Content>

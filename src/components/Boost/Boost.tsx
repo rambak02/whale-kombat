@@ -1,7 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
 import * as S from "./Boost.styled";
 type BoostProps = {
-  onClick: Dispatch<SetStateAction<null>>;
+  onClick: ()=> void;
   boost: Boost;
 };
 
@@ -15,7 +14,7 @@ type Boost = {
 };
 export const Boost = ({ boost, onClick }: BoostProps) => {
   return (
-    <S.BoostContainer id={boost.id} onClick={() => onClick}>
+    <S.BoostContainer id={boost.id} onClick={onClick}>
       <S.Content>
         <S.Logo src={boost.image} alt="img" />
         <S.Profit>

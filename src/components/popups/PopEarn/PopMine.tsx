@@ -29,7 +29,7 @@ export const PopMine = ({ boost }: PopEarnProps) => {
               <S.Title>{boost.name}</S.Title>
               <S.RewardBlock>
                 <S.RewardImg src="../../..//Vector.svg" />
-                <S.Reward>{boost.profit_per_hour}</S.Reward>
+                <S.Reward>+{Number(boost.profit_per_hour) + 1 + " в час"} </S.Reward>
               </S.RewardBlock>
             </S.Text>
           </S.Content>
@@ -40,5 +40,4 @@ export const PopMine = ({ boost }: PopEarnProps) => {
       </S.PopupBackground>
     );
   }
- 
 };

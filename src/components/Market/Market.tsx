@@ -23,7 +23,9 @@ export const Market = ({handleOpenPopup, onClick}:MarketProps,) => {
   return (
     <S.BoostsContainer onClick = {handleOpenPopup}>
       {boosts.map((boost) => (
-        <Boost onClick = {()=> onClick(boost)}
+        <Boost 
+        key={boost.id}
+        onClick = {()=> onClick(boost)}
          boost={boost}
         />
       ))}

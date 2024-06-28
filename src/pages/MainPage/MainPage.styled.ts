@@ -51,7 +51,10 @@ export const UserBlock = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-export const UserImg = styled(Img)<ImgProps>``;
+export const UserImg = styled(Img)<ImgProps>`
+width: 45px;
+height: 45px;
+`;
 export const Username = styled.div`
   font-family: "Roboto";
   font-size: 20px;
