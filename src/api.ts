@@ -71,7 +71,7 @@ export async function getMiningOffers(type: string) {
 }
 
 export const postMiningPurchase = async ( 
-  offer_id: number, 
+  offer_id: string, 
   level: number
 ) => {
   try {

@@ -1,24 +1,40 @@
+ import { postMiningPurchase } from "../../../api";
+import { useBoostsContext } from "../../../context/hooks/useBoosts";
 import { usePopupContext } from "../../../context/hooks/usePopup";
+import { BoostsContext } from "../../../interfaces/interface";
 import * as S from "./PopMine.styled";
 import { Img } from "react-image";
 
 type PopEarnProps = {
-  boost: Boost | null ;
-}
+  boost: Boost | null;
+};
 
 type Boost = {
-name: string,
-image: string,
-profit_per_hour: number,
-level: number,
-cost: number,
-}
+  id: string;
+  name: string;
+  image: string;
+  profit_per_hour: number;
+  level: number;
+  cost: number;
+};
 
 export const PopMine = ({ boost }: PopEarnProps) => {
   const { handleClosePopup } = usePopupContext();
-  if (boost ) {
+  const { boosts, setBoosts }: BoostsContext = useBoostsContext();
+  const handleBuyMine = () => {
+    if (boost) {
+      postMiningPurchase(boost.id, boost.level).then((updatedBoost) => {
+        const updatedBoosts = boosts.map((b) =>
+          b.id === updatedBoost.id ? updatedBoost : b
+        );
+        setBoosts(updatedBoosts);
+        handleClosePopup();
+      });
+    }
+  };
+  if (boost) {
     return (
-      <S.PopupBackground >
+      <S.PopupBackground>
         <S.ModalOverlay id="boostModal">
           <S.ModalButton onClick={handleClosePopup}>
             <Img src="../../..//close.svg" />
@@ -29,12 +45,14 @@ export const PopMine = ({ boost }: PopEarnProps) => {
               <S.Title>{boost.name}</S.Title>
               <S.RewardBlock>
                 <S.RewardImg src="../../..//Vector.svg" />
-                <S.Reward>+{Number(boost.profit_per_hour) + 1 + " в час"} </S.Reward>
+                <S.Reward>
+                  +{Number(boost.profit_per_hour) + 1 + " в час"}{" "}
+                </S.Reward>
               </S.RewardBlock>
             </S.Text>
           </S.Content>
           <S.ButtonCheck>
-            <S.ButtonText>Купить за {boost.cost}</S.ButtonText>
+            <S.ButtonText onClick ={()=> handleBuyMine}>Купить за {boost.cost}</S.ButtonText>
           </S.ButtonCheck>
         </S.ModalOverlay>
       </S.PopupBackground>

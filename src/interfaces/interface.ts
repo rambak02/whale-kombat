@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface NavMineTextProps {
   $focus: boolean;
@@ -39,6 +39,7 @@ export interface Boost {
 }
 export interface BoostsContext {
   boosts: Boost[];
+  setBoosts: Dispatch<SetStateAction<Boost[]>>;
 }
 
 export interface clickNumbers {
