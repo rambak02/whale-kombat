@@ -1,4 +1,4 @@
-export const companies = [
+export const initialCompanies = [
   {
     name: "Binance",
     icon: "../../..//CompanyIcon/binance.png",

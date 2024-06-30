@@ -2,9 +2,9 @@ import { CompanyProps } from "../../types/type";
 import * as S from "./Company.styled";
 import { Img } from "react-image";
 
-export const Company = ({ title, image, selected }: CompanyProps) => {
+export const Company = ({ title, image, selected, onSelect }: CompanyProps) => {
   return (
-    <S.Container $selected={selected}>
+    <S.Container $selected={selected} onClick ={onSelect}>
       <S.TaskContent>
         <Img src={image} />
         <S.TaskInfo>

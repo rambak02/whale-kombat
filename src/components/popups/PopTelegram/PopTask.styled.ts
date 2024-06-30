@@ -95,6 +95,12 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const TaskImg = styled(Img)<ImgProps>`
+  width: 100px;
+  height: 100px;
+`;
+
 export const Title = styled.div`
   font-family: "Roboto";
   font-size: 32px;

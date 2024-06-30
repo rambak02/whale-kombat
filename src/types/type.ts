@@ -10,6 +10,7 @@ export type CompanyProps = {
   title: string;
   image: string;
   selected: boolean;
+  onSelect: () => void;
 };
 
 export type WeeklyTaskProps = {
