@@ -24,7 +24,7 @@ export async function getBoosts() {
 
 export const authUser = async (initDataUnsafe: WebAppInitData, referral_code = null) => {
   try {
-    const response = await fetch("/auth/jwt/create", {
+    const response = await fetch(baseUrl + "/auth/jwt/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

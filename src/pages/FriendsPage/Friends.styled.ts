@@ -57,6 +57,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  overflow-x: hidden;
 `;
 
 export const Header = styled.div`

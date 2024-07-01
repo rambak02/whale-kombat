@@ -60,7 +60,7 @@ export const MainPage = () => {
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src={userImg} />
-          <S.Username>{tg.initDataUnsafe?.user?.first_name}</S.Username>
+          <S.Username>{tg.initDataUnsafe?.user?.first_name + tg.initDataUnsafe?.user?.last_name}</S.Username>
         </S.UserBlock>
       </S.Header>
       <S.Content>
