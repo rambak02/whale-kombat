@@ -18,7 +18,6 @@ export const Clicker = () => {
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const { clientX, clientY} = event;
     //расчет координат относительно всей страницы
-    // const rect = currentTarget.getBoundingClientRect();
     const absoluteX = clientX + window.scrollX;
     const absoluteY = clientY + window.scrollY;
 

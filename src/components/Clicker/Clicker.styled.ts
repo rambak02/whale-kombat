@@ -2,17 +2,26 @@ import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 import { NumberProps } from "../../interfaces/interface";
 
+
 const ClickeAnimation = keyframes`
-  0% {
-    transform: scale(1);
+ 0% {
+  background: radial-gradient(
+    93.33% 93.33% at 50% 50%,
+    #7ad4df 0%,
+    #03577f 100%
+  );
   }
   50% {
-    transform: scale(0.9);
+    background: radial-gradient(93.33% 93.33% at 50% 50%, #65b2bb 0%, #03577f 100%);
   }
-  100% {
-    transform: scale(1);
-  }
-`;
+ 100% {
+  background: radial-gradient(
+    93.33% 93.33% at 50% 50%,
+    #7ad4df 0%,
+    #03577f 100%
+  );
+ }
+  `;
 
 const slideUp = keyframes`
   0% {
@@ -40,9 +49,6 @@ export const ClickerBorder = styled.div`
   margin-bottom: 5rem;
   &:hover {
   }
-  &:active {
-    animation: ${ClickeAnimation} 0.1s ease;
-  }
 `;
 
 export const ClickerBlock = styled(ClickerBorder)`
@@ -55,6 +61,9 @@ export const ClickerBlock = styled(ClickerBorder)`
   margin: 1.2rem;
   &:active {
     animation: none;
+  }
+  &:active {
+    animation: ${ClickeAnimation} 0.1s ease;
   }
 `;
 export const ClickerImg = styled(Img)<ImgProps>`
