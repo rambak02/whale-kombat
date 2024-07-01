@@ -6,8 +6,9 @@ import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { authUser } from "../../api";
 import { useUserContext } from "../../context/hooks/useUser";
-import userImg from "../../assets/whale.png"
-import coinGold from "../../assets/coinGold.png"
+import userImg from "../../assets/whale.png";
+import coinGold from "../../assets/coinGold.png";
+import { useEffect } from "react";
 declare global {
   interface Window {
     Telegram: {
@@ -40,10 +41,19 @@ export const MainPage = () => {
   const tg = window.Telegram.WebApp;
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
-  const { user } = useUserContext();
+  const { user, setUser } = useUserContext();
 
-  const initData = tg.initData;
-  authUser(initData);
+  const initDataUnsafe = tg.initDataUnsafe;
+  useEffect(() => {
+    const authenticatedUser = async () => {
+      const authenticatedUser = await authUser(initDataUnsafe);
+      if (authenticatedUser) {
+        setUser(authenticatedUser);
+      }
+    };
+
+    authenticatedUser()
+  }, [initDataUnsafe, setUser]);
 
   return (
     <S.Container>

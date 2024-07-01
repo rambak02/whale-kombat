@@ -1,4 +1,20 @@
-const baseUrl = "https://667048450900b5f8724a1148.mockapi.io/api/v1/";
+const baseUrl = "51.250.123.160/api/v1";
+
+interface WebAppUser {
+  id: number;
+  first_name: string;
+  last_name?: string;
+  username?: string;
+  language_code?: string;
+  photo_url?: string;
+}
+
+interface WebAppInitData {
+  query_id: string;
+  user: WebAppUser;
+  auth_date: number;
+  hash: string;
+}
 
 export async function getBoosts() {
   const response = await fetch(baseUrl + "boosts");
@@ -6,14 +22,14 @@ export async function getBoosts() {
   return data;
 }
 
-export const authUser = async (initData: string) => {
+export const authUser = async (initDataUnsafe: WebAppInitData, referral_code = null) => {
   try {
-    const response = await fetch("/validate-init-data", {
+    const response = await fetch("/auth/jwt/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ initData }),
+      body: JSON.stringify({ initDataUnsafe, referral_code}),
     });
 
     const result = await response.json();
