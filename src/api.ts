@@ -1,4 +1,4 @@
-const baseUrl = "51.250.123.160/api/v1";
+const baseUrl = "http://51.250.123.160/api/v1";
 
 interface WebAppUser {
   id: number;
@@ -45,7 +45,7 @@ export const authUser = async (initDataUnsafe: WebAppInitData, referral_code = n
 
 export async function getUserProfile() {
   try {
-    const response = await fetch("auth/users/me");
+    const response = await fetch(baseUrl + "auth/users/me");
     const data = await response.json();
     return data;
   } catch (error) {

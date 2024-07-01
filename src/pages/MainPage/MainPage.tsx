@@ -53,14 +53,16 @@ export const MainPage = () => {
     };
 
     authenticatedUser()
+    alert(initDataUnsafe);
   }, [initDataUnsafe, setUser]);
+
 
   return (
     <S.Container>
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src={userImg} />
-          <S.Username>{tg.initDataUnsafe?.user?.first_name + tg.initDataUnsafe?.user?.last_name}</S.Username>
+          <S.Username>{" " + tg.initDataUnsafe?.user?.first_name + "" + tg.initDataUnsafe?.user?.last_name}</S.Username>
         </S.UserBlock>
       </S.Header>
       <S.Content>
