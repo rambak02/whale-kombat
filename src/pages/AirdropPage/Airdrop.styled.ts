@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { Img, ImgProps } from "react-image";
+import checkCircleDone from "../../assets/check-circle-filled-done.png";
 
 const slideDown = keyframes`
   0% {
@@ -89,7 +90,7 @@ export const Task = styled.li`
     width: 24px;
     height: 24px;
     background: #4caf50;
-    background-image: url("../../..//check-circle-filled-done.png");
+    background-image: url(${checkCircleDone});
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center;

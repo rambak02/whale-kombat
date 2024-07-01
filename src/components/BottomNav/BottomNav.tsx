@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import * as S from "./BottomNav.styled";
 import { constRoutes } from "../../paths";
 import { useSelectedPage } from "../../context/hooks/useSelectedPage";
-
+import bybitImg from "../../assets/bybit.png";
+import whaleImg from "../../assets/whale.png";
 export const BottomNav = () => {
- const {selectedIndex, setSelectedIndex} = useSelectedPage();
+  const { selectedIndex, setSelectedIndex } = useSelectedPage();
   const navItems = [
     {
       route: constRoutes.HOME,
-      iconSvg: <img src="../../..//bybit.png" />,
-      text: "Exchange",
+      iconSvg: <img src={bybitImg} />,
+      text: "Ocean hub",
       textComponent: S.NavTextBybit,
     },
     {
@@ -39,7 +40,7 @@ export const BottomNav = () => {
       ),
 
       iconSelectedSrc: "",
-      text: "Mine",
+      text: "Dive",
       textComponent: S.NavText,
     },
     {
@@ -48,7 +49,7 @@ export const BottomNav = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="25"
-          height="20"
+          height="23"
           viewBox="0 0 25 20"
           fill="none"
         >
@@ -70,7 +71,7 @@ export const BottomNav = () => {
           </defs>
         </svg>
       ),
-      text: "Friends",
+      text: "Reef",
       textComponent: S.NavText,
     },
     {
@@ -89,12 +90,12 @@ export const BottomNav = () => {
           />
         </svg>
       ),
-      text: "Earn",
+      text: "Quests",
       textComponent: S.NavText,
     },
     {
       route: constRoutes.AIRDROP,
-      iconSvg: <img src="../../..//whale.png" height={24} width={25} />,
+      iconSvg: <img src={whaleImg} height={24} width={25} />,
       text: "Airdrop",
       textComponent: S.NavText,
     },

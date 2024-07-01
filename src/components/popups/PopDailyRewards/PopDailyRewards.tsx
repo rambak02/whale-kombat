@@ -3,6 +3,8 @@ import * as S from "./PopDailyReward.styled";
 import { dailyRewards } from "../../../utils/dailyRewards";
 import { DayReward } from "./DayReward/DayReward";
 import { Img } from "react-image";
+import closeImg from "../../../assets/close.svg"
+import dailyRewardIcon from "../../../assets/dailyRewardIcon.png"
 
 export const PopDailyReward = () => {
   const { handleClosePopup } = usePopupContext();
@@ -10,11 +12,11 @@ export const PopDailyReward = () => {
     <S.PopupBackground>
       <S.ModalOverlay id="boostModal">
         <S.ModalButton onClick={handleClosePopup}>
-          <Img src="../../..//close.svg" />
+          <Img src={closeImg} />
         </S.ModalButton>
 
         <S.Content>
-          <S.DailyRewardImg src="../../..//dailyRewardIcon.png" />
+          <S.DailyRewardImg src={dailyRewardIcon} />
           <S.Text>
             <S.Title>Ежедневная награда</S.Title>
             <S.Description>

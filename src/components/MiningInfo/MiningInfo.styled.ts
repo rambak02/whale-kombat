@@ -1,3 +1,4 @@
+import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 
 const right = keyframes`
@@ -59,6 +60,11 @@ export const ProfitOneClickCount = styled.div`
   text-align: center;
   color: black;
 `;
+
+export const CoinImg = styled(Img)<ImgProps>`
+width: 25px;
+height: 25px;
+`
 
 export const CoinsUpTitle = styled(ProfitOneClickTitle)``;
 export const CoinsUpCount = styled(ProfitOneClickCount)``;

@@ -74,12 +74,8 @@ export const Balance = styled.div`
   }
 `;
 export const BalanceIcon = styled(Img)<ImgProps>`
-  width: 59px;
-  height: 59px;
-  @media (min-height: 931px) {
-    width: 65px;
-    height: 65px;
-  }
+  width: 80px;
+  height: 80px;
 `;
 
 export const ComboBlock = styled.div`

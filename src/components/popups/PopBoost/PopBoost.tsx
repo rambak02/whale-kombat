@@ -3,6 +3,9 @@ import { usePopupContext } from "../../../context/hooks/usePopup";
 import { constRoutes } from "../../../paths";
 import * as S from "./PopBoost.styled";
 import { Img } from "react-image";
+import closeImg from "../../../assets/close.svg"
+import rocketImg from "../../../assets/rocket.png"
+import coinGold from "../../../assets/coinGold.png"
 
 export const PopBoost = () => {
   const { handleClosePopup } = usePopupContext();
@@ -10,11 +13,11 @@ export const PopBoost = () => {
     <S.PopupBackground>
       <S.ModalOverlay id="boostModal">
         <S.ModalButton onClick={handleClosePopup}>
-          <Img src="../../..//close.svg" />
+          <Img src={closeImg} />
         </S.ModalButton>
         <S.Main>
           <S.Content>
-            <Img src="../../..//rocket.png" />
+            <Img src={rocketImg} />
             <S.Text>
               <S.Title>Увеличьте вашу прибыль</S.Title>
               <S.Description>
@@ -28,9 +31,9 @@ export const PopBoost = () => {
           </S.Content>
         </S.Main>
         <Link to={constRoutes.BOOST}>
-          <S.ButtonStartMine>
+          <S.ButtonStartMine  onClick={handleClosePopup}>
             <S.ButtonText>Начать добычу</S.ButtonText>
-            <Img src="../../..//Vector.svg" alt="" />
+            <S.CoinImg src={coinGold} alt="" />
           </S.ButtonStartMine>
         </Link>
       </S.ModalOverlay>

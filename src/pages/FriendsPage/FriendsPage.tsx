@@ -4,6 +4,12 @@ import { Gift } from "../../components/Gift/Gift";
 import { constRoutes } from "../../paths";
 import * as S from "./Friends.styled";
 import { Img } from "react-image";
+import refreshIcon from "../../assets/mynaui_refresh.svg";
+import iconFriend from "../../assets/iconFriends.png";
+import coinGold from "../../assets/coinGold.png";
+import inviteFriend from "../../assets/mage_user-plus.png";
+import copyLink from "../../assets/fluent_copy-20-regular.svg"
+
 
 export const FriendsPage = () => {
   return (
@@ -22,23 +28,23 @@ export const FriendsPage = () => {
       <S.FriendsContainer>
         <S.FriendsListHeader>
           <S.FriendsListTitle>Список ваших друзей</S.FriendsListTitle>
-          <S.FriendsListRefresh src="../../..//mynaui_refresh.svg" />
+          <S.FriendsListRefresh src={refreshIcon} />
         </S.FriendsListHeader>
         <Link to={constRoutes.FRIENDSPROGRESS}>
           <S.Friends>
             <S.FriendBlock>
-              <Img src="../../..//iconFriends.png" />
+              <S.FriendImg src={iconFriend} />
               <S.FriendInfo>
                 <S.FriendName>Name</S.FriendName>
                 <S.FriendLevel>
                   <S.Level>Уровень</S.Level>
-                  <Img src="../../..//Vector.svg" />
+                  <S.CoinImg src={coinGold} />
                   <S.FriendCash>5,09K</S.FriendCash>
                 </S.FriendLevel>
               </S.FriendInfo>
             </S.FriendBlock>
             <S.FriendReward>
-              <Img src="../../..//Vector.svg" />
+              <S.CoinImg src={coinGold} />
               <div>+25K</div>
             </S.FriendReward>
           </S.Friends>
@@ -49,10 +55,10 @@ export const FriendsPage = () => {
           <S.InviteFriendContentText>
             Пригласите друга
           </S.InviteFriendContentText>
-          <Img src="../../..//mage_user-plus.png" />
+          <Img src={inviteFriend} />
         </S.InviteFriendContent>
         <S.CopyLink>
-          <Img src="../../..//fluent_copy-20-regular.svg" />
+          <Img src={copyLink} />
         </S.CopyLink>
       </S.InviteFriend>
       <BottomNav />

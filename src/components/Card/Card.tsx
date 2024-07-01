@@ -1,7 +1,8 @@
 import * as S from "./Card.styled";
+import coinGold from "../../assets/coinGold.png";
 
 type CardProps = {
-  onClick: () => void,
+  onClick: () => void;
   boost: Boost;
 };
 
@@ -17,7 +18,7 @@ type Boost = {
 export const Card = ({ onClick, boost }: CardProps) => {
   return (
     <S.Card onClick={onClick}>
-      <S.CardImg src="../../..//random.png" />
+      <S.CardImg src={coinGold} />
       <div>
         <S.CardTitle>{boost.name}</S.CardTitle>
         <S.Description>Описание</S.Description>
@@ -25,7 +26,7 @@ export const Card = ({ onClick, boost }: CardProps) => {
           <S.ProfitInf>
             <S.ProfitText>Прибыль в час</S.ProfitText>
             <S.ProfitIcon>
-              <S.CoinIcon src="../../..//Vector.svg" />
+              <S.CoinIcon src={coinGold} />
               <S.ProfitCount>+40</S.ProfitCount>
             </S.ProfitIcon>
           </S.ProfitInf>
@@ -34,7 +35,7 @@ export const Card = ({ onClick, boost }: CardProps) => {
       <S.LevelContainer>
         <S.Level>lvl 0</S.Level>
         <S.LevelCost>
-          <S.CoinIconCost src="../../..//Vector.svg" />
+          <S.CoinIconCost src={coinGold} />
           <S.Cost>250</S.Cost>
         </S.LevelCost>
       </S.LevelContainer>

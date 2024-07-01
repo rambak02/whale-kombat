@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction } from "react";
 import { useBoostsContext } from "../../context/hooks/useBoosts";
 import { BoostsContext } from "../../interfaces/interface";
 import { Boost } from "../Boost/Boost";
+import phCoinsWhite from "../../assets/ph_coins-fill-white.png"
 
 type Boost = {
   id: string;
@@ -28,14 +29,14 @@ export const PRTeam = ({ handleOpenPopup, onClick }: PRTeamProps) => {
   return (
     <>
       {subTelegram ? (
-        <S.BoostsContainer onClick ={handleOpenPopup}>
+        <S.BoostsContainer onClick={handleOpenPopup}>
           {boosts.map((boost) => (
             <Boost onClick={() => onClick(boost)} boost={boost} />
           ))}
         </S.BoostsContainer>
       ) : (
         <S.BlockContainer>
-          <Img src="../../..//ph_coins-fill-white.png" />
+          <Img src={phCoinsWhite} />
           <S.BlockText>
             Присоединяйтесь к нашему каналу в Telegram, чтобы разброкировать
           </S.BlockText>

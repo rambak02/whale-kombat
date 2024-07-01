@@ -2,13 +2,12 @@ import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
-import { constRoutes } from "../../paths";
-import { Link } from "react-router-dom";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { authUser } from "../../api";
 import { useUserContext } from "../../context/hooks/useUser";
-
+import userImg from "../../assets/whale.png"
+import coinGold from "../../assets/coinGold.png"
 declare global {
   interface Window {
     Telegram: {
@@ -41,7 +40,7 @@ export const MainPage = () => {
   const tg = window.Telegram.WebApp;
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
-  const { user } = useUserContext()
+  const { user } = useUserContext();
 
   const initData = tg.initData;
   authUser(initData);
@@ -50,23 +49,14 @@ export const MainPage = () => {
     <S.Container>
       <S.Header>
         <S.UserBlock>
-          <S.UserImg alt="user" src="../../../public/whale.png" />
-          <S.Username>
-            {tg.initDataUnsafe?.user?.first_name}
-          </S.Username>
+          <S.UserImg alt="user" src={userImg} />
+          <S.Username>{tg.initDataUnsafe?.user?.first_name}</S.Username>
         </S.UserBlock>
-
-        <Link to={constRoutes.CRYPTOCOMPANIES}>
-          <S.BybitBlock>
-            <S.BybitImg src="../../..//Bybit.svg" alt="bybit" />
-            <S.BybitText>Bybit</S.BybitText>
-          </S.BybitBlock>
-        </Link>
       </S.Header>
       <S.Content>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
-          <S.BalanceIcon src="../../..//Vector.svg"></S.BalanceIcon>
+          <S.BalanceIcon src={coinGold}></S.BalanceIcon>
           <S.Balance> {user?.coins}</S.Balance>
         </S.BalanceBlock>
         <S.ProgressBarBlock>

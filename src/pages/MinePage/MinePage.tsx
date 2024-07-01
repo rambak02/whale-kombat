@@ -11,8 +11,9 @@ import { Specials } from "../../components/Specials/Specials";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { useUserContext } from "../../context/hooks/useUser";
-import { PopMine } from "../../components/popups/PopEarn/PopMine";
+import { PopMine } from "../../components/popups/PopMine/PopMine";
 import { Boost } from "../../interfaces/interface";
+import coinGold from "../../assets/coinGold.png"
 
 export const MinePage: React.FC = () => {
   const STATUS_MARKET = "Markets";
@@ -23,7 +24,7 @@ export const MinePage: React.FC = () => {
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
-  const [currentPopMine, setCurrentPopMine] = useState<Boost| null>(null);
+  const [currentPopMine, setCurrentPopMine] = useState<Boost | null>(null);
 
   const { user } = useUserContext();
   return (
@@ -31,25 +32,41 @@ export const MinePage: React.FC = () => {
       <S.Content>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
-          <S.BalanceIcon src="../../..//Vector.svg"></S.BalanceIcon>
+          <S.BalanceIcon src={coinGold}></S.BalanceIcon>
           <S.Balance>{user?.coins}</S.Balance>
         </S.BalanceBlock>
         <NavMine setStatus={setStatus} />
-        {status === STATUS_MARKET && <Market onClick={setCurrentPopMine} handleOpenPopup={() => handleOpenPopup("mine")} />}
-        {status === STATUS_PRTEAM && <PRTeam 
-        onClick={setCurrentPopMine} 
-        handleOpenPopup={() => handleOpenPopup("mine")} />}
-        {status === STATUS_LEGAL && <Legal 
-        onClick={setCurrentPopMine}
-        handleOpenPopup={() => handleOpenPopup("mine")}/>}
-        {status === STATUS_SPECIALS && <Specials 
-        onClick={setCurrentPopMine}
-        handleOpenPopup={() => handleOpenPopup("mine")} />}
+        {status === STATUS_MARKET && (
+          <Market
+            onClick={setCurrentPopMine}
+            handleOpenPopup={() => handleOpenPopup("mine")}
+          />
+        )}
+        {status === STATUS_PRTEAM && (
+          <PRTeam
+            onClick={setCurrentPopMine}
+            handleOpenPopup={() => handleOpenPopup("mine")}
+          />
+        )}
+        {status === STATUS_LEGAL && (
+          <Legal
+            onClick={setCurrentPopMine}
+            handleOpenPopup={() => handleOpenPopup("mine")}
+          />
+        )}
+        {status === STATUS_SPECIALS && (
+          <Specials
+            onClick={setCurrentPopMine}
+            handleOpenPopup={() => handleOpenPopup("mine")}
+          />
+        )}
         <Clicker />
         <BottomNav />
       </S.Content>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}
-      {isPopupOpen && currentPopup === "mine" && <PopMine boost={currentPopMine} />}
+      {isPopupOpen && currentPopup === "mine" && (
+        <PopMine boost={currentPopMine} />
+      )}
     </S.Container>
   );
 };

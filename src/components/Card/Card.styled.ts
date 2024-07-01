@@ -70,7 +70,6 @@ export const ProfitCount = styled.div`
 `;
 
 export const CoinIcon = styled(Img)<ImgProps>`
-  background-color: #ffeb3b;
   border-radius: 50%;
   width: 20px;
   height: 20px;

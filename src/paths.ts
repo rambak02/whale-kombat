@@ -5,7 +5,6 @@ export const constRoutes = {
     FRIENDSPROGRESS: "/friends/progress",
     EARN: "/earn",
     AIRDROP: "/airdrop",
-    CRYPTOCOMPANIES: "/companies",
     BOOST: "/boost"
    }
    

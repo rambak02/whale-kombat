@@ -4,6 +4,7 @@ import { clickNumbers } from "../../interfaces/interface";
 import { postMiningTaps } from "../../api";
 import { throttle } from "lodash";
 import { useUserContext } from "../../context/hooks/useUser";
+import clickerImg from "../../assets/whale.png";
 
 export const Clicker = () => {
   //цифры появляющиеся при клике
@@ -15,11 +16,11 @@ export const Clicker = () => {
 
   //элемент появляется в том месте, где был совершен клик
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const { clientX, clientY } = event;
+    const { clientX, clientY} = event;
     //расчет координат относительно всей страницы
-    const rect = document.body.getBoundingClientRect();
-    const absoluteX = clientX + rect.left;
-    const absoluteY = clientY + rect.top;
+    // const rect = currentTarget.getBoundingClientRect();
+    const absoluteX = clientX + window.scrollX;
+    const absoluteY = clientY + window.scrollY;
 
     const newClick = {
       id: Date.now(),
@@ -62,12 +63,9 @@ export const Clicker = () => {
   }, [throttledPostMiningTaps]);
   return (
     <>
-      <S.ClickerBorder>
+      <S.ClickerBorder onClick={handleClick}>
         <S.ClickerBlock>
-          <S.ClickerImg
-            src="../../..../../..//whale.png"
-            onClick={handleClick}
-          />
+          <S.ClickerImg src={clickerImg} />
           {clickNumbers.map((click) => (
             <S.Number key={click.id} $left={click.x} $top={click.y}>
               +1

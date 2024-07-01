@@ -1,6 +1,7 @@
 import * as S from "./Boost.styled";
+import coinGold from "../../assets/coinGold.png"
 type BoostProps = {
-  onClick: ()=> void;
+  onClick: () => void;
   boost: Boost;
 };
 
@@ -22,7 +23,7 @@ export const Boost = ({ boost, onClick }: BoostProps) => {
           <S.ProfitInf>
             <S.ProfitText>Прибыль в час</S.ProfitText>
             <S.ProfitIcon>
-              <S.CoinIcon src="../../..//Vector.svg" />
+              <S.CoinIcon src={coinGold} />
               <S.ProfitCount>+{boost.profit_per_hour} в час</S.ProfitCount>
             </S.ProfitIcon>
           </S.ProfitInf>
@@ -31,7 +32,7 @@ export const Boost = ({ boost, onClick }: BoostProps) => {
       <S.LevelContainer>
         <S.Level>lvl {boost.level}</S.Level>
         <S.LevelCost>
-          <S.CoinIconCost src="../../..//Vector.svg" />
+          <S.CoinIconCost src={coinGold} />
           <S.Cost>{boost.cost}</S.Cost>
         </S.LevelCost>
       </S.LevelContainer>

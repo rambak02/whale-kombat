@@ -186,6 +186,15 @@ export const FriendName = styled.div`
   line-height: 12px;
   text-align: left;
 `;
+
+export const FriendImg = styled(Img)`
+
+`
+export const CoinImg  = styled(Img)`
+width: 22px;
+height: 22px;
+`
+
 export const InviteFriend = styled.div`
   width: 93%;
   height: 64px;

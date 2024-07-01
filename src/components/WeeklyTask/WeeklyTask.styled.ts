@@ -71,6 +71,11 @@ export const TaskImg = styled(Img)<ImgProps>`
   animation: ${appearanceAnimation} 0.3s;
 `;
 
+export const CoinImg = styled(Img)<ImgProps>`
+width: 21px;
+height: 21px;
+`
+
 export const DoneImg = styled(Img)<ImgProps>`
  width: 33px;
  height: 32px;

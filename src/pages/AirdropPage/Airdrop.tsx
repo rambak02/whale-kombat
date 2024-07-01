@@ -1,10 +1,11 @@
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import * as S from "./Airdrop.styled";
+import coinGold from "../../assets/coinGold.png"
 
 export const AirdropPage = () => {
   return (
     <S.Container>
-      <S.CoinImg src="../../..//coinairdrop.png" />
+      <S.CoinImg src={coinGold} />
       <S.Title>Приготовьтесь, Airdrop уже скоро!</S.Title>
       <S.TaskList>
         <S.Task className="completed">Переговоры с биржами</S.Task>

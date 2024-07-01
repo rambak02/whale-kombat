@@ -1,5 +1,6 @@
 import * as S from "./MiningInfo.styled";
-import { Img } from "react-image";
+import coinGold from "../../assets/coinGold.png"
+import icon from "../../assets/icons.svg"
 
 interface MiningInfoProps {
   onClick: () => void;
@@ -11,7 +12,7 @@ export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
       <S.MiningInfoContainer>
         <S.ProfitOneClickTitle>Прибыль за тап</S.ProfitOneClickTitle>
         <S.ProfitOneClickContent>
-          <Img src="../../..//Vector.svg"></Img>
+          <S.CoinImg src={coinGold}></S.CoinImg>
           <S.ProfitOneClickCount>+2</S.ProfitOneClickCount>
         </S.ProfitOneClickContent>
       </S.MiningInfoContainer>
@@ -22,9 +23,13 @@ export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
       <S.MiningInfoContainer>
         <S.ProfitPerHourTitle>Прибыль в час</S.ProfitPerHourTitle>
         <S.ProfitPerHourContent>
-          <Img src="../../..//Vector.svg" />
+          <S.CoinImg src={coinGold} />
           <S.ProfitOneClickCount>+128,35K</S.ProfitOneClickCount>
-          <Img id="popBoost" src="../../..//icons.svg" onClick={onClick} />
+          <S.CoinImg
+            id="popBoost"
+            src={icon}
+            onClick={onClick}
+          />
         </S.ProfitPerHourContent>
       </S.MiningInfoContainer>
     </S.MiningInfoBlock>

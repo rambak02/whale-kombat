@@ -1,3 +1,4 @@
+import { Img } from "react-image";
 import styled, { keyframes } from "styled-components";
 
 const slideIn = keyframes`
@@ -113,3 +114,8 @@ export const ButtonText = styled.div`
   line-height: 21px;
   text-align: center;
 `;
+
+export const CoinImg = styled(Img)`
+width: 45px;
+height: 45px;
+`

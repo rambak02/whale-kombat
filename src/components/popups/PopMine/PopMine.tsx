@@ -1,9 +1,11 @@
- import { postMiningPurchase } from "../../../api";
+import { postMiningPurchase } from "../../../api";
 import { useBoostsContext } from "../../../context/hooks/useBoosts";
 import { usePopupContext } from "../../../context/hooks/usePopup";
-import { BoostsContext } from "../../../interfaces/interface";
 import * as S from "./PopMine.styled";
 import { Img } from "react-image";
+import { BoostsContext } from "../../../interfaces/interface";
+import closeImg from "../../../assets/close.svg";
+import coinGold from "../../../assets/coinGold.png"
 
 type PopEarnProps = {
   boost: Boost | null;
@@ -37,14 +39,14 @@ export const PopMine = ({ boost }: PopEarnProps) => {
       <S.PopupBackground>
         <S.ModalOverlay id="boostModal">
           <S.ModalButton onClick={handleClosePopup}>
-            <Img src="../../..//close.svg" />
+            <Img src={closeImg}/>
           </S.ModalButton>
           <S.Content>
             <Img src={boost.image} />
             <S.Text>
               <S.Title>{boost.name}</S.Title>
               <S.RewardBlock>
-                <S.RewardImg src="../../..//Vector.svg" />
+                <S.RewardImg src={coinGold} />
                 <S.Reward>
                   +{Number(boost.profit_per_hour) + 1 + " в час"}{" "}
                 </S.Reward>
@@ -52,7 +54,10 @@ export const PopMine = ({ boost }: PopEarnProps) => {
             </S.Text>
           </S.Content>
           <S.ButtonCheck>
-            <S.ButtonText onClick ={()=> handleBuyMine}>Купить за {boost.cost}</S.ButtonText>
+            <S.ButtonText onClick={() => handleBuyMine}>
+              Купить за {boost.cost}
+            </S.ButtonText>
+            <S.RewardImg src={coinGold} />
           </S.ButtonCheck>
         </S.ModalOverlay>
       </S.PopupBackground>
