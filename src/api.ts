@@ -18,11 +18,9 @@ export const authUser = async (initData: string) => {
 
     const result = await response.json();
     if (response.ok) {
-      if (result.isValid) {
-        return result;
-      } else {
-        throw new Error("Неправильные данные юзера");
-      }
+      return result;
+    } else {
+      throw new Error("Неправильные данные юзера");
     }
   } catch (error) {
     console.error(error);
@@ -70,10 +68,7 @@ export async function getMiningOffers(type: string) {
   }
 }
 
-export const postMiningPurchase = async ( 
-  offer_id: string, 
-  level: number
-) => {
+export const postMiningPurchase = async (offer_id: string, level: number) => {
   try {
     const response = await fetch("mining/purchase", {
       method: "POST",
