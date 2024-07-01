@@ -1,6 +1,10 @@
+/** Не хранить все в одном файле. Не имеет особого смысла разделять интерфейсы и типы.
+ *  Обсудим устно.
+ */
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface NavMineTextProps {
+  /** $? */
   $focus: boolean;
 }
 

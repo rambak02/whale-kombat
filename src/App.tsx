@@ -6,6 +6,7 @@ function App() {
   const tg = window.Telegram.WebApp;
 
   useEffect(() => {
+    /** Рекомендованная практика? Обсудим устно */
     tg.ready();
   });
 

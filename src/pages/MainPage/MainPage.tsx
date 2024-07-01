@@ -9,6 +9,9 @@ import { usePopupContext } from "../../context/hooks/usePopup";
 import { authUser } from "../../api";
 import { useUserContext } from "../../context/hooks/useUser";
 
+/** Исключить. Взамен предлагаю использовать типы, описанные в готовом пакете.
+ *  Например https://www.npmjs.com/package/@types/telegram-web-app
+ */
 declare global {
   interface Window {
     Telegram: {
@@ -46,6 +49,11 @@ export const MainPage = () => {
   const initData = tg.initData;
   authUser(initData);
 
+  /** Header и Content вынести в отдельные компоненты. */
+  /**  + вся консоль красная, обсудим устно.
+   *   + вместо {">"} используй &gt;
+   *   + также завтра будет пара вопросов по Popup
+   */
   return (
     <S.Container>
       <S.Header>
@@ -71,7 +79,7 @@ export const MainPage = () => {
         </S.BalanceBlock>
         <S.ProgressBarBlock>
           <S.LevelBlock>
-            <S.LevelTitle>Название уровня {">"}</S.LevelTitle>
+            <S.LevelTitle>Название уровня &gt;</S.LevelTitle>
             <S.Level>
               Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
             </S.Level>

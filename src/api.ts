@@ -1,5 +1,11 @@
+/** В дальнейшем разобьем на разные файлы по назначению. Не стоит пихать все апи в один файл.
+ *  + рассмотрим вариант выполнения запросов с помощью axios.
+ *  Пока имеется вопрос по обработке ошибок, обсудим потом устно. 
+ */
+
 const baseUrl = "https://667048450900b5f8724a1148.mockapi.io/api/v1/";
 
+/** Здесь и далее указать тип, возвращаемый функцией */
 export async function getBoosts() {
   const response = await fetch(baseUrl + "boosts");
   const data = await response.json();
@@ -17,6 +23,7 @@ export const authUser = async (initData: string) => {
     });
 
     const result = await response.json();
+
     if (response.ok) {
       if (result.isValid) {
         return result;
@@ -29,6 +36,7 @@ export const authUser = async (initData: string) => {
   }
 };
 
+/** Для единообразия используй один способ объявления функций (стрелочный / декларативный) */
 export async function getUserProfile() {
   try {
     const response = await fetch("auth/users/me");
@@ -70,8 +78,8 @@ export async function getMiningOffers(type: string) {
   }
 }
 
-export const postMiningPurchase = async ( 
-  offer_id: string, 
+export const postMiningPurchase = async (
+  offer_id: string,
   level: number
 ) => {
   try {
