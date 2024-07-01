@@ -51,9 +51,7 @@ export const MainPage = () => {
         setUser(authenticatedUser);
       }
     };
-
     authenticatedUser()
-    alert(initDataUnsafe);
   }, [initDataUnsafe, setUser]);
 
 
