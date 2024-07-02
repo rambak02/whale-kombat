@@ -22,24 +22,22 @@ export async function getBoosts() {
   return data;
 }
 
-export const authUser = async (initDataUnsafe: WebAppInitData, referral_code = null) => {
-  try {
-    const response = await fetch(baseUrl + "/auth/jwt/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ initDataUnsafe, referral_code}),
-    });
-
-    const result = await response.json();
-    if (response.ok) {
-      return result;
-    } else {
-      throw new Error("Неправильные данные юзера");
-    }
-  } catch (error) {
-    console.error(error);
+export const authUser = async (
+  initDataUnsafe: WebAppInitData,
+  referral_code: string | null = null
+) => {
+  const response = await fetch(baseUrl + "/auth/jwt/create", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ initDataUnsafe, referral_code }),
+  });
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error);
+  } else if (response.status === 201) {
+    return response.json();
   }
 };
 
