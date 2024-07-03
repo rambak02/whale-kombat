@@ -1,5 +1,5 @@
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
-import { getUserProfile } from "../api";
+import { authUser, getUser } from "../api";
 
 export interface User {
   id: string;
@@ -20,7 +20,7 @@ export interface User {
 interface UserContextProps {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  updateCoins: (coins: number) => void; 
+  updateCoins: (coins: number) => void;
 }
 interface UserProviderProps {
   children: ReactNode;
@@ -30,7 +30,6 @@ export const UserContext = createContext<UserContextProps | null>(null);
 
 export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-
   const updateCoins = (coins: number) => {
     if (user) {
       setUser({
@@ -43,10 +42,14 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const userData = await getUserProfile();
+        const tg = window.Telegram.WebApp;
+        const initDataUnsafe = tg.initDataUnsafe;
+        const authResponse = await authUser(initDataUnsafe);
+        const token = authResponse.initdataunsafe.token;
+        const userData = await getUser({ token });
         setUser(userData);
       } catch (error) {
-        console.error("Error fetching user profile:", error);
+        console.error("Error user profile:", error);
       }
     };
 
