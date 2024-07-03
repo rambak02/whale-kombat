@@ -13,13 +13,13 @@ export const MainPage = () => {
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
   const { user } = useUserContext();
- alert(tg.initDataUnsafe);
+ alert(`${tg.initDataUnsafe}`);
   return (
     <S.Container>
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src={userImg} />
-          <S.Username>{" " + tg.initDataUnsafe}</S.Username>
+          <S.Username>{" " + tg.initDataUnsafe.user?.first_name}</S.Username>
         </S.UserBlock>
       </S.Header>
       <S.Content>
