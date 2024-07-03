@@ -13,7 +13,7 @@ export const MainPage = () => {
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
   const { user } = useUserContext();
- alert(JSON.stringify(tg.initData));
+ alert(JSON.stringify(tg.initDataUnsafe));
   return (
     <S.Container>
       <S.Header>
