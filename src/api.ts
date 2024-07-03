@@ -24,7 +24,7 @@ export const authUser = async (
   }
 };
 
-export async function getUser({ token }) {
+export async function getUser() {
   try {
     const response = await fetch( "/api/v1/auth/users/me", {
       method: "GET",
@@ -63,9 +63,6 @@ export const postMiningTaps = async (
 export async function getMiningOffers(type: string) {
   try {
     const response = await fetch(`/api/v1/mining/offers/${type}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
     const data = await response.json();
     return data;
