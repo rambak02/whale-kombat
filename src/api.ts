@@ -1,8 +1,5 @@
-
-
 const baseUrl = "http://51.250.123.160:8000/api/v1";
-
-
+const token = "650677a5fe3ed9084cde388f5e4828862580c19d";
 
 export async function getBoosts() {
   const response = await fetch(baseUrl + "boosts");
@@ -11,7 +8,7 @@ export async function getBoosts() {
 }
 
 export const authUser = async (
-  initDataUnsafe : WebAppInitData,
+  initDataUnsafe: WebAppInitData,
   referral_code = null
 ) => {
   const response = await fetch(baseUrl + "/auth/jwt/create", {
@@ -29,9 +26,14 @@ export const authUser = async (
   }
 };
 
-export async function getUserProfile() {
+export async function getUser({ token }) {
   try {
-    const response = await fetch(baseUrl + "auth/users/me");
+    const response = await fetch(baseUrl + "auth/users/me", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const data = await response.json();
     return data;
   } catch (error) {
@@ -62,7 +64,11 @@ export const postMiningTaps = async (
 
 export async function getMiningOffers(type: string) {
   try {
-    const response = await fetch(`mining/offers/${type}`);
+    const response = await fetch(baseUrl + `/mining/offers/${type}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const data = await response.json();
     return data;
   } catch (error) {
