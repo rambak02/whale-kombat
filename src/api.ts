@@ -1,20 +1,8 @@
-const baseUrl = "http://51.250.123.160/api/v1";
 
-interface WebAppUser {
-  id: number;
-  first_name: string;
-  last_name?: string;
-  username?: string;
-  language_code?: string;
-  photo_url?: string;
-}
 
-interface WebAppInitData {
-  query_id: string;
-  user: WebAppUser;
-  auth_date: number;
-  hash: string;
-}
+const baseUrl = "http://51.250.123.160:8000/api/v1";
+
+
 
 export async function getBoosts() {
   const response = await fetch(baseUrl + "boosts");
@@ -23,8 +11,8 @@ export async function getBoosts() {
 }
 
 export const authUser = async (
-  initDataUnsafe: WebAppInitData,
-  referral_code: string | null = null
+  initDataUnsafe : WebAppInitData,
+  referral_code = null
 ) => {
   const response = await fetch(baseUrl + "/auth/jwt/create", {
     method: "POST",
