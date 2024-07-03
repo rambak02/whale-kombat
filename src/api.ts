@@ -1,9 +1,9 @@
 
-// export async function getBoosts() {
-//   const response = await fetch();
-//   const data = await response.json();
-//   return data;
-// }
+export async function getBoosts() {
+  const response = await fetch("boost");
+  const data = await response.json();
+  return data;
+}
 
 export const authUser = async (
   initDataUnsafe: WebAppInitData,
@@ -29,7 +29,7 @@ export async function getUser() {
     const response = await fetch( "/api/v1/auth/users/me", {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer `,
       },
     });
     const data = await response.json();
