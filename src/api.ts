@@ -1,15 +1,10 @@
-const token = "d9135b91ad3991d42e8a6e191e3fe546aa2f41f0";
-
 export async function getBoosts() {
   const response = await fetch("boost");
   const data = await response.json();
   return data;
 }
 
-export const authUser = async (
-  initData: string,
-  referral_code = null
-) => {
+export const authUser = async (initData: string, referral_code = null) => {
   const response = await fetch("/api/v1/auth/jwt/create", {
     method: "POST",
     headers: {
@@ -26,45 +21,49 @@ export const authUser = async (
 };
 
 export const refreshToken = async (refreshToken: string) => {
-const response = await fetch("/api/v1/auth/jwt/refresh", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  }, 
-  body: JSON.stringify({refresh: refreshToken}),
-});
-if (!response.ok) {
-  const error = await response.json();
-  throw new Error(error.error);
-}
-return response.json();
-}
+  const response = await fetch("/api/v1/auth/jwt/refresh", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ refresh: refreshToken }),
+  });
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error);
+  }
+  return response.json();
+};
 
 export const getUser = async () => {
   try {
-    const response = await fetch( "/api/v1/auth/users/me", {
+    const response = await fetch("/api/v1/auth/users/me", {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
+    if (!response.ok) {
+      throw new Error("Ошибка users");
+    }
     const data = await response.json();
     return data;
   } catch (error) {
     console.error("Error user profile:", error);
     throw error;
   }
-}
+};
 
 export const postMiningTaps = async (
   current_energy: number,
   earned: number
 ) => {
   try {
-    const response = await fetch("mining/taps", {
+    const response = await fetch("/api/v1/mining/taps", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({ current_energy, earned }),
     });
@@ -78,14 +77,13 @@ export const postMiningTaps = async (
 
 export const getMiningOffers = async (type: string) => {
   try {
-    const response = await fetch(`/api/v1/mining/offers/${type}`, {
-    });
+    const response = await fetch(`/api/v1/mining/offers/${type}`, {});
     const data = await response.json();
     return data;
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const postMiningPurchase = async (offer_id: string, level: number) => {
   try {

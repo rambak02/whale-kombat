@@ -1,37 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { Boost } from "../Boost/Boost";
 import * as S from "./PRTeam.styled";
 import { Img } from "react-image";
 
 import { Dispatch, SetStateAction } from "react";
-import { useBoostsContext } from "../../context/hooks/useBoosts";
-import { BoostsContext } from "../../interfaces/interface";
 import { Boost } from "../Boost/Boost";
 import phCoinsWhite from "../../assets/ph_coins-fill-white.png"
-
-type Boost = {
-  id: string;
-  name: string;
-  image: string;
-  profit_per_hour: number;
-  level: number;
-  cost: number;
-};
+import { useOffersContext } from "../../context/hooks/useOffers";
+import { Offer } from "../models/response/IOffers";
 
 type PRTeamProps = {
   handleOpenPopup: () => void;
-  onClick: Dispatch<SetStateAction<Boost | null>>;
+  onClick: Dispatch<SetStateAction<Offer | null>>;
 };
 
 export const PRTeam = ({ handleOpenPopup, onClick }: PRTeamProps) => {
   const [subTelegram, setSubTelegram] = useState<boolean>(false);
-  const { boosts }: BoostsContext = useBoostsContext();
+  const {offers, fetchOffers} = useOffersContext();
+
+  useEffect(() => {
+    fetchOffers("p&rteam");
+  },[fetchOffers])
   return (
     <>
       {subTelegram ? (
         <S.BoostsContainer onClick={handleOpenPopup}>
-          {boosts.map((boost) => (
-            <Boost onClick={() => onClick(boost)} boost={boost} />
+          {offers?.map((offer) => (
+            <Boost onClick={() => onClick(offer)} offer={offer} />
           ))}
         </S.BoostsContainer>
       ) : (

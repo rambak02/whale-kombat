@@ -1,25 +1,19 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { Card } from "../Card/Card";
 import * as S from "./Specials.styled";
-import { useBoostsContext } from "../../context/hooks/useBoosts";
-import { BoostsContext } from "../../interfaces/interface";
-
-type Boost = {
-  id: string;
-  name: string;
-  image: string;
-  profit_per_hour: number;
-  level: number;
-  cost: number;
-};
+import { useOffersContext } from "../../context/hooks/useOffers";
+import { Offer } from "../models/response/IOffers";
 
 type SpeacialsProps = {
   handleOpenPopup: () => void;
-  onClick: Dispatch<SetStateAction<Boost | null>>;
+  onClick: Dispatch<SetStateAction<Offer | null>>;
 };
 
 export const Specials = ({handleOpenPopup, onClick}: SpeacialsProps) => {
-  const { boosts }: BoostsContext = useBoostsContext();
+  const { offers, fetchOffers } = useOffersContext();
+  useEffect(()=> {
+  fetchOffers("specials")
+  })
   return (
     <S.Specials>
       <S.SpecialsNav>
@@ -29,8 +23,8 @@ export const Specials = ({handleOpenPopup, onClick}: SpeacialsProps) => {
       </S.SpecialsNav>
       <S.Container>
         <S.Cards onClick={handleOpenPopup}>
-        {boosts.map((boost) => (
-            <Card onClick={() => onClick(boost)} boost={boost} />
+        {offers?.map((offer) => (
+            <Card onClick={() => onClick(offer)} boost={offer} />
           ))}
         </S.Cards>
       </S.Container>

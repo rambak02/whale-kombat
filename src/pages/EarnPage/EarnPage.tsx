@@ -1,7 +1,7 @@
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { WeeklyTask } from "../../components/WeeklyTask/WeeklyTask";
 import * as S from "./EarnPage.styled";
-import { PopTask } from "../../components/popups/PopTelegram/PopTask";
+import { PopTask } from "../../components/popups/PopTask/PopTask";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopDailyReward } from "../../components/popups/PopDailyRewards/PopDailyRewards";
 import calendarImg from "../../assets/calendar.png"

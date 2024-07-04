@@ -42,7 +42,7 @@ export const Header = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 15px;
+  margin: 3px;
 `;
 export const UserBlock = styled.div`
   width: 82px;

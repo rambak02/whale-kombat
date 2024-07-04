@@ -1,40 +1,29 @@
 import { postMiningPurchase } from "../../../api";
-import { useBoostsContext } from "../../../context/hooks/useBoosts";
 import { usePopupContext } from "../../../context/hooks/usePopup";
 import * as S from "./PopMine.styled";
 import { Img } from "react-image";
-import { BoostsContext } from "../../../interfaces/interface";
 import closeImg from "../../../assets/close.svg";
 import coinGold from "../../../assets/coinGold.png"
+import{ useOffersContext } from "../../../context/hooks/useOffers";
+import { Offer } from "../../models/response/IOffers";
 
-type PopEarnProps = {
-  boost: Boost | null;
+type PopMineProps = {
+  offer: Offer | null;
 };
 
-type Boost = {
-  id: string;
-  name: string;
-  image: string;
-  profit_per_hour: number;
-  level: number;
-  cost: number;
-};
 
-export const PopMine = ({ boost }: PopEarnProps) => {
+export const PopMine = ({ offer }: PopMineProps) => {
   const { handleClosePopup } = usePopupContext();
-  const { boosts, setBoosts }: BoostsContext = useBoostsContext();
+  const { updateOffer } = useOffersContext()
   const handleBuyMine = () => {
-    if (boost) {
-      postMiningPurchase(boost.id, boost.level).then((updatedBoost) => {
-        const updatedBoosts = boosts.map((b) =>
-          b.id === updatedBoost.id ? updatedBoost : b
-        );
-        setBoosts(updatedBoosts);
+    if (offer) {
+      postMiningPurchase(offer.id, offer.level).then((updatedBoost) => {
+       updateOffer(updatedBoost);
         handleClosePopup();
       });
     }
   };
-  if (boost) {
+  if (offer) {
     return (
       <S.PopupBackground>
         <S.ModalOverlay id="boostModal">
@@ -42,20 +31,23 @@ export const PopMine = ({ boost }: PopEarnProps) => {
             <Img src={closeImg}/>
           </S.ModalButton>
           <S.Content>
-            <Img src={boost.image} />
+            <Img src={offer.image} />
             <S.Text>
-              <S.Title>{boost.name}</S.Title>
+              <S.Title>{offer.name}</S.Title>
+              <S.Description>
+              
+            </S.Description>
               <S.RewardBlock>
                 <S.RewardImg src={coinGold} />
                 <S.Reward>
-                  +{Number(boost.profit_per_hour) + 1 + " в час"}{" "}
+                  +{Number(offer.profit_per_hour) + 1 + " в час"}{" "}
                 </S.Reward>
               </S.RewardBlock>
             </S.Text>
           </S.Content>
           <S.ButtonCheck>
             <S.ButtonText onClick={() => handleBuyMine}>
-              Купить за {boost.cost}
+              Купить за {offer.cost}
             </S.ButtonText>
             <S.RewardImg src={coinGold} />
           </S.ButtonCheck>

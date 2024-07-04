@@ -104,6 +104,15 @@ export const Title = styled.div`
   text-align: center;
 `;
 
+export const Description = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  text-align: center;
+`;
+
 export const CloseButton = styled.span`
   color: #aaa;
   float: right;

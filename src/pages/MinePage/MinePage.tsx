@@ -12,8 +12,9 @@ import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { useUserContext } from "../../context/hooks/useUser";
 import { PopMine } from "../../components/popups/PopMine/PopMine";
-import { Boost } from "../../interfaces/interface";
 import coinGold from "../../assets/coinGold.png"
+import { Offer } from "../../components/models/response/IOffers";
+import { Energy } from "../../components/Energy/Energy";
 
 export const MinePage: React.FC = () => {
   const STATUS_MARKET = "Markets";
@@ -24,7 +25,7 @@ export const MinePage: React.FC = () => {
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
-  const [currentPopMine, setCurrentPopMine] = useState<Boost | null>(null);
+  const [currentPopMine, setCurrentPopMine] = useState<Offer | null>(null);
 
   const { user } = useUserContext();
   return (
@@ -61,11 +62,12 @@ export const MinePage: React.FC = () => {
           />
         )}
         <Clicker />
+        <Energy />
         <BottomNav />
       </S.Content>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}
       {isPopupOpen && currentPopup === "mine" && (
-        <PopMine boost={currentPopMine} />
+        <PopMine offer={currentPopMine} />
       )}
     </S.Container>
   );

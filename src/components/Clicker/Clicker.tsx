@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./Clicker.styled";
 import { clickNumbers } from "../../interfaces/interface";
 import { postMiningTaps } from "../../api";
@@ -7,16 +7,15 @@ import { useUserContext } from "../../context/hooks/useUser";
 import clickerImg from "../../assets/whale.png";
 
 export const Clicker = () => {
+  const {user} = useUserContext()
   //цифры появляющиеся при клике
   const [clickNumbers, setClickNumbers] = useState<clickNumbers[]>([]);
   const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
   const [accumulatedEnergy, setAccumulatedEnergy] = useState<number>(0);
 
-  const { user, updateCoins } = useUserContext();
-
   //элемент появляется в том месте, где был совершен клик
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const { clientX, clientY} = event;
+    const { clientX, clientY } = event;
     //расчет координат относительно всей страницы
     const absoluteX = clientX + window.scrollX;
     const absoluteY = clientY + window.scrollY;
@@ -36,27 +35,26 @@ export const Clicker = () => {
       return () => clearTimeout(timeOut);
     }, 900);
     if (user) {
-      const formulaTap = 1 + user.multitap_lvl;
+      const formulaTap = user.multitap_lvl;
       updateCoins(user.coins + formulaTap);
       setAccumulatedCoins((prevCoins) => prevCoins + formulaTap);
       setAccumulatedEnergy((prevEnergy) => prevEnergy + formulaTap);
     }
   };
 
-  const throttledPostMiningTaps = useCallback(() => {
+  const throttledPostMiningTaps = 
     throttle(async () => {
       if (accumulatedCoins > 0 || accumulatedEnergy > 0) {
         await postMiningTaps(accumulatedEnergy, accumulatedCoins);
         setAccumulatedCoins(0);
         setAccumulatedEnergy(0);
       }
-    }, 5000);
-  }, [accumulatedCoins, accumulatedEnergy]);
+    }, 500);
 
   useEffect(() => {
     const interval = setInterval(() => {
       throttledPostMiningTaps();
-    }, 5000);
+    }, 300);
 
     return () => clearInterval(interval);
   }, [throttledPostMiningTaps]);

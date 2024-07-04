@@ -1,5 +1,6 @@
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
-import { authUser, getUser } from "../api";
+import { getUser } from "../api";
+import AuthService from "../components/service/AuthService";
 
 export interface User {
   id: string;
@@ -43,19 +44,17 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
     const fetchUser = async () => {
       try {
         const tg = window.Telegram.WebApp;
-        const initData = tg.initData;
-        const authResponse = await authUser(initData);
-         alert(authResponse);
+        const initData =JSON.stringify(tg.initData);
+        const JSONresponse = await AuthService.initDataUser(initData);
+        const response = JSON.stringify(JSONresponse.data);
+        const tokens = JSON.parse(response);
+        localStorage.setItem("token", tokens.access);
         const userData = await getUser();
         setUser(userData);
-        alert(userData)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } catch (error : any) {
-        console.error("Error user profile:", error);
-        alert(`${error.message}`)
+      } catch (e) {
+        console.error("error", e);
       }
     };
-
     fetchUser();
   }, []);
 

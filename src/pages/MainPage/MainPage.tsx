@@ -10,7 +10,6 @@ import coinGold from "../../assets/coinGold.png";
 import { Energy } from "../../components/Energy/Energy";
 
 export const MainPage = () => {
-  const tg = window.Telegram.WebApp;
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
   const { user } = useUserContext();
@@ -20,7 +19,7 @@ export const MainPage = () => {
       <S.Header>
         <S.UserBlock>
           <S.UserImg alt="user" src={userImg} />
-          <S.Username>{" " + tg.initDataUnsafe.user?.first_name}</S.Username>
+          <S.Username>{" " + user?.username}</S.Username>
         </S.UserBlock>
       </S.Header>
       <S.Content>

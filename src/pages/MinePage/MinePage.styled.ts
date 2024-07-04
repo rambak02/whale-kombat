@@ -53,6 +53,7 @@ export const Content = styled.div`
   justify-content: space-around;
   gap: 10px;
   padding-bottom: 30px;
+  min-height: 100vh;
 `;
 export const BalanceBlock = styled.div`
   display: flex;
