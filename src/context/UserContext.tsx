@@ -1,5 +1,5 @@
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
-import { authUser, getUser } from "../api";
+import { getUser } from "../api";
 
 export interface User {
   id: string;
@@ -43,12 +43,12 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
     const fetchUser = async () => {
       try {
         const tg = window.Telegram.WebApp;
-        const initData = tg.initData;
-        alert(initData);
-        const authResponse = await authUser(initData);
+        const initDataUnsafe = tg.initDataUnsafe;
+        alert(initDataUnsafe);
+        // const authResponse = await authUser(initDataUnsafe);
+        // const token = authResponse.initdataunsafe.token;
         const userData = await getUser();
-        console.log(userData);
-        setUser(authResponse);
+        setUser(userData);
       } catch (error) {
         console.error("Error user profile:", error);
       }
