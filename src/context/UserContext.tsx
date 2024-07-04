@@ -45,6 +45,8 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
       try {
         const tg = window.Telegram.WebApp;
         const initData =JSON.parse(JSON.stringify(tg.initData))
+        alert(JSON.stringify(initData));
+        alert(JSON.parse(JSON.stringify(tg.initData)))
         const JSONresponse = await AuthService.initDataUser(initData);
         const response = JSON.stringify(JSONresponse.data);
         const tokens = JSON.parse(response);
