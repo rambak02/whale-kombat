@@ -1,3 +1,4 @@
+const token = "d9135b91ad3991d42e8a6e191e3fe546aa2f41f0";
 
 export async function getBoosts() {
   const response = await fetch("boost");
@@ -24,12 +25,27 @@ export const authUser = async (
   }
 };
 
-export async function getUser() {
+export const refreshToken = async (refreshToken: string) => {
+const response = await fetch("/api/v1/auth/jwt/refresh", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  }, 
+  body: JSON.stringify({refresh: refreshToken}),
+});
+if (!response.ok) {
+  const error = await response.json();
+  throw new Error(error.error);
+}
+return response.json();
+}
+
+export const getUser = async () => {
   try {
     const response = await fetch( "/api/v1/auth/users/me", {
       method: "GET",
       headers: {
-        Authorization: `Bearer `,
+        Authorization: `Bearer ${token}`,
       },
     });
     const data = await response.json();
@@ -56,11 +72,11 @@ export const postMiningTaps = async (
     const result = await response.json();
     return result;
   } catch (error) {
-    console.error("Error ыtaps:", error);
+    console.error("Error taps:", error);
   }
 };
 
-export async function getMiningOffers(type: string) {
+export const getMiningOffers = async (type: string) => {
   try {
     const response = await fetch(`/api/v1/mining/offers/${type}`, {
     });
