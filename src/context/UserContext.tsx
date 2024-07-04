@@ -45,7 +45,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
         const tg = window.Telegram.WebApp;
         const initData = tg.initData
         const authResponse = await authUser(initData);
-       console.log(authResponse)
+        alert(JSON.stringify(authResponse))
         const userData = await getUser();
         setUser(userData);
       } catch (error) {
