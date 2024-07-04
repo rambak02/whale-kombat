@@ -38,7 +38,6 @@ export const ClickerBorder = styled.div`
   min-width: 200px;
   max-width: 400px;
   max-height: 400px;
-  margin: 3.5rem;
   border-radius: 50%;
   background: linear-gradient(180deg, #6ec7d5 0%, #085c83 100%);
   cursor: pointer;
@@ -46,7 +45,6 @@ export const ClickerBorder = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  margin-bottom: 5rem;
   &:hover {
   }
 `;

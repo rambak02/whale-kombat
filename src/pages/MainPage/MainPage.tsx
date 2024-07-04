@@ -7,13 +7,14 @@ import { usePopupContext } from "../../context/hooks/usePopup";
 import { useUserContext } from "../../context/hooks/useUser";
 import userImg from "../../assets/whale.png";
 import coinGold from "../../assets/coinGold.png";
+import { Energy } from "../../components/Energy/Energy";
 
 export const MainPage = () => {
   const tg = window.Telegram.WebApp;
 
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
   const { user } = useUserContext();
- alert(JSON.stringify(tg.initDataUnsafe));
+
   return (
     <S.Container>
       <S.Header>
@@ -38,6 +39,7 @@ export const MainPage = () => {
           <S.ProgressBar></S.ProgressBar>
         </S.ProgressBarBlock>
         <Clicker />
+        <Energy />
         <BottomNav />
       </S.Content>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}
