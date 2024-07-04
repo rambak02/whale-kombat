@@ -31,7 +31,9 @@ export const MainPage = () => {
         </S.BalanceBlock>
         <S.ProgressBarBlock> 
           <S.LevelBlock>
-            <S.LevelTitle>Название уровня &gt;</S.LevelTitle>
+            <S.LevelTitle>
+              {Telegram.WebApp.initData}
+              &gt;</S.LevelTitle>
             <S.Level>
               Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
             </S.Level>
