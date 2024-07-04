@@ -49,9 +49,10 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
         alert(authResponse)
         const userData = await getUser();
         setUser(userData);
-      } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error : any) {
         console.error("Error user profile:", error);
-        alert(error)
+        alert(`${error.message}`)
       }
     };
 
