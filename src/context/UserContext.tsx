@@ -44,9 +44,9 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
       try {
         const tg = window.Telegram.WebApp;
         const initData = tg.initData;
-        const authResponse = await authUser(initData);
+        alert(JSON.stringify(initData))
+        const authResponse = await authUser(JSON.stringify(initData));
         alert(JSON.stringify(authResponse))
-        alert(authResponse)
         const userData = await getUser();
         setUser(userData);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
