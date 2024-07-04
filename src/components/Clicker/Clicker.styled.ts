@@ -39,6 +39,7 @@ export const ClickerBorder = styled.div`
   max-width: 400px;
   max-height: 400px;
   border-radius: 50%;
+  margin: 1rem 3rem 1rem;
   background: linear-gradient(180deg, #6ec7d5 0%, #085c83 100%);
   cursor: pointer;
   display: flex;
