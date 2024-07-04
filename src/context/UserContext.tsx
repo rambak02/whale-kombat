@@ -43,8 +43,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
     const fetchUser = async () => {
       try {
         const tg = window.Telegram.WebApp;
-        const initData = tg.initData
-        alert(JSON.stringify(initData))
+        const initData = tg.initData;
         const authResponse = await authUser(initData);
         alert(JSON.stringify(authResponse))
         alert(authResponse)
@@ -52,6 +51,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
         setUser(userData);
       } catch (error) {
         console.error("Error user profile:", error);
+        alert(error)
       }
     };
 
