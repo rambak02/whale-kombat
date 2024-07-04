@@ -7,7 +7,7 @@ import { useUserContext } from "../../context/hooks/useUser";
 import clickerImg from "../../assets/whale.png";
 
 export const Clicker = () => {
-  const {user} = useUserContext()
+  const {user, updateCoins} = useUserContext()
   //цифры появляющиеся при клике
   const [clickNumbers, setClickNumbers] = useState<clickNumbers[]>([]);
   const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
