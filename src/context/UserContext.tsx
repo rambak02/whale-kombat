@@ -43,9 +43,9 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
     const fetchUser = async () => {
       try {
         const tg = window.Telegram.WebApp;
-        const initDataUnsafe = tg.initDataUnsafe;
-        alert(initDataUnsafe);
-        // const authResponse = await authUser(initDataUnsafe);
+        const initData = tg.initData;
+        alert(initData)
+        // const authResponse = await authUser(initData);
         // const token = authResponse.initdataunsafe.token;
         const userData = await getUser();
         setUser(userData);

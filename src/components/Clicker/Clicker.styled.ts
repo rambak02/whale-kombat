@@ -72,6 +72,9 @@ export const ClickerImg = styled(Img)<ImgProps>`
   max-height: 330px;
   width: 90%;
   padding: 0px 0px 30px 10px;
+  @media (max-height: 668px) {
+   max-height: 13rem
+  }
 `;
 export const Number = styled.div<NumberProps>`
   max-width: 100%;
