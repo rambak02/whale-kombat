@@ -34,7 +34,6 @@ export const Container = styled.div`
   max-width: 100%;
   width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
 `;
 export const Header = styled.div`
