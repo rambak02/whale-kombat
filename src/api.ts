@@ -6,7 +6,7 @@ export async function getBoosts() {
 }
 
 export const authUser = async (
-  initData: WebAppInitData,
+  initData: string,
   referral_code = null
 ) => {
   const response = await fetch("/api/v1/auth/jwt/create", {
