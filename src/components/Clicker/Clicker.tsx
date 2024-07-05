@@ -7,12 +7,12 @@ import { useUserContext } from "../../context/hooks/useUser";
 import clickerImg from "../../assets/whale.png";
 
 export const Clicker = () => {
-  const {user, updateCoins} = useUserContext()
+  const {user, updateCoins, minusEnergy, energy} = useUserContext()
   //цифры появляющиеся при клике
   const [clickNumbers, setClickNumbers] = useState<clickNumbers[]>([]);
   const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
   const [accumulatedEnergy, setAccumulatedEnergy] = useState<number>(0);
-
+ 
   //элемент появляется в том месте, где был совершен клик
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const { clientX, clientY } = event;
@@ -36,16 +36,23 @@ export const Clicker = () => {
     }, 900);
     if (user) {
       const formulaTap = user.multitap_lvl;
+      minusEnergy()
       updateCoins(user.coins + formulaTap);
       setAccumulatedCoins((prevCoins) => prevCoins + formulaTap);
-      setAccumulatedEnergy((prevEnergy) => prevEnergy + formulaTap);
+      setAccumulatedEnergy((prevEnergy) => {
+      return prevEnergy + formulaTap 
+       
+      }
+    
+    );
+     
     }
   };
 
   const throttledPostMiningTaps = 
     throttle(async () => {
       if (accumulatedCoins > 0 || accumulatedEnergy > 0) {
-        await postMiningTaps(accumulatedEnergy, accumulatedCoins);
+        await postMiningTaps(energy, accumulatedCoins);
         setAccumulatedCoins(0);
         setAccumulatedEnergy(0);
       }
@@ -65,7 +72,7 @@ export const Clicker = () => {
           <S.ClickerImg src={clickerImg} />
           {clickNumbers.map((click) => (
             <S.Number key={click.id} $left={click.x} $top={click.y}>
-              +1
+              {energy ? `+${user?.multitap_lvl}` : "+0" }
             </S.Number>
           ))}
         </S.ClickerBlock>

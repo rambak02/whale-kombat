@@ -4,13 +4,15 @@ import * as S from "./BoostPage.styled";
 import coinGold from "../../assets/coinGold.png"
 import nerdFaceImg from "../../assets/emojione-monotone_nerd-face.png";
 import notDoneImg from "../../assets/not-done.svg"
+import { useUserContext } from "../../context/hooks/useUser";
 export const BoostPage = () => {
+  const {user} = useUserContext()
   return (
     <S.Container>
       <S.Title>Ваш баланс</S.Title>
       <S.BalanceContainer>
         <S.BalanceIcon src={coinGold} />
-        <S.Balance>10000000</S.Balance>
+        <S.Balance>{user?.coins}</S.Balance>
       </S.BalanceContainer>
       <S.Tutorial>Как работает усиление</S.Tutorial>
       <S.BoostContent>

@@ -30,7 +30,7 @@ const appearanceAnimation = keyframes`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   max-width: 100%;
   width: 100vw;
   min-height: 100vh;
@@ -63,30 +63,7 @@ export const Username = styled.div`
   text-align: left;
   color: rgba(255, 255, 255, 1);
 `;
-export const BybitBlock = styled.div`
-  background: radial-gradient(
-    149.3% 149.3% at 50% 50%,
-    #7ad4df 0%,
-    #03577f 100%
-  );
-  width: 101.11px;
-  height: 36px;
-  padding: 12px 16px 12px 16px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-`;
-export const BybitImg = styled(Img)<ImgProps>``;
 
-export const BybitText = styled.div`
-  font-family: "Roboto";
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 21px;
-  text-align: center;
-  color: black;
-`;
 export const Content = styled.div`
   background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
   border-top: 3px solid rgba(229, 153, 43, 1);

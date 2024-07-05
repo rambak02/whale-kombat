@@ -37,7 +37,7 @@ export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
         <S.ProfitPerHourTitle>Прибыль в час</S.ProfitPerHourTitle>
         <S.ProfitPerHourContent>
           <S.CoinImg src={coinGold} />
-          <S.ProfitOneClickCount>{formatNumber(user?.last_passive_coin_update)}</S.ProfitOneClickCount>
+          <S.ProfitOneClickCount>{formatNumber(user?.passive_profit) || 0}</S.ProfitOneClickCount>
           <S.CoinImg
             id="popBoost"
             src={icon}

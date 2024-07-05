@@ -5,9 +5,9 @@ import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { useUserContext } from "../../context/hooks/useUser";
-import userImg from "../../assets/whale.png";
 import coinGold from "../../assets/coinGold.png";
 import { Energy } from "../../components/Energy/Energy";
+import { Header } from "../../components/Header/Header";
 
 export const MainPage = () => {
 
@@ -16,12 +16,7 @@ export const MainPage = () => {
 
   return (
     <S.Container>
-      <S.Header>
-        <S.UserBlock>
-          <S.UserImg alt="user" src={userImg} />
-          <S.Username>{" " + user?.username}</S.Username>
-        </S.UserBlock>
-      </S.Header>
+     <Header />
       <S.Content>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>

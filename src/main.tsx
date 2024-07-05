@@ -7,11 +7,13 @@ import { PopupProvider } from "./context/PopupContext.tsx";
 import { UserProvider } from "./context/UserContext.tsx";
 import { SelectedIndexProvider } from "./context/SelectedPageContext.tsx";
 import { OffersProvider } from "./context/OffersContext.tsx";
+import { FriendsProvider } from "./context/FriendsContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
+        <FriendsProvider>
         <SelectedIndexProvider>
           <PopupProvider>
             <OffersProvider>
@@ -19,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             </OffersProvider>
           </PopupProvider>
         </SelectedIndexProvider>
+        </FriendsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

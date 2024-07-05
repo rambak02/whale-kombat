@@ -1,8 +1,10 @@
 import * as S from "./Friend.styled";
 import userList from "../../assets/userList.png";
 import coinGold from "../../assets/coinGold.png"
+import React from "react";
 
-export const Friend = () => {
+
+export const Friend: React.FC = ( ) => {
   return (
     <S.FriendContainer>
       <S.Friend>
