@@ -15,7 +15,7 @@ export const authUser = async (initData: string, referral_code = null) => {
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.error);
-  } else if (response.status === 201) {
+  } else if (response.status === 200) {
     return response.json();
   }
 };
