@@ -43,8 +43,9 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+         const referral_code = null;
         const tg = window.Telegram.WebApp;
-        const JSONresponse = await AuthService.initDataUser(JSON.parse(JSON.stringify((tg.initData))));
+        const JSONresponse = await AuthService.initDataUser({tg.initData, referral_code});
         const response = JSON.stringify(JSONresponse.data);
         const tokens = JSON.parse(response);
         localStorage.setItem("token", tokens.access);
