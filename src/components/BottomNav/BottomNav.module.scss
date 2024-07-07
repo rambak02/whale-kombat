@@ -1,0 +1,59 @@
+@import '../../styles/shared-variables.scss';
+
+$selected-link-color: #FFEBCD;
+$nav-icon-size: 24px;
+
+.nav {
+    position: fixed;
+    bottom: 4px;
+    margin: 0 $page-content-horizontal-padding;
+    padding: 0 22px;
+    width: calc(100% - 2 * $page-content-horizontal-padding);
+    height: 65px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: radial-gradient(149.3% 149.3% at 50% 50%, #7ad4df 0%, #03577f 100%);
+}
+
+.link {
+    width: 60px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__icon {
+        width: $nav-icon-size;
+        height: $nav-icon-size;
+        margin-bottom: 2px;
+
+        svg {
+            width: $nav-icon-size;
+            height: $nav-icon-size;
+        }
+    }
+
+    &__title {
+        font-family: "Raleway";
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 400;
+        color: black;
+    }
+
+
+    &.active {
+        .link__icon {
+            path {
+                fill: $selected-link-color;
+            }
+        }
+
+        .link__title {
+            color: $selected-link-color;
+        }
+    }
+}

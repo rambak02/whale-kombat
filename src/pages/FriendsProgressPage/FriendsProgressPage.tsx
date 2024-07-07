@@ -1,4 +1,3 @@
-import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { Friend } from "../../components/Friend/Friend";
 import * as S from "./FriendsProgressPage.styled";
 
@@ -28,7 +27,6 @@ export const FriendsProgressPage = () => {
         <Friend />
         <Friend />
       </S.FriendsList>
-      <BottomNav />
     </S.Container>
   );
 };

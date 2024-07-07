@@ -1,44 +1,39 @@
+import coinGold from "../../assets/coinGold.png";
 import { Clicker } from "../../components/Clicker/Clicker";
-import * as S from "./MainPage.styled";
-import { BottomNav } from "../../components/BottomNav/BottomNav";
+import { Energy } from "../../components/Energy/Energy";
+import { Header } from "../../components/Header/Header";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { useUserContext } from "../../context/hooks/useUser";
-import coinGold from "../../assets/coinGold.png";
-import { Energy } from "../../components/Energy/Energy";
-import { Header } from "../../components/Header/Header";
+import css from './MainPage.module.scss';
 
 export const MainPage = () => {
-
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
   const { user } = useUserContext();
 
   return (
-    <S.Container>
-     <Header />
-      <S.Content>
+    <div className={css['main-page']}>
+      <Header />
+      <div className={css['main-page__content']}>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
-        <S.BalanceBlock>
-          <S.BalanceIcon src={coinGold}></S.BalanceIcon>
-          <S.Balance> {user?.coins}</S.Balance>
-        </S.BalanceBlock>
-        <S.ProgressBarBlock> 
-          <S.LevelBlock>
-            <S.LevelTitle>
-              Название уровня
-              &gt;</S.LevelTitle>
-            <S.Level>
-              Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
-            </S.Level>
-          </S.LevelBlock>
-          <S.ProgressBar></S.ProgressBar>
-        </S.ProgressBarBlock>
+        <div className={css['balance']}>
+          <img className={css['balance__icon']} src={coinGold} />
+          <div className={css['balance__amount']}>{user?.coins}</div>
+        </div>
+        <div className={css['progress']}>
+          <div className={css['level']}>
+            <div>Название уровня &gt;</div>
+            <div className={css['level__text']}>
+              Level <span className={css['level__value']}>{user?.level}/10</span>
+            </div>
+          </div>
+          <div className={css['progress__bar']}></div>
+        </div>
         <Clicker />
         <Energy />
-        <BottomNav />
-      </S.Content>
+      </div>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}
-    </S.Container>
+    </div>
   );
 };

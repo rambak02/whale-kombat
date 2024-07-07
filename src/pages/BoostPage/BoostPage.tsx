@@ -1,4 +1,3 @@
-import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { Img } from "react-image";
 import * as S from "./BoostPage.styled";
 import coinGold from "../../assets/coinGold.png"
@@ -70,7 +69,6 @@ export const BoostPage = () => {
           <Img src={notDoneImg} />
         </S.BoostContainer>
       </S.BoostContent>
-      <BottomNav />
     </S.Container>
   );
 };

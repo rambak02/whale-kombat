@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MinePage.styled";
-import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import { NavMine } from "../../components/NavMine/NavMine";
 import { Market } from "../../components/Market/Market";
@@ -63,7 +62,6 @@ export const MinePage: React.FC = () => {
         )}
         <Clicker />
         <Energy />
-        <BottomNav />
       </S.Content>
       {isPopupOpen && currentPopup === "boost" && <PopBoost />}
       {isPopupOpen && currentPopup === "mine" && (

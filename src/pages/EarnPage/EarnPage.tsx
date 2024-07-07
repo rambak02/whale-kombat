@@ -1,4 +1,3 @@
-import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { WeeklyTask } from "../../components/WeeklyTask/WeeklyTask";
 import * as S from "./EarnPage.styled";
 import { PopTask } from "../../components/popups/PopTask/PopTask";
@@ -34,7 +33,6 @@ Telegram каналу"
         image={xIcon}
         reward={5000}
       />
-      <BottomNav />
       {isPopupOpen && currentPopup === "telegram" && <PopTask />}
       {isPopupOpen && currentPopup === "x" && <PopTask />}
       {isPopupOpen && currentPopup === "dailyReward" && <PopDailyReward />}

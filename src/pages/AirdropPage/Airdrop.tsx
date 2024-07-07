@@ -1,4 +1,3 @@
-import { BottomNav } from "../../components/BottomNav/BottomNav";
 import * as S from "./Airdrop.styled";
 import coinGold from "../../assets/coinGold.png"
 
@@ -13,7 +12,6 @@ export const AirdropPage = () => {
         <S.Task className="completed">Ключевые партнерства на подходе</S.Task>
         <S.Task>Список задач Airdrop</S.Task>
       </S.TaskList>
-      <BottomNav />
     </S.Container>
   );
 };

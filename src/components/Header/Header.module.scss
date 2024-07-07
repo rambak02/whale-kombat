@@ -1,0 +1,45 @@
+@import '../../styles/shared-variables.scss';
+
+$header-content-height: 36px;
+
+.header {
+  padding: 8px $page-content-horizontal-padding $page-content-horizontal-padding 15px;
+  min-width: 0;
+  width: 100%;
+  height: 59px;
+  display: flex;
+}
+
+.user {
+  min-width: 0px;
+  flex: 1;
+  height: $header-content-height;
+  display: flex;
+
+  &__avatar-container {
+    width: $header-content-height;
+    height: $header-content-height;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__avatar {
+    width: $header-content-height;
+    height: $header-content-height;
+    border-radius: 50%;
+  }
+
+  &__name {
+    margin-left: 8px;
+    height: $header-content-height;
+    line-height: $header-content-height;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+  }
+}

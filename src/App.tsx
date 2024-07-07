@@ -1,19 +1,19 @@
 import { useEffect } from "react";
-import { GlobalStyle } from "./Styles/Global.styled";
+import { BottomNav } from "./components/BottomNav/BottomNav";
 import { AppRoutes } from "./routes";
 
 function App() {
-  const tg = window.Telegram.WebApp;
+  const webApp = window.Telegram.WebApp;
 
   useEffect(() => {
-    tg.ready();
-    tg.expand();
+    webApp.ready();
+    webApp.expand();
   });
 
   return (
     <>
-      <GlobalStyle />
       <AppRoutes />
+      <BottomNav />
     </>
   );
 }

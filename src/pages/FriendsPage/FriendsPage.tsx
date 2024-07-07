@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { Gift } from "../../components/Gift/Gift";
 import { constRoutes } from "../../paths";
 import * as S from "./Friends.styled";
@@ -77,7 +76,6 @@ export const FriendsPage = () => {
           <Img src={copyLink} />
         </S.CopyLink>
       </S.InviteFriend>
-      <BottomNav />
     </S.Container>
   );
 };
