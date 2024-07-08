@@ -72,15 +72,24 @@ export const Content = styled.div`
   align-items: center;
   border-radius: 36px 36px 0px 0px;
   min-height: 90vh;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 23px 16px 0 16px;
+`;
+
+export const TopWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const BalanceBlock = styled.div`
+  width: 100%;
   display: flex;
   gap: 5px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
   animation: ${appearanceAnimation} 0.3s;
 `;
 export const Balance = styled.div`
@@ -90,10 +99,12 @@ export const Balance = styled.div`
   font-size: 3rem;
   line-height: 21px;
   color: black;
+  margin-top: 2px;
 `;
 export const BalanceIcon = styled(Img)<ImgProps>`
   width: 80px;
   height: 80px;
+  margin-left: -12px;
 `;
 
 export const ProgressBarBlock = styled.div`
@@ -104,7 +115,7 @@ export const ProgressBarBlock = styled.div`
   gap: 8px;
 `;
 export const LevelBlock = styled.div`
-  width: 80vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   color: black;
@@ -120,9 +131,25 @@ export const LevelNumber = styled.div`
   color: rgba(94, 193, 202, 1);
 `;
 
-export const ProgressBar = styled.div`
-  width: 80%;
-  height: 20px;
+export const ProgressBarWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 12px;
+`;
+
+export const ProgressBarBg = styled.div`
+  width: 100%;
+  height: 12px;
+  background: rgba(217, 217, 217, 1);
+  border-radius: 10px;
+`
+
+export const ProgressBar = styled.div<{ width: number}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: ${props => props?.width ? `${props.width}%` : 0};
+  height: 12px;
   background: linear-gradient(90deg, #fff176 0%, #f2891a 100%);
   border-radius: 10px;
   animation: ${left} 0.3s;

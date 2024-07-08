@@ -2,12 +2,14 @@ import * as S from "./MiningInfo.styled";
 import coinGold from "../../assets/coinGold.png"
 import icon from "../../assets/icons.svg"
 import { useUserContext } from "../../context/hooks/useUser";
+import { getShortNumber } from "../../utils/getShortNumber"
 
 interface MiningInfoProps {
   onClick: () => void;
+  forUpgrade?: number;
 }
 
-export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
+export const MiningInfo: React.FC<MiningInfoProps> = ({ forUpgrade = 0, onClick }) => {
   const { user } = useUserContext()
   function formatNumber(number: number = 0) {
     if (number >= 1000000000) {
@@ -17,7 +19,7 @@ export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
     } else if (number >= 1000) {
         return (number / 1000).toFixed(1) + 'к';
     } else {
-        return number.toString();
+        return number?.toString();
     }
 }
   return (
@@ -31,7 +33,7 @@ export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
       </S.MiningInfoContainer>
       <S.MiningInfoContainer>
         <S.CoinsUpTitle>Монет для апа</S.CoinsUpTitle>
-        <S.CoinsUpCount>10M</S.CoinsUpCount>
+        <S.CoinsUpCount>{getShortNumber(forUpgrade)}</S.CoinsUpCount>
       </S.MiningInfoContainer>
       <S.MiningInfoContainer>
         <S.ProfitPerHourTitle>Прибыль в час</S.ProfitPerHourTitle>

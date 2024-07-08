@@ -14,12 +14,13 @@ export const Specials = ({handleOpenPopup, onClick}: SpeacialsProps) => {
   useEffect(()=> {
   fetchOffers("specials")
   })
+
   return (
     <S.Specials>
       <S.SpecialsNav>
-        <S.Nav>Мои карточки</S.Nav>
-        <S.Nav>Новые карточки</S.Nav>
-        <S.Nav>Упущенные карточки</S.Nav>
+        <S.Nav>Мои<br/> карточки</S.Nav>
+        <S.Nav>Новые<br/> карточки</S.Nav>
+        <S.Nav>Упущенные<br/> карточки</S.Nav>
       </S.SpecialsNav>
       <S.Container>
         <S.Cards onClick={handleOpenPopup}>

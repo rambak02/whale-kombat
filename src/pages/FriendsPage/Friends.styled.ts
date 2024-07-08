@@ -16,7 +16,7 @@ const pulse = keyframes`
     transform: scale(1);
   }
   50% {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   100% {
     transform: scale(1);
@@ -47,15 +47,14 @@ opacity: 1;
 `;
 
 export const Container = styled.div`
-  padding-bottom: 152px;
-  padding-top: 8px;
+  padding: 30px 16px 152px 16px;
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
   width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   gap: 20px;
   overflow-x: hidden;
 `;
@@ -71,7 +70,7 @@ export const Title = styled.div`
   color: white;
   font-family: "Roboto";
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 21px;
   letter-spacing: -0.03em;
   text-align: center;
@@ -87,8 +86,9 @@ export const Description = styled.div`
   animation: ${right} 0.3s;
 `;
 export const GiftsContainer = styled.div`
-  gap: 30px;
+  gap: 24px;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 `;
@@ -97,25 +97,27 @@ export const Gifts = styled.div`
   gap: 5px;
   flex-direction: column;
   margin: 14px;
+  width: 100%;
 `;
 export const MoreGifts = styled.div`
   color: #5ec1ca;
   font-family: "Roboto";
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 21px;
   letter-spacing: -0.03em;
   text-align: center;
 `;
 export const FriendsContainer = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: stretch;
   gap: 10px;
 `;
 
 export const FriendsListHeader = styled.div`
-  width: 85vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,7 +125,7 @@ export const FriendsListHeader = styled.div`
 export const FriendsListTitle = styled.div`
   font-family: "Roboto";
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 21px;
   letter-spacing: -0.03em;
   text-align: left;
@@ -197,24 +199,33 @@ height: 22px;
 `
 
 export const InviteFriend = styled.div`
-  width: 93%;
+  width: 100%;
   height: 64px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: fixed;
-  gap: 2px;
+  gap: 6px;
   bottom: 82px;
   z-index: 1;
   animation: ${slideUp} 0.3s;
+  padding: 0 16px;
 `;
+
+export const Success = styled.div`
+  position: absolute;
+  top: -30px;
+  right: 16px;
+`;
+
 export const InviteFriendContent = styled.div`
   gap: 10px;
   height: 100%;
   background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
   display: flex;
   border-radius: 20px;
-  width: 84%;
+  width: 100%;
   align-items: center;
   justify-content: center;
   animation: ${pulse} 1s infinite;
@@ -231,7 +242,7 @@ export const InviteFriendContentText = styled.button`
 `;
 export const CopyLink = styled.div`
   display: flex;
-  padding: 10px;
+  padding: 10px 14px;
   height: 100%;
   background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
   border-radius: 20px;

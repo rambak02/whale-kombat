@@ -18,7 +18,7 @@ const appearanceAnimation = keyframes`
 
 export const Container = styled.div`
   height: 88px;
-  padding: 12px 16px 12px 16px;
+  padding: 12px 20px;
   border-radius: 10px;
   background: radial-gradient(
     149.3% 149.3% at 50% 50%,
@@ -26,19 +26,19 @@ export const Container = styled.div`
     #03577f 100%
   );
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 `;
 export const GiftIcon = styled(Img)<ImgProps>`
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   animation: ${appearanceAnimation} 0.3s;
 `;
 export const Content = styled.div`
-  height: 40px;
+  // height: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
   margin-left: 15px;
   justify-content: stretch;
 `;
@@ -46,7 +46,7 @@ export const Title = styled.div`
   color: white;
   font-family: "Roboto";
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 16px;
   text-align: left;
 `;
