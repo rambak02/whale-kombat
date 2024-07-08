@@ -2,6 +2,7 @@ import * as S from "./MiningInfo.styled";
 import coinGold from "../../assets/coinGold.png"
 import icon from "../../assets/icons.svg"
 import { useUserContext } from "../../context/hooks/useUser";
+import { formatNumber } from "../../utils/format";
 
 interface MiningInfoProps {
   onClick: () => void;
@@ -9,17 +10,6 @@ interface MiningInfoProps {
 
 export const MiningInfo: React.FC<MiningInfoProps> = ({ onClick }) => {
   const { user } = useUserContext()
-  function formatNumber(number: number = 0) {
-    if (number >= 1000000000) {
-        return (number / 1000000000).toFixed(1) + 'B';
-    } else if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'м';
-    } else if (number >= 1000) {
-        return (number / 1000).toFixed(1) + 'к';
-    } else {
-        return number.toString();
-    }
-}
   return (
     <S.MiningInfoBlock>
       <S.MiningInfoContainer>
