@@ -19,7 +19,7 @@ export const MiningInfo: React.FC<MiningInfoProps> = ({ forUpgrade = 0, onClick 
     } else if (number >= 1000) {
         return (number / 1000).toFixed(1) + 'к';
     } else {
-        return number.toString();
+        return number?.toString();
     }
 }
   return (

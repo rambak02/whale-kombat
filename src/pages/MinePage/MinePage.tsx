@@ -15,8 +15,11 @@ import { PopMine } from "../../components/popups/PopMine/PopMine";
 import coinGold from "../../assets/coinGold.png";
 import { Offer } from "../../components/models/response/IOffers";
 import { Energy } from "../../components/Energy/Energy";
+import { useGetProgress } from "../../hooks/useGetProgress"
 
 export const MinePage: React.FC = () => {
+  const { forUpgrade } = useGetProgress()
+  
 	const STATUS_MARKET = "Markets";
 	const STATUS_PRTEAM = "PR&Team";
 	const STATUS_LEGAL = "Legal";
@@ -32,7 +35,7 @@ export const MinePage: React.FC = () => {
 		<S.Container>
 			<S.Content>
 				<S.TopWrapper>
-					<MiningInfo onClick={() => handleOpenPopup("boost")} />
+					<MiningInfo forUpgrade={forUpgrade} onClick={() => handleOpenPopup("boost")} />
 					<S.BalanceBlock>
 						<S.BalanceIcon src={coinGold}></S.BalanceIcon>
 						<S.Balance>{user?.coins}</S.Balance>

@@ -18,6 +18,7 @@ export type WeeklyTaskProps = {
   title: string;
   image: string;
   reward: number;
+  completed?: boolean;
 };
 export type DailyRewardsProps = {
   day: number;

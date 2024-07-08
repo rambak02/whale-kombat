@@ -212,6 +212,13 @@ export const InviteFriend = styled.div`
   animation: ${slideUp} 0.3s;
   padding: 0 16px;
 `;
+
+export const Success = styled.div`
+  position: absolute;
+  top: -30px;
+  right: 16px;
+`;
+
 export const InviteFriendContent = styled.div`
   gap: 10px;
   height: 100%;

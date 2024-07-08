@@ -8,6 +8,7 @@ export const WeeklyTask = ({
   image,
   reward,
   onClick,
+  completed
 }: WeeklyTaskProps) => {
   return (
     <S.Container onClick={onClick}>
@@ -21,7 +22,7 @@ export const WeeklyTask = ({
           </S.RewardBlock>
         </S.TaskInfo>
       </S.TaskContent>
-      <S.DoneImg src={doneImg} />
+      {completed ? <S.DoneImg src={doneImg} /> : null}
     </S.Container>
   );
 };

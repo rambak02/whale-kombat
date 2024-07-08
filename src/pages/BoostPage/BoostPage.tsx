@@ -5,8 +5,10 @@ import coinGold from "../../assets/coinGold.png"
 import nerdFaceImg from "../../assets/emojione-monotone_nerd-face.png";
 import notDoneImg from "../../assets/not-done.svg"
 import { useUserContext } from "../../context/hooks/useUser";
+
 export const BoostPage = () => {
   const {user} = useUserContext()
+
   return (
     <S.Container>
       <S.Title>Ваш баланс</S.Title>

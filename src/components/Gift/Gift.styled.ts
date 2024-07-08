@@ -18,7 +18,7 @@ const appearanceAnimation = keyframes`
 
 export const Container = styled.div`
   height: 88px;
-  padding: 16px 20px;
+  padding: 12px 20px;
   border-radius: 10px;
   background: radial-gradient(
     149.3% 149.3% at 50% 50%,
@@ -34,7 +34,7 @@ export const GiftIcon = styled(Img)<ImgProps>`
   animation: ${appearanceAnimation} 0.3s;
 `;
 export const Content = styled.div`
-  height: 40px;
+  // height: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
