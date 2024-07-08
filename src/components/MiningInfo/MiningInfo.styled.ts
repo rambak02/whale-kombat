@@ -13,7 +13,7 @@ opacity: 1;
 `;
 
 export const MiningInfoBlock = styled.div`
-  gap: 8px;
+  gap: 10px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

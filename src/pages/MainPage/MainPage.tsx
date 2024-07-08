@@ -22,6 +22,7 @@ export const MainPage = () => {
 
 	const [levelsCost, setLevelsCost] = useState<ILevelCost[]>([]);
 	const [progress, setProgress] = useState<number>(0);
+	const [forUpgrade, setForUpgrade] = useState<number>(0);
 
 	useEffect(() => {
 		if (levelsCost.length) return;
@@ -38,34 +39,42 @@ export const MainPage = () => {
 		const currentLevelCost = levelsCost?.find(
 			(i: ILevelCost) => i.level === user?.level
 		)?.cost;
-    
-		setProgress(currentLevelCost ? currentLevelCost - user.coins : 0);
+
+		setForUpgrade(currentLevelCost ? currentLevelCost - user.coins : 0);
+		setProgress(
+			currentLevelCost
+				? Math.round((currentLevelCost - user.coins) / (currentLevelCost / 100))
+				: 0
+		);
 	}, [levelsCost, user]);
 
 	return (
 		<S.Container>
 			<Header />
 			<S.Content>
-        <S.TopWrapper>
-        <MiningInfo onClick={() => handleOpenPopup("boost")} />
-				<S.BalanceBlock>
-					<S.BalanceIcon src={coinGold}></S.BalanceIcon>
-					<S.Balance> {user?.coins}</S.Balance>
-				</S.BalanceBlock>
-				<S.ProgressBarBlock>
-					<S.LevelBlock>
-						<S.LevelTitle>Название уровня &gt;</S.LevelTitle>
-						<S.Level>
-							Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
-						</S.Level>
-					</S.LevelBlock>
-					<S.ProgressBarWrapper>
-						<S.ProgressBarBg />
-						<S.ProgressBar width={67} />
-					</S.ProgressBarWrapper>
-				</S.ProgressBarBlock>
-        </S.TopWrapper>
-				
+				<S.TopWrapper>
+					<MiningInfo
+           forUpgrade={forUpgrade}
+           onClick={() => handleOpenPopup("boost")} 
+           />
+					<S.BalanceBlock>
+						<S.BalanceIcon src={coinGold}></S.BalanceIcon>
+						<S.Balance> {user?.coins}</S.Balance>
+					</S.BalanceBlock>
+					<S.ProgressBarBlock>
+						<S.LevelBlock>
+							<S.LevelTitle>Название уровня &gt;</S.LevelTitle>
+							<S.Level>
+								Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
+							</S.Level>
+						</S.LevelBlock>
+						<S.ProgressBarWrapper>
+							<S.ProgressBarBg />
+							<S.ProgressBar width={progress} />
+						</S.ProgressBarWrapper>
+					</S.ProgressBarBlock>
+				</S.TopWrapper>
+
 				<Clicker />
 				<Energy />
 				<BottomNav />
