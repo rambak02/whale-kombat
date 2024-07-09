@@ -6,7 +6,7 @@ export const BoostContainer = styled.div`
   background: #5ec1ca;
   border-radius: 8px;
   padding: 10px;
-  width: 43%;
+  width: 100%;
   color: #fff;
   display: flex;
   flex-direction: column;

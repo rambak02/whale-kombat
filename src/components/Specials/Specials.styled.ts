@@ -8,11 +8,12 @@ export const Container = styled.div`
 `;
 
 export const Cards = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: -2px;
 `;
 export const Specials = styled.div`
   width: 100%;
