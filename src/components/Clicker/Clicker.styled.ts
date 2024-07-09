@@ -1,7 +1,5 @@
-import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 import { NumberProps } from "../../interfaces/interface";
-
 
 const ClickeAnimation = keyframes`
  0% {
@@ -65,18 +63,15 @@ export const ClickerBlock = styled(ClickerBorder)`
     animation: ${ClickeAnimation} 0.1s ease;
   }
 `;
-export const ClickerImg = styled(Img)<ImgProps>`
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  max-height: 330px;
-  width: 90%;
-  padding: 0px 0px 30px 10px;
-  @media (max-height: 668px) {
-   max-height: 13rem
-  }
+
+export const ImgBlock = styled.div`
+  min-width: 200px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
 export const Number = styled.div<NumberProps>`
   max-width: 100%;
   max-height: 100px;

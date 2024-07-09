@@ -8,6 +8,7 @@ import { useUserContext } from "../../context/hooks/useUser";
 import coinGold from "../../assets/coinGold.png";
 import { Energy } from "../../components/Energy/Energy";
 import { Header } from "../../components/Header/Header";
+import { Loader } from "../../components/Loader/Loader";
 
 export const MainPage = () => {
 
@@ -34,6 +35,7 @@ export const MainPage = () => {
           </S.LevelBlock>
           <S.ProgressBar></S.ProgressBar>
         </S.ProgressBarBlock>
+        {/* <Loader /> */}
         <Clicker />
         <Energy />
         <BottomNav />

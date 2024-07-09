@@ -6,8 +6,7 @@ import { Link } from "react-router-dom"
 import { getMaxEnergy } from "../../utils/formuls"
 
 export const Energy = () => {
-    const {energy, user} = useUserContext()
-    const multi = user?.energy_lvl || 1 
+    const {energy, multi} = useUserContext()
 return (
     <S.Container>
         <S.Energy>

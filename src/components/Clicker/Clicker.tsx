@@ -4,7 +4,7 @@ import { clickNumbers } from "../../interfaces/interface";
 import { postMiningTaps } from "../../api";
 import { throttle } from "lodash";
 import { useUserContext } from "../../context/hooks/useUser";
-import clickerImg from "../../assets/whale.png";
+import { Character } from "../Character/Character";
 
 export const Clicker = () => {
   const {user, updateCoins, minusEnergy, energy} = useUserContext()
@@ -69,12 +69,14 @@ export const Clicker = () => {
     <>
       <S.ClickerBorder onClick={handleClick}>
         <S.ClickerBlock>
-          <S.ClickerImg src={clickerImg} />
+          <S.ImgBlock>
+          <Character level={user?.level || 1}/>
           {clickNumbers.map((click) => (
             <S.Number key={click.id} $left={click.x} $top={click.y}>
               {energy ? `+${user?.multitap_lvl}` : "+0" }
             </S.Number>
           ))}
+          </S.ImgBlock>
         </S.ClickerBlock>
       </S.ClickerBorder>
     </>
