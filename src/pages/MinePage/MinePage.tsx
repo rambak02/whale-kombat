@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MinePage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
@@ -14,7 +13,6 @@ import { useUserContext } from "../../context/hooks/useUser";
 import { PopMine } from "../../components/popups/PopMine/PopMine";
 import coinGold from "../../assets/coinGold.png";
 import { Offer } from "../../components/models/response/IOffers";
-import { Energy } from "../../components/Energy/Energy";
 import { useGetProgress } from "../../hooks/useGetProgress"
 
 export const MinePage: React.FC = () => {
@@ -68,8 +66,8 @@ export const MinePage: React.FC = () => {
 					)}
 				</S.TopWrapper>
 
-				<Clicker />
-				<Energy />
+				{/* <Clicker /> */}
+				{/* <Energy /> */}
 				<BottomNav />
 			</S.Content>
 			{isPopupOpen && currentPopup === "boost" && <PopBoost />}

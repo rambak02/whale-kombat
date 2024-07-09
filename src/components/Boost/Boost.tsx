@@ -30,7 +30,7 @@ export const Boost = ({ offer, onClick }: BoostProps) => {
         </S.Profit>
       </S.Content>
       <S.LevelContainer>
-        <S.Level>lvl {offer.level}</S.Level>
+        <S.Level>lvl {offer.level || 0}</S.Level>
         <S.LevelCost>
           <S.CoinIconCost src={coinGold} />
           <S.Cost>{offer.cost}</S.Cost>

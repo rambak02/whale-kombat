@@ -16,7 +16,7 @@ export const PopupBackground = styled.div`
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: 100vh;
+  // height: 100vh;
   background: radial-gradient(
     170.59% 170.59% at 50% 50%,
     #ffedd1bf 0%,
@@ -76,12 +76,17 @@ export const RewardImg = styled(Img)<ImgProps>`
 export const Reward = styled.div`
   font-family: "Roboto";
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 21px;
   text-align: center;
 `;
+
+export const Image = styled(Img)`
+  max-width: 70%;
+`;
+
 export const Text = styled.div`
-  gap: 25px;
+  gap: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -98,7 +103,7 @@ export const Content = styled.div`
 export const Title = styled.div`
   font-family: "Roboto";
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 32px;
   letter-spacing: -0.03em;
   text-align: center;

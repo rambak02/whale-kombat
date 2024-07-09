@@ -18,7 +18,7 @@ type Boost = {
 export const Card = ({ onClick, boost }: CardProps) => {
   return (
     <S.Card onClick={onClick}>
-      <S.CardImg src={coinGold} />
+      <S.CardImg src={boost.image ? boost.image : coinGold} />
       <div>
         <S.CardTitle>{boost.name}</S.CardTitle>
         <S.Description>Описание</S.Description>
@@ -27,16 +27,16 @@ export const Card = ({ onClick, boost }: CardProps) => {
             <S.ProfitText>Прибыль в час</S.ProfitText>
             <S.ProfitIcon>
               <S.CoinIcon src={coinGold} />
-              <S.ProfitCount>+40</S.ProfitCount>
+              <S.ProfitCount>+{boost.profit_per_hour}</S.ProfitCount>
             </S.ProfitIcon>
           </S.ProfitInf>
         </S.Profit>
       </div>
       <S.LevelContainer>
-        <S.Level>lvl 0</S.Level>
+        <S.Level>lvl {boost.level || 0}</S.Level>
         <S.LevelCost>
           <S.CoinIconCost src={coinGold} />
-          <S.Cost>250</S.Cost>
+          <S.Cost>{boost.cost}</S.Cost>
         </S.LevelCost>
       </S.LevelContainer>
     </S.Card>
