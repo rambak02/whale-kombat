@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { Img, ImgProps } from "react-image";
+import { Link } from "react-router-dom"
 
 const slideUp = keyframes`
   0% {
@@ -219,7 +220,7 @@ export const Success = styled.div`
   right: 16px;
 `;
 
-export const InviteFriendContent = styled.div`
+export const InviteFriendContent = styled(Link)`
   gap: 10px;
   height: 100%;
   background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
