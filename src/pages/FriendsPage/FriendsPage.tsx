@@ -40,6 +40,11 @@ export const FriendsPage = () => {
 			return number.toString();
 		}
 	}
+
+	const TELEGRAM_APP_URL = "https://t.me/ocean_kombat_bot/start"
+	const invitationText = 'Отправь приглашение другу'
+	const link = `https://telegram.me/share/url?url=${TELEGRAM_APP_URL}?startapp=${user?.id}&text=${invitationText}`;
+
 	return (
 		<S.Container>
 			<S.Header>
@@ -87,20 +92,18 @@ export const FriendsPage = () => {
 
 			<S.InviteFriend>
 				{copied ? <S.Success>Cсылка скопирована</S.Success> : null}
-				<S.InviteFriendContent
-					onClick={() =>
-						window.open(`${import.meta.env.TELEGRAM_APP_URL}?startapp=${user?.id}`, "_blank")
-					}
-				>
+
+				<S.InviteFriendContent to={link}>
 					<S.InviteFriendContentText>
 						Пригласите друга
 					</S.InviteFriendContentText>
 					<Img src={inviteFriend} />
 				</S.InviteFriendContent>
+
 				<S.CopyLink
 					onClick={() =>
 						navigator.clipboard
-							.writeText(`${import.meta.env.TELEGRAM_APP_URL}?startapp=${user?.id}`)
+							.writeText(`${TELEGRAM_APP_URL}?startapp=${user?.id}`)
 							.then(() => setCopied(true))
 					}
 				>
