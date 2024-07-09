@@ -4,6 +4,6 @@ import { OffersResponse } from "../models/response/IOffers";
 
 export default class OffersService {
    static async getOffers(type:string): Promise<AxiosResponse<OffersResponse>> {
-     return $api.get<OffersResponse>(`/mining/offers/${type}`)
+     return $api.get<OffersResponse>(`/mining/offers/${type}/`)
     }
 }
