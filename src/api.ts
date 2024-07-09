@@ -5,7 +5,7 @@ export async function getBoosts() {
 }
 
 export const authUser = async (initData: string, referral_code = null) => {
-  const response = await fetch("/api/v1/auth/jwt/create", {
+  const response = await fetch("/api/v1/auth/jwt/create/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export const authUser = async (initData: string, referral_code = null) => {
 };
 
 export const refreshToken = async (refreshToken: string) => {
-  const response = await fetch("/api/v1/auth/jwt/refresh", {
+  const response = await fetch("/api/v1/auth/jwt/refresh/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export const refreshToken = async (refreshToken: string) => {
 
 export const getUser = async () => {
   try {
-    const response = await fetch("/api/v1/auth/users/me", {
+    const response = await fetch("/api/v1/auth/users/me/", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -59,7 +59,7 @@ export const postMiningTaps = async (
   earned: number
 ) => {
   try {
-    const response = await fetch("/api/v1/mining/taps", {
+    const response = await fetch("/api/v1/mining/taps/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export const postMiningTaps = async (
 
 export const getMiningOffers = async (type: string) => {
   try {
-    const response = await fetch(`/api/v1/mining/offers/${type}`, {});
+    const response = await fetch(`/api/v1/mining/offers/${type}/`, {});
     const data = await response.json();
     return data;
   } catch (error) {
@@ -87,7 +87,7 @@ export const getMiningOffers = async (type: string) => {
 
 export const postMiningPurchase = async (offer_id: string, level: number) => {
   try {
-    const response = await fetch("mining/purchase", {
+    const response = await fetch("mining/purchase/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -4,6 +4,6 @@ import { AuthResponse } from "../models/response/AuthResponse";
 
 export default class AuthService {
     static async initDataUser(initData: string, referral_code: string | null = null) : Promise<AxiosResponse<AuthResponse>> {
-        return $api.post<AuthResponse>("/auth/jwt/create", {initData, referral_code})
+        return $api.post<AuthResponse>("/auth/jwt/create/", {initData, referral_code})
     }
 }
