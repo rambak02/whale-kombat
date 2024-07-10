@@ -1,4 +1,3 @@
-import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
 
 export const Header = styled.div`
@@ -14,10 +13,6 @@ export const UserBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-export const UserImg = styled(Img)<ImgProps>`
-width: 45px;
-height: 45px;
 `;
 export const Username = styled.div`
   font-family: "Roboto";

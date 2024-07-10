@@ -15,6 +15,8 @@ import { PopMine } from "../../components/popups/PopMine/PopMine";
 import coinGold from "../../assets/coinGold.png"
 import { Offer } from "../../components/models/response/IOffers";
 import { Energy } from "../../components/Energy/Energy";
+import { useLoadingContext } from "../../context/hooks/useLoading";
+
 
 export const MinePage: React.FC = () => {
   const STATUS_MARKET = "Markets";
@@ -27,13 +29,15 @@ export const MinePage: React.FC = () => {
 
   const [currentPopMine, setCurrentPopMine] = useState<Offer | null>(null);
 
+  const { incrementProgress} = useLoadingContext()
+
   const { user } = useUserContext();
   return (
     <S.Container>
       <S.Content>
         <MiningInfo onClick={() => handleOpenPopup("boost")} />
         <S.BalanceBlock>
-          <S.BalanceIcon src={coinGold}></S.BalanceIcon>
+          <S.BalanceIcon src={coinGold} onLoad={incrementProgress}/>
           <S.Balance>{user?.coins}</S.Balance>
         </S.BalanceBlock>
         <NavMine setStatus={setStatus} />

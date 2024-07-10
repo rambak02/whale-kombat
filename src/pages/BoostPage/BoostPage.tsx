@@ -64,11 +64,7 @@ export const BoostPage = () => {
             <S.BoostInfo>
               <S.BoostTitle>Multitap</S.BoostTitle>
               <S.BoostDescriptionBlock>
-                <S.Description>
-                  <S.CoinIcon src={coinGold} />
-                  2K ·
-                </S.Description>
-                <S.Level>2 lvl</S.Level>
+                <S.Level>{user?.multitap_lvl} lvl</S.Level>
               </S.BoostDescriptionBlock>
             </S.BoostInfo>
           </S.Boost>
@@ -81,11 +77,7 @@ export const BoostPage = () => {
             <S.BoostInfo>
               <S.BoostTitle>Energy limit</S.BoostTitle>
               <S.BoostDescriptionBlock>
-                <S.Description>
-                  <S.CoinIcon src={coinGold} />
-                  2K ·
-                </S.Description>
-                <S.Level>2 lvl</S.Level>
+                <S.Level>{user?.energy_lvl} lvl</S.Level>
               </S.BoostDescriptionBlock>
             </S.BoostInfo>
           </S.Boost>

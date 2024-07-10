@@ -8,39 +8,43 @@ import { useUserContext } from "../../context/hooks/useUser";
 import coinGold from "../../assets/coinGold.png";
 import { Energy } from "../../components/Energy/Energy";
 import { Header } from "../../components/Header/Header";
+import { useLoadingContext } from "../../context/hooks/useLoading";
 import { Loader } from "../../components/Loader/Loader";
 
 export const MainPage = () => {
-
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
   const { user } = useUserContext();
+  const { isLoading, progress, incrementProgress } = useLoadingContext();
 
   return (
     <S.Container>
-     <Header />
-      <S.Content>
-        <MiningInfo onClick={() => handleOpenPopup("boost")} />
-        <S.BalanceBlock>
-          <S.BalanceIcon src={coinGold}></S.BalanceIcon>
-          <S.Balance> {user?.coins}</S.Balance>
-        </S.BalanceBlock>
-        <S.ProgressBarBlock> 
-          <S.LevelBlock>
-            <S.LevelTitle>
-              Название уровня
-              &gt;</S.LevelTitle>
-            <S.Level>
-              Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
-            </S.Level>
-          </S.LevelBlock>
-          <S.ProgressBar></S.ProgressBar>
-        </S.ProgressBarBlock>
-        {/* <Loader /> */}
-        <Clicker />
-        <Energy />
-        <BottomNav />
-      </S.Content>
-      {isPopupOpen && currentPopup === "boost" && <PopBoost />}
+      {isLoading ? (
+        <Loader progress={progress} />
+      ) : (
+        <>
+          <Header />
+          <S.Content>
+            <MiningInfo onClick={() => handleOpenPopup("boost")} />
+            <S.BalanceBlock>
+              <S.BalanceIcon src={coinGold} onLoad={incrementProgress} />
+              <S.Balance> {user?.coins}</S.Balance>
+            </S.BalanceBlock>
+            <S.ProgressBarBlock>
+              <S.LevelBlock>
+                <S.LevelTitle>Название уровня &gt;</S.LevelTitle>
+                <S.Level>
+                  Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
+                </S.Level>
+              </S.LevelBlock>
+              <S.ProgressBar></S.ProgressBar>
+            </S.ProgressBarBlock>
+            <Clicker />
+            <Energy />
+            <BottomNav />
+          </S.Content>
+          {isPopupOpen && currentPopup === "boost" && <PopBoost />}
+        </>
+      )}
     </S.Container>
   );
 };

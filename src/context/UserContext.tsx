@@ -2,6 +2,7 @@ import { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { getUser, postMiningTaps } from "../api";
 import AuthService from "../components/service/AuthService";
 import { getMaxEnergy } from "../utils/formuls";
+import { useLoadingContext } from "./hooks/useLoading";
 
 export interface User {
   id: string;
@@ -40,7 +41,8 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   const multi = user?.energy_lvl || 1 
   const [energy, setEnergy] = useState(0);
   const addedEnergy = 3;
- 
+  const {incrementProgress} = useLoadingContext()
+
   const minusEnergy = () => {
     if (user) {
       if (energy <= 0) {
@@ -57,7 +59,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (energy < 1500) {
+      if (energy < getMaxEnergy(multi)) {
         setEnergy(prevEnergy => {
          const newEnergy = Math.min(getMaxEnergy(multi), prevEnergy + addedEnergy)
          postMiningTaps(newEnergy, 0)
@@ -95,6 +97,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
         const userData = await getUser();
         setUser(userData);
         setEnergy(userData?.energy);
+        incrementProgress();
       } catch (e) {
         console.error("error", e);
       }

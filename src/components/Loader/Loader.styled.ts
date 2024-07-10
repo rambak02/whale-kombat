@@ -11,9 +11,10 @@ export const LoadingScreen = styled.div`
   z-index: 999;
   width: 100%;
   height: 100%;
+  transition: all 0.9 ease-out;
 `;
 export const ProgressBarContainer = styled.div`
-  width: 80%;
+  width: 100%;
   height: 9px;
   background: #e0e0e0;
   border-radius: 5px;

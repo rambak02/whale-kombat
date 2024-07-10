@@ -10,20 +10,10 @@ import coinGold from "../../assets/coinGold.png";
 import inviteFriend from "../../assets/mage_user-plus.png";
 import copyLink from "../../assets/fluent_copy-20-regular.svg";
 import { useFriendsContext } from "../../context/hooks/useFriends";
+import { formatNumber } from "../../utils/format";
 
 export const FriendsPage = () => {
   const { friends } = useFriendsContext();
-  function formatNumber(number: number = 0) {
-    if (number >= 1000000000) {
-        return (number / 1000000000).toFixed(1) + 'B';
-    } else if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'м';
-    } else if (number >= 1000) {
-        return (number / 1000).toFixed(1) + 'к';
-    } else {
-        return number.toString();
-    }
-  }
   return (
     <S.Container>
       <S.Header>
