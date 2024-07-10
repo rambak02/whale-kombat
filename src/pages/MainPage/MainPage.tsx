@@ -2,51 +2,67 @@ import { Clicker } from "../../components/Clicker/Clicker";
 import * as S from "./MainPage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
+import Container from "../../components/layout/Container";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
-import { useUserContext } from "../../context/hooks/useUser";
 import coinGold from "../../assets/coinGold.png";
 import { Energy } from "../../components/Energy/Energy";
 import { Header } from "../../components/Header/Header";
-import { useGetProgress } from "../../hooks/useGetProgress"
+import { useGetProgress } from "../../hooks/useGetProgress";
+import { useUserContext } from "../../context/hooks/useUser";
 
 export const MainPage = () => {
-	const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 	const { user } = useUserContext();
-	const { progress, forUpgrade } = useGetProgress()
+
+	const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
+	const { progress, forUpgrade } = useGetProgress();
 
 	return (
-		<S.Container>
-			<Header />
-			<S.Content>
-				<S.TopWrapper>
-					<MiningInfo
-						forUpgrade={forUpgrade}
-						onClick={() => handleOpenPopup("boost")}
-					/>
-					<S.BalanceBlock>
-						<S.BalanceIcon src={coinGold}></S.BalanceIcon>
-						<S.Balance> {user?.coins}</S.Balance>
-					</S.BalanceBlock>
-					<S.ProgressBarBlock>
-						<S.LevelBlock>
-							<S.LevelTitle>Название уровня &gt;</S.LevelTitle>
-							<S.Level>
-								Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
-							</S.Level>
-						</S.LevelBlock>
-						<S.ProgressBarWrapper>
-							<S.ProgressBarBg />
-							<S.ProgressBar width={progress} />
-						</S.ProgressBarWrapper>
-					</S.ProgressBarBlock>
-				</S.TopWrapper>
+		<>
+			{user ? (
+				<Container>
+					{/* <S.Container> */}
+					<Header />
+					<div className="flex flex-col px-4 h-[90vh]">
+						<div className="">
+							<MiningInfo
+								forUpgrade={forUpgrade}
+								onClick={() => handleOpenPopup("boost")}
+							/>
 
-				<Clicker />
-				<Energy />
-				<BottomNav />
-			</S.Content>
-			{isPopupOpen && currentPopup === "boost" && <PopBoost />}
-		</S.Container>
+							<S.ProgressBarBlock>
+								<S.LevelBlock>
+									<p className="text-white font-medium font-montserrat">
+										Название уровня &gt;
+									</p>
+									<S.Level>
+										Level <S.LevelNumber>{user?.level}/10</S.LevelNumber>
+									</S.Level>
+								</S.LevelBlock>
+								<S.ProgressBarWrapper>
+									<S.ProgressBarBg />
+									<S.ProgressBar width={progress} />
+								</S.ProgressBarWrapper>
+							</S.ProgressBarBlock>
+
+							<S.BalanceBlock>
+								<S.BalanceIcon src={coinGold}></S.BalanceIcon>
+								<p className="text-3xl mt-[3px] font-bold text-white">
+									{user?.coins.toLocaleString("ru")}
+								</p>
+							</S.BalanceBlock>
+						</div>
+
+						<div className="relative flex flex-col justify-center">
+							<Clicker />
+							<Energy />
+						</div>
+						<BottomNav />
+					</div>
+					{isPopupOpen && currentPopup === "boost" && <PopBoost />}
+					{/* </S.Container> */}
+				</Container>
+			) : null}
+		</>
 	);
 };

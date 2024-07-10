@@ -29,26 +29,30 @@ export const NavGrid = styled.nav`
 	// justify-content: space-around;
 	gap: 10px;
 `;
-export const Nav = styled.div`
-	gap: 5px;
+export const Nav = styled.div<NavProps>`
+	gap: 3px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	cursor: pointer;
+	padding: 10px;
+	border-radius: 12px;
+	background-color: ${(props) => (props.$isSelected? "#03577F" : "transparent")};
 `;
 export const NavIcon = styled(Img)<ImgProps>`
-	height: 24px;
+	height: 20px;
+	color: #52D6D3;
 `;
 export const NavText = styled.div<NavProps>`
-	color: ${(props) => (props.$isSelected ? "white" : "black")};
-	font-family: "Raleway";
+	color: ${(props) => (props.$isSelected ? "white" : "#5EC1CA")};
+	font-family: "Montserrat";
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 16px;
 	text-align: center;
 `;
 export const NavTextBybit = styled(NavText)<NavProps>`
-	color: ${(props) => (props.$isSelected ? "white" : "black")};
+	color: ${(props) => (props.$isSelected ? "white" : "#5EC1CA")};
 `;
 export const NavIconBybit = styled(NavIcon)`
 	width: 44px;

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { GlobalStyle } from "./Styles/Global.styled";
+// import { GlobalStyle } from "./Styles/Global.styled";
 import { AppRoutes } from "./routes";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <AppRoutes />
     </>
   );

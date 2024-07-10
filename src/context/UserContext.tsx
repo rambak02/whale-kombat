@@ -1,104 +1,124 @@
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
-import { getUser, postMiningTaps } from "../api";
-import AuthService from "../components/service/AuthService";
+import { useGetUserQuery } from "../redux/services/userApi";
+import { useInit } from "../hooks/useInit";
+import { useOnTapMutation } from "../redux/services/miningApi";
 
 export interface User {
-  id: string;
-  username: string;
-  coins: number;
-  photo: string;
-  last_passive_coin_update: number;
-  level: number;
-  energy: number;
-  energy_change: number;
-  multitap_lvl: number;
-  energy_lvl: number ;
-  available_energy_reset: number;
-  daily_count: number;
-  daily_last_dt: number;
-  passive_profit: number;
+	id: string;
+	username: string;
+	coins: number;
+	photo: string;
+	last_passive_coin_update: number;
+	level: number;
+	energy: number;
+	energy_change: number;
+	multitap_lvl: number;
+	energy_lvl: number;
+	available_energy_reset: number;
+	daily_count: number;
+	daily_last_dt: number;
+	passive_profit: number;
 }
 
 interface UserContextProps {
-   user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
-  minusEnergy: () => void;
-  updateCoins: (coins: number) => void;
-  energy: number;
+	user: User | null;
+	setUser: React.Dispatch<React.SetStateAction<User | null>>;
+	minusEnergy: () => void;
+	updateCoins: (coins: number) => void;
+	energy: number;
 }
 interface UserProviderProps {
-  children: ReactNode;
+	children: ReactNode;
 }
 
 export const UserContext = createContext<UserContextProps | null>(null);
 
 export const UserProvider: FC<UserProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const multi = user?.energy_lvl || 1 
-  const [energy, setEnergy] = useState(0);
-  const addedEnergy = 3;
- 
-  const maxEnergy = 1000 + (500 * multi)
-  const minusEnergy = () => {
-    if (user) {
-      if (energy <= 0) {
-        return 
-      }
-      setEnergy(energy - user.multitap_lvl);
-    }
-    
-  };
-  
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (energy < 1500) {
-        setEnergy(prevEnergy => {
-         const newEnergy = Math.min(maxEnergy, prevEnergy + addedEnergy)
-         postMiningTaps(newEnergy, 0)
-         return newEnergy
-        });
-       
-      }
-    }, 1000);
+	const inizialised = useInit();
 
-    return () => clearInterval(intervalId);
-  }, [energy]);
+	const { data: me } = useGetUserQuery(null, {
+		skip: !inizialised,
+	});
 
-  const updateCoins = (coins: number) => {
-    if (energy <= 0) {
-      return 
-    }
-    if (user) {
-      setUser({
-        ...user,
-        coins,
-      });
-    }
-  };
+	const [user, setUser] = useState<User | null>(me || null);
+	const multi = user?.energy_lvl || 1;
+	const [energy, setEnergy] = useState(0);
+	const addedEnergy = 3;
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        // const tg = window.Telegram.WebApp
-        const initData =
-          "query_id=AAFYCeMcAAAAAFgJ4xzSwQ8I&user=%7B%22id%22%3A484641112%2C%22first_name%22%3A%22%D0%A0%D0%B0%D0%BC%D0%B0%D0%BB%22%2C%22last_name%22%3A%22%D0%91%D0%B0%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%22%2C%22username%22%3A%22rabltrabl%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1720097864&hash=3c17818991ce5d3de2628092c1cff31a70bbb35002a9c6317c9cba40161237b5";
-        const JSONresponse = await AuthService.initDataUser(initData);
-        const response = JSON.stringify(JSONresponse.data);
-        const tokens = JSON.parse(response);
-        localStorage.setItem("token", tokens.access);
-        const userData = await getUser();
-        setUser(userData);
-        setEnergy(userData?.energy);
-      } catch (e) {
-        console.error("error", e);
-      }
-    };
-    fetchUser();
-  }, []);
+	const maxEnergy = 1000 + 500 * multi;
 
-  return (
-    <UserContext.Provider value={{ user, setUser, updateCoins, minusEnergy, energy }}>
-      {children}
-    </UserContext.Provider>
-  );
+	const minusEnergy = () => {
+		if (user) {
+			if (energy <= 0) {
+				return;
+			}
+			setEnergy(energy - user.multitap_lvl);
+		}
+	};
+
+	useEffect(() => {
+		if (!me || !inizialised) return;
+
+		setUser(me);
+		setEnergy(me.energy);
+	}, [me]);
+
+	const [onTap] = useOnTapMutation();
+
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			if (energy < 1500) {
+				setEnergy((prevEnergy) => {
+					const newEnergy = Math.min(maxEnergy, prevEnergy + addedEnergy);
+					onTap({ current_energy: newEnergy, earned: 0 })
+						.unwrap()
+            // .then(() => dispatch(userApi.util.invalidateTags(['User'])))
+						.catch((err) => console.error(err));
+					return newEnergy;
+				});
+			}
+		}, 300);
+
+		return () => clearInterval(intervalId);
+	}, [energy]);
+
+	const updateCoins = (coins: number) => {
+		if (energy <= 0) {
+			return;
+		}
+		if (user) {
+			setUser({
+				...user,
+				coins,
+			});
+		}
+	};
+
+	// useEffect(() => {
+	//   const fetchUser = async () => {
+	//     try {
+	//       // const tg = window.Telegram.WebApp
+	//       const initData =
+	//         "query_id=AAFYCeMcAAAAAFgJ4xzSwQ8I&user=%7B%22id%22%3A484641112%2C%22first_name%22%3A%22%D0%A0%D0%B0%D0%BC%D0%B0%D0%BB%22%2C%22last_name%22%3A%22%D0%91%D0%B0%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%22%2C%22username%22%3A%22rabltrabl%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1720097864&hash=3c17818991ce5d3de2628092c1cff31a70bbb35002a9c6317c9cba40161237b5";
+	//       const JSONresponse = await AuthService.initDataUser(initData);
+	//       const response = JSON.stringify(JSONresponse.data);
+	//       const tokens = JSON.parse(response);
+	//       localStorage.setItem("token", tokens.access);
+	//       const userData = await getUser();
+	//       setUser(userData);
+	//       setEnergy(userData?.energy);
+	//     } catch (e) {
+	//       console.error("error", e);
+	//     }
+	//   };
+	//   fetchUser();
+	// }, []);
+
+	return (
+		<UserContext.Provider
+			value={{ user, setUser, updateCoins, minusEnergy, energy }}
+		>
+			{children}
+		</UserContext.Provider>
+	);
 };
