@@ -3,7 +3,7 @@ import * as S from "./Clicker.styled";
 import { postMiningTaps } from "../../api";
 import { throttle } from "lodash";
 import { useUserContext } from "../../context/hooks/useUser";
-import clickerImg from "../../assets/whale.png";
+import { Character } from "../Character/Character";
 import { addFloatingNumber } from './utils/addFloatingNumber';
 
 export const Clicker = () => {
@@ -50,9 +50,11 @@ export const Clicker = () => {
   }, [throttledPostMiningTaps]);
   return (
     <>
-      <S.ClickerBorder onTouchStart={ e => handleClick(e)}>
+    <S.ClickerBorder onTouchStart={ e => handleClick(e)}>
         <S.ClickerBlock ref={blockRef}>
-          <S.ClickerImg src={clickerImg} />
+          <S.ImgBlock>
+          <Character level={user?.level || 1}/>
+          </S.ImgBlock>
         </S.ClickerBlock>
       </S.ClickerBorder>
     </>

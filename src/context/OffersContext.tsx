@@ -1,6 +1,7 @@
 import { createContext, useState, ReactNode } from 'react';
 import { Offer } from '../components/models/response/IOffers';
 import OffersService from '../components/service/OffersService';
+import { useLoadingContext } from './hooks/useLoading';
 
 interface OffersContextProps {
   offers: Offer[];
@@ -12,11 +13,13 @@ export const OffersContext = createContext<OffersContextProps | null>(null);
 
 export const OffersProvider = ({ children }: { children: ReactNode }) => {
   const [offers, setOffers] = useState<Offer[]>([]);
+  const {incrementProgress} = useLoadingContext()
 
   const fetchOffers = async (category: string) => {
     try {
       const response = await OffersService.getOffers(category);
       setOffers(response.data.offers);
+      incrementProgress();
     } catch (e) {
       console.error("Ошибка в offers", e);
     }

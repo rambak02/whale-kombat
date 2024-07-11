@@ -11,17 +11,6 @@ interface MiningInfoProps {
 
 export const MiningInfo: React.FC<MiningInfoProps> = ({ forUpgrade = 0, onClick }) => {
   const { user } = useUserContext()
-  function formatNumber(number: number = 0) {
-    if (number >= 1000000000) {
-        return (number / 1000000000).toFixed(1) + 'B';
-    } else if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'м';
-    } else if (number >= 1000) {
-        return (number / 1000).toFixed(1) + 'к';
-    } else {
-        return number?.toString();
-    }
-}
   return (
     <S.MiningInfoBlock>
       <S.MiningInfoContainer>
@@ -39,7 +28,7 @@ export const MiningInfo: React.FC<MiningInfoProps> = ({ forUpgrade = 0, onClick 
         <S.ProfitPerHourTitle>Прибыль в час</S.ProfitPerHourTitle>
         <S.ProfitPerHourContent>
           <S.CoinImg src={coinGold} />
-          <S.ProfitOneClickCount>{formatNumber(user?.passive_profit) || 0}</S.ProfitOneClickCount>
+          <S.ProfitOneClickCount>{getShortNumber(user?.passive_profit) || 0}</S.ProfitOneClickCount>
           <S.CoinImg
             id="popBoost"
             src={icon}

@@ -1,5 +1,5 @@
-import { Img, ImgProps } from "react-image";
 import styled from "styled-components";
+import {Img, ImgProps} from "react-image"
 
 export const Header = styled.div`
   display: flex;
@@ -20,6 +20,7 @@ width: 36px;
 height: 36px;
 radius: 18px;
 `;
+
 export const Username = styled.div`
   font-family: "Roboto";
   font-size: 20px;

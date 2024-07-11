@@ -1,6 +1,5 @@
 import { useUserContext } from "../../context/hooks/useUser";
 import * as S from "./Header.styled"
-import userImg from "../../assets/whale.png";
 
 
 

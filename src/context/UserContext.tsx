@@ -1,6 +1,8 @@
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { getUser, postMiningTaps } from "../api";
 import AuthService from "../components/service/AuthService";
+import { getMaxEnergy } from "../utils/formuls";
+import { useLoadingContext } from "./hooks/useLoading";
 
 export interface User {
   id: string;
@@ -25,6 +27,8 @@ interface UserContextProps {
   minusEnergy: () => void;
   updateCoins: (coins: number) => void;
   energy: number;
+  resetEnergy: (energy: number) => void;
+  multi: number;
 }
 interface UserProviderProps {
   children: ReactNode;
@@ -37,8 +41,8 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   const multi = user?.energy_lvl || 1 
   const [energy, setEnergy] = useState(0);
   const addedEnergy = 3;
- 
-  const maxEnergy = 1000 + (500 * multi)
+  const {incrementProgress} = useLoadingContext()
+
   const minusEnergy = () => {
     if (user) {
       if (energy <= 0) {
@@ -48,12 +52,16 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
     }
     
   };
+
+  const resetEnergy = (energy: number) => {
+   setEnergy(energy);
+  }
   
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (energy < 1500) {
+      if (energy < getMaxEnergy(multi)) {
         setEnergy(prevEnergy => {
-         const newEnergy = Math.min(maxEnergy, prevEnergy + addedEnergy)
+         const newEnergy = Math.min(getMaxEnergy(multi), prevEnergy + addedEnergy)
          postMiningTaps(newEnergy, 0)
          return newEnergy
         });
@@ -89,6 +97,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
         const userData = await getUser();
         setUser(userData);
         setEnergy(userData?.energy);
+        incrementProgress();
       } catch (e) {
         console.error("error", e);
       }
@@ -97,7 +106,7 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, updateCoins, minusEnergy, energy }}>
+    <UserContext.Provider value={{ user, setUser, updateCoins, minusEnergy, energy, resetEnergy, multi }}>
       {children}
     </UserContext.Provider>
   );

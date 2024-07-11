@@ -8,16 +8,23 @@ import { useUserContext } from "../../context/hooks/useUser";
 import coinGold from "../../assets/coinGold.png";
 import { Energy } from "../../components/Energy/Energy";
 import { Header } from "../../components/Header/Header";
+import { useLoadingContext } from "../../context/hooks/useLoading";
+import { Loader } from "../../components/Loader/Loader";
 import { useGetProgress } from "../../hooks/useGetProgress"
 
 export const MainPage = () => {
-	const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
-	const { user } = useUserContext();
+  const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
+  const { user } = useUserContext();
+  const { isLoading, progress, incrementProgress } = useLoadingContext();
 	const { progress, forUpgrade } = useGetProgress()
 
-	return (
-		<S.Container>
-			<Header />
+  return (
+    <S.Container>
+      {isLoading ? (
+        <Loader progress={progress} />
+      ) : (
+        <>
+        	<Header />
 			<S.Content>
 				<S.TopWrapper>
 					<MiningInfo
@@ -41,12 +48,12 @@ export const MainPage = () => {
 						</S.ProgressBarWrapper>
 					</S.ProgressBarBlock>
 				</S.TopWrapper>
-
 				<Clicker />
 				<Energy />
 				<BottomNav />
 			</S.Content>
 			{isPopupOpen && currentPopup === "boost" && <PopBoost />}
-		</S.Container>
-	);
-};
+        </>
+      )}
+    </S.Container>
+  );
