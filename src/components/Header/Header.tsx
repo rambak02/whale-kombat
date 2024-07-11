@@ -1,6 +1,5 @@
 import { useUserContext } from "../../context/hooks/useUser";
 import userImg from "../../assets/whale.png";
-import byBitImg from "../../assets/Bybit.svg"
 import { Image } from "@nextui-org/react";
 
 export const Header = () => {
