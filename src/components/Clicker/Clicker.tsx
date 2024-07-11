@@ -1,32 +1,36 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as S from "./Clicker.styled";
-import { clickNumbers } from "../../interfaces/interface";
 import { postMiningTaps } from "../../api";
 import { throttle } from "lodash";
 import { useUserContext } from "../../context/hooks/useUser";
 import clickerImg from "../../assets/whale.png";
+import { addFloatingNumber } from './utils/addFloatingNumber';
 
 export const Clicker = () => {
-	const { user, updateCoins, minusEnergy, energy } = useUserContext();
-	//цифры появляющиеся при клике
-	const [clickNumbers, setClickNumbers] = useState<clickNumbers[]>([]);
-	const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
-	const [accumulatedEnergy, setAccumulatedEnergy] = useState<number>(0);
+  const {user, updateCoins, minusEnergy, energy} = useUserContext()
+  const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
+  const [accumulatedEnergy, setAccumulatedEnergy] = useState<number>(0);
+ 
+  const blockRef = useRef<HTMLDivElement>(null)
 
-	//элемент появляется в том месте, где был совершен клик
-	const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-		const { clientX, clientY } = event;
-		//расчет координат относительно всей страницы
-		const absoluteX = clientX + window.scrollX;
-		const absoluteY = clientY + window.scrollY;
+  const handleClick = (event: React.TouchEvent<HTMLDivElement>) => {
+    [...event.changedTouches as unknown as Touch[]].forEach(touch => {
+      addFloatingNumber({
+        left: touch.pageX,
+        top: touch.pageY,
+        value: energy ? `+${user?.multitap_lvl}` : '+0',
+        target: blockRef.current,
+      });
+    });
 
-		const newClick = {
-			id: Date.now(),
-			x: absoluteX,
-			y: absoluteY,
-		};
-
-		setClickNumbers((prevClicks) => [...prevClicks, newClick]);
+    if (user) {
+      const formulaTap = user.multitap_lvl;
+      minusEnergy()
+      updateCoins(user.coins + formulaTap);
+      setAccumulatedCoins((prevCoins) => prevCoins + formulaTap);
+      setAccumulatedEnergy((prevEnergy) => prevEnergy + formulaTap);
+    }
+  };
 
 		const timeOut = setTimeout(() => {
 			setClickNumbers((prevClicks) =>
@@ -53,23 +57,16 @@ export const Clicker = () => {
 		}
 	}, 500);
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			throttledPostMiningTaps();
-		}, 300);
-
-		return () => clearInterval(interval);
-	}, [throttledPostMiningTaps]);
-	return (
+  return (
 		<div className="mt-3 flex w-full items-center justify-center">
 			<div
 				className="w-[300px] h-[300px] flex justify-center items-center bg-gray-500 bg-gradient-to-b from-[#44B9CC] from-0% via-[#26829B] via-50% to-[#052939] to-100% rounded-full"
-				onClick={handleClick}
+				onTouchStart={ e => handleClick(e)}
 			>
 				<div
 					className="relative w-[270px] h-[270px] flex justify-center items-center rounded-full bg-[radial-gradient(60%_60%,#45B3E7_0%,#114760_100%)]"
 				>
-          <S.ClickerBlock>
+          <S.ClickerBlock ef={blockRef}>
 						<S.ClickerImg src={clickerImg} />
             {clickNumbers.map((click) => (
 							<S.Number key={click.id} $left={click.x - 100} $top={click.y - 280}>
