@@ -8,8 +8,8 @@ export const Header = () => {
     return (
         <S.Header>
         <S.UserBlock>
-         
-          <S.Username>{" " + user?.username}</S.Username>
+          <S.UserImg alt="user" src={user?.photo ? user.photo : userImg} />
+          <S.Username>{user?.username}</S.Username>
         </S.UserBlock>
       </S.Header>
     )

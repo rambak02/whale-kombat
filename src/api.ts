@@ -100,6 +100,7 @@ export const postMiningPurchase = async (offer_id: string, level: number) => {
   } catch (error) {
     console.error(error);
   }
+<<<<<<< main
 };
 
 export const resetEnergyApi = async (
@@ -117,4 +118,6 @@ export const resetEnergyApi = async (
   } catch (error) {
     console.error("Error reset energy:", error);
   }
+=======
+>>>>>>> master
 };

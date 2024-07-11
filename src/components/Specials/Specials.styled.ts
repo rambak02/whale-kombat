@@ -1,29 +1,32 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 672px;
+  width: 100%;
   margin: 0 auto;
-  padding-top: 22px;
+  // padding-top: 22px;
   box-sizing: border-box;
 `;
 
 export const Cards = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: -2px;
 `;
-export const Specials = styled.div``;
+export const Specials = styled.div`
+  width: 100%;
+`;
+
 export const SpecialsNav = styled.div`
-  display: flex;
-  justify-content: space-around;
+margin-top: 6px;
+  display: grid;
+	grid-template-columns: repeat(3, 1fr);
 `;
 export const Nav = styled.div`
-  display: flex;
   height: 50px;
   box-sizing: border-box;
-  width: 70px;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 400;

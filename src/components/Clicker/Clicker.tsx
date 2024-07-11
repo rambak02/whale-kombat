@@ -1,51 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as S from "./Clicker.styled";
-import { clickNumbers } from "../../interfaces/interface";
 import { postMiningTaps } from "../../api";
 import { throttle } from "lodash";
 import { useUserContext } from "../../context/hooks/useUser";
 import { Character } from "../Character/Character";
+import { addFloatingNumber } from './utils/addFloatingNumber';
 
 export const Clicker = () => {
   const {user, updateCoins, minusEnergy, energy} = useUserContext()
-  //цифры появляющиеся при клике
-  const [clickNumbers, setClickNumbers] = useState<clickNumbers[]>([]);
   const [accumulatedCoins, setAccumulatedCoins] = useState<number>(0);
   const [accumulatedEnergy, setAccumulatedEnergy] = useState<number>(0);
  
-  //элемент появляется в том месте, где был совершен клик
-  const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const { clientX, clientY } = event;
-    //расчет координат относительно всей страницы
-    const absoluteX = clientX + window.scrollX;
-    const absoluteY = clientY + window.scrollY;
+  const blockRef = useRef<HTMLDivElement>(null)
 
-    const newClick = {
-      id: Date.now(),
-      x: absoluteX,
-      y: absoluteY,
-    };
+  const handleClick = (event: React.TouchEvent<HTMLDivElement>) => {
+    [...event.changedTouches as unknown as Touch[]].forEach(touch => {
+      addFloatingNumber({
+        left: touch.pageX,
+        top: touch.pageY,
+        value: energy ? `+${user?.multitap_lvl}` : '+0',
+        target: blockRef.current,
+      });
+    });
 
-    setClickNumbers((prevClicks) => [...prevClicks, newClick]);
-
-    const timeOut = setTimeout(() => {
-      setClickNumbers((prevClicks) =>
-        prevClicks.filter((click) => click.id !== newClick.id)
-      );
-      return () => clearTimeout(timeOut);
-    }, 900);
     if (user) {
       const formulaTap = user.multitap_lvl;
       minusEnergy()
       updateCoins(user.coins + formulaTap);
       setAccumulatedCoins((prevCoins) => prevCoins + formulaTap);
-      setAccumulatedEnergy((prevEnergy) => {
-      return prevEnergy + formulaTap 
-       
-      }
-    
-    );
-     
+      setAccumulatedEnergy((prevEnergy) => prevEnergy + formulaTap);
     }
   };
 
@@ -67,15 +50,10 @@ export const Clicker = () => {
   }, [throttledPostMiningTaps]);
   return (
     <>
-      <S.ClickerBorder onClick={handleClick}>
-        <S.ClickerBlock>
+    <S.ClickerBorder onTouchStart={ e => handleClick(e)}>
+        <S.ClickerBlock ref={blockRef}>
           <S.ImgBlock>
           <Character level={user?.level || 1}/>
-          {clickNumbers.map((click) => (
-            <S.Number key={click.id} $left={click.x} $top={click.y}>
-              {energy ? `+${user?.multitap_lvl}` : "+0" }
-            </S.Number>
-          ))}
           </S.ImgBlock>
         </S.ClickerBlock>
       </S.ClickerBorder>

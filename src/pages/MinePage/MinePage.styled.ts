@@ -22,9 +22,17 @@ export const Container = styled.div`
   background: linear-gradient(0deg, #7ad4df 0%, #03577f 86.39%, #1c1c1d 100%);
 `;
 
+export const TopWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 export const TimeBlock = styled.div`
   height: 20px;
-  width: 93%;
+  width: 100%;
   gap: 5px;
   display: flex;
   justify-content: flex-end;
@@ -50,10 +58,11 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 36px 36px 0px 0px;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 10px;
   padding-bottom: 30px;
   min-height: 100vh;
+  padding: 23px 16px 0 16px;
 `;
 export const BalanceBlock = styled.div`
   display: flex;
@@ -77,6 +86,7 @@ export const Balance = styled.div`
 export const BalanceIcon = styled(Img)<ImgProps>`
   width: 80px;
   height: 80px;
+  margin-left: -12px;
 `;
 
 export const ComboBlock = styled.div`

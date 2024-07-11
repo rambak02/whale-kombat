@@ -31,7 +31,7 @@ export const PopMine = ({ offer }: PopMineProps) => {
             <Img src={closeImg}/>
           </S.ModalButton>
           <S.Content>
-            <Img src={offer.image} />
+            <S.Image src={offer.image} />
             <S.Text>
               <S.Title>{offer.name}</S.Title>
               <S.Description>

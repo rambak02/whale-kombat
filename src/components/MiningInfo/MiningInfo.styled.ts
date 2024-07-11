@@ -13,10 +13,10 @@ opacity: 1;
 `;
 
 export const MiningInfoBlock = styled.div`
-  gap: 3px;
-  width: 93%;
-  display: flex;
-  margin: 20px;
+  gap: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: space-evenly;
   animation: ${right} 0.3s;

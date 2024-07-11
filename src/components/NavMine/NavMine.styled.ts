@@ -18,7 +18,7 @@ export const NavMineContainer = styled.div`
 `;
 export const NavMineBlock = styled.div`
   display: flex;
-  width: 93%;
+  width: 100%;
   height: 42px;
   padding: 12px 16px 12px 16px;
   border-radius: 10px;
