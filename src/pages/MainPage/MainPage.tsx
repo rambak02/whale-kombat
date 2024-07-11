@@ -15,7 +15,7 @@ import { useGetProgress } from "../../hooks/useGetProgress"
 export const MainPage = () => {
   const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
   const { user } = useUserContext();
-  const { isLoading, progress, incrementProgress } = useLoadingContext();
+  const { isLoading } = useLoadingContext();
 	const { progress, forUpgrade } = useGetProgress()
 
   return (
@@ -24,7 +24,7 @@ export const MainPage = () => {
         <Loader progress={progress} />
       ) : (
         <>
-        	<Header />
+        <Header />
 			<S.Content>
 				<S.TopWrapper>
 					<MiningInfo
@@ -56,4 +56,5 @@ export const MainPage = () => {
         </>
       )}
     </S.Container>
-  );
+  )
+};

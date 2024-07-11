@@ -8,7 +8,7 @@ export const Header = () => {
     return (
         <S.Header>
         <S.UserBlock>
-          <S.UserImg alt="user" src={user?.photo ? user.photo : userImg} />
+          <S.UserImg alt="user" src={user?.photo ? user.photo : ""} />
           <S.Username>{user?.username}</S.Username>
         </S.UserBlock>
       </S.Header>

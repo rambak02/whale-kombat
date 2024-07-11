@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect, ReactNode } from "react";
 
 interface LoadingContextProps {
     isLoading: boolean;
-    progress: number;
+    loadingProgress: number;
     incrementProgress: () => void;
 }
 
@@ -28,6 +28,6 @@ export const LoadingProvider: React.FC<{ children: ReactNode }> = ({ children })
     }
 
     return (
-        <LoadingContext.Provider value = {{ isLoading, progress: (progress /totalTasks) * 100, incrementProgress }}>{children}</LoadingContext.Provider>
+        <LoadingContext.Provider value = {{ isLoading, loadingProgress: (progress /totalTasks) * 100, incrementProgress }}>{children}</LoadingContext.Provider>
     )
 };

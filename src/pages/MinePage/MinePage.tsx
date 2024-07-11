@@ -14,8 +14,8 @@ import { PopMine } from "../../components/popups/PopMine/PopMine";
 import coinGold from "../../assets/coinGold.png";
 import { Offer } from "../../components/models/response/IOffers";
 import { Energy } from "../../components/Energy/Energy";
-import { useLoadingContext } from "../../context/hooks/useLoading";
 import { useGetProgress } from "../../hooks/useGetProgress"
+import { Clicker } from "../../components/Clicker/Clicker";
 
 export const MinePage: React.FC = () => {
   const { forUpgrade } = useGetProgress()
@@ -29,8 +29,7 @@ export const MinePage: React.FC = () => {
 	const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
 	const [currentPopMine, setCurrentPopMine] = useState<Offer | null>(null);
-  
-  const { incrementProgress} = useLoadingContext()
+
 	const { user } = useUserContext();
 	return (
 		<S.Container>
@@ -69,8 +68,8 @@ export const MinePage: React.FC = () => {
 					)}
 				</S.TopWrapper>
 
-				 <Clicker /> 
-				 <Energy />
+			<Clicker /> 
+			<Energy />
 				<BottomNav />
 			</S.Content>
 			{isPopupOpen && currentPopup === "boost" && <PopBoost />}
