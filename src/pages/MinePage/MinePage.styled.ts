@@ -52,8 +52,8 @@ export const TimeBlockIcon = styled(Img)<ImgProps>`
   width: 20px;
 `;
 export const Content = styled.div`
-  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
-  border-top: 3px solid rgba(229, 153, 43, 1);
+  // background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
+  // border-top: 3px solid rgba(229, 153, 43, 1);
   display: flex;
   flex-direction: column;
   align-items: center;

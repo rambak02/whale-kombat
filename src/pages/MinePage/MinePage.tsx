@@ -13,13 +13,14 @@ import { useUserContext } from "../../context/hooks/useUser";
 import { PopMine } from "../../components/popups/PopMine/PopMine";
 import coinGold from "../../assets/coinGold.png";
 import { Offer } from "../../components/models/response/IOffers";
-import { Energy } from "../../components/Energy/Energy";
-import { useGetProgress } from "../../hooks/useGetProgress"
+import { useGetProgress } from "../../hooks/useGetProgress";
+import Container from "../../components/layout/Container";
 import { Clicker } from "../../components/Clicker/Clicker";
+import { Energy } from "../../components/Energy/Energy";
 
 export const MinePage: React.FC = () => {
-  const { forUpgrade } = useGetProgress()
-  
+	const { forUpgrade } = useGetProgress();
+
 	const STATUS_MARKET = "Markets";
 	const STATUS_PRTEAM = "PR&Team";
 	const STATUS_LEGAL = "Legal";
@@ -32,10 +33,13 @@ export const MinePage: React.FC = () => {
 
 	const { user } = useUserContext();
 	return (
-		<S.Container>
+		<Container>
 			<S.Content>
 				<S.TopWrapper>
-					<MiningInfo forUpgrade={forUpgrade} onClick={() => handleOpenPopup("boost")} />
+					<MiningInfo
+						forUpgrade={forUpgrade}
+						onClick={() => handleOpenPopup("boost")}
+					/>
 					<S.BalanceBlock>
 						<S.BalanceIcon src={coinGold}></S.BalanceIcon>
 						<S.Balance>{user?.coins}</S.Balance>
@@ -68,14 +72,14 @@ export const MinePage: React.FC = () => {
 					)}
 				</S.TopWrapper>
 
-			<Clicker /> 
-			<Energy />
+				{/* <Clicker />
+				<Energy /> */}
 				<BottomNav />
 			</S.Content>
 			{isPopupOpen && currentPopup === "boost" && <PopBoost />}
 			{isPopupOpen && currentPopup === "mine" && (
 				<PopMine offer={currentPopMine} />
 			)}
-		</S.Container>
+		</Container>
 	);
 };

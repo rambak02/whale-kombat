@@ -10,12 +10,13 @@ export const Container = styled.div`
   margin-bottom: 6rem;
 `;
 export const Energy = styled.div`
-  gap: 15px;
+  gap: 6px;
   display: flex;
   align-items: center;
 `;
 export const Amount = styled.div`
-font-family: "Roboto";
+// font-family: "Roboto";
+color: white;
 font-size: 16px;
 font-weight: 600;
 line-height: 21px;
@@ -23,6 +24,6 @@ text-align: left;
 
 `;
 export const BoostImg = styled(Img)`
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 `;

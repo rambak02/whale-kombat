@@ -65,8 +65,8 @@ export const Username = styled.div`
 `;
 
 export const Content = styled.div`
-  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
-  border-top: 3px solid rgba(229, 153, 43, 1);
+  // background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
+  // border-top: 3px solid rgba(229, 153, 43, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,15 +85,16 @@ export const TopWrapper = styled.div`
 `;
 
 export const BalanceBlock = styled.div`
-  width: 100%;
+  // width: 100%;
   display: flex;
-  gap: 5px;
+  gap: 12px;
   align-items: center;
   justify-content: center;
   animation: ${appearanceAnimation} 0.3s;
+  margin-top: 10px;
 `;
 export const Balance = styled.div`
-  font-family: "Roboto";
+  font-family: "Montserrat";
   font-weight: 700;
   text-align: center;
   font-size: 3rem;
@@ -102,30 +103,36 @@ export const Balance = styled.div`
   margin-top: 2px;
 `;
 export const BalanceIcon = styled(Img)<ImgProps>`
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   margin-left: -12px;
+  margin-top: 6px
 `;
 
 export const ProgressBarBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   gap: 8px;
+  margin-top: 10px;
 `;
 export const LevelBlock = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   color: black;
-  font-family: "Roboto";
-  font-weight: 500;
+  // font-family: "Roboto";
+  font-weight: 400;
 `;
-export const LevelTitle = styled.div``;
+export const LevelTitle = styled.div`
+`;
 export const Level = styled.div`
   display: flex;
   gap: 5px;
+  color: white;
+  font-family: "Montserrat";
 `;
 export const LevelNumber = styled.div`
   color: rgba(94, 193, 202, 1);
@@ -134,12 +141,13 @@ export const LevelNumber = styled.div`
 export const ProgressBarWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 12px;
+  height: 10px;
+  margin-top: -4px;
 `;
 
 export const ProgressBarBg = styled.div`
   width: 100%;
-  height: 12px;
+  height: 10px;
   background: rgba(217, 217, 217, 1);
   border-radius: 10px;
 `
@@ -149,7 +157,7 @@ export const ProgressBar = styled.div<{ width: number}>`
   top: 0;
   left: 0;
   width: ${props => props?.width ? `${props.width}%` : 0};
-  height: 12px;
+  height: 10px;
   background: linear-gradient(90deg, #fff176 0%, #f2891a 100%);
   border-radius: 10px;
   animation: ${left} 0.3s;

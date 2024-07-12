@@ -22,7 +22,7 @@ radius: 18px;
 `;
 
 export const Username = styled.div`
-  font-family: "Roboto";
+  // font-family: "Roboto";
   font-size: 20px;
   font-weight: 500;
   line-height: 21px;

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import $api from "../components/http"
+import { useGetLevelsCostQuery } from "../redux/services/miningApi"
 import { useUserContext } from "../context/hooks/useUser"
-
 
 interface ILevelCost {
 	level: number;
@@ -10,23 +9,15 @@ interface ILevelCost {
 
 export const useGetProgress = () => {
   const { user } = useUserContext();
-  const [levelsCost, setLevelsCost] = useState<ILevelCost[]>([]);
+	const { data: levelsCost } = useGetLevelsCostQuery(null)
+
 	const [progress, setProgress] = useState<number>(0);
 	const [forUpgrade, setForUpgrade] = useState<number>(0);
-  
-  useEffect(() => {
-		if (levelsCost.length) return;
-
-		$api
-			.get("/mining/level-cost")
-			.then(({ data }) => setLevelsCost(data?.payload || []))
-			.catch((error) => console.log(error));
-	}, []);
 
 	useEffect(() => {
-		if (!user || !levelsCost.length) return;
+		if (!user || !levelsCost?.payload?.length) return;
 
-		const currentLevelCost = levelsCost.find(
+		const currentLevelCost = levelsCost.payload.find(
 			(i: ILevelCost) => i.level === user.level + 1
 		)?.cost;
 
@@ -39,7 +30,7 @@ export const useGetProgress = () => {
 						)
 				: 0
 		);
-	}, [levelsCost, user]);
+	}, [user, levelsCost]);
 
   return { progress, forUpgrade };
 }
