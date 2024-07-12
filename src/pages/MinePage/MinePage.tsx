@@ -15,8 +15,6 @@ import coinGold from "../../assets/coinGold.png";
 import { Offer } from "../../components/models/response/IOffers";
 import { useGetProgress } from "../../hooks/useGetProgress";
 import Container from "../../components/layout/Container";
-import { Clicker } from "../../components/Clicker/Clicker";
-import { Energy } from "../../components/Energy/Energy";
 
 export const MinePage: React.FC = () => {
 	const { forUpgrade } = useGetProgress();
@@ -71,9 +69,6 @@ export const MinePage: React.FC = () => {
 						/>
 					)}
 				</S.TopWrapper>
-
-				{/* <Clicker />
-				<Energy /> */}
 				<BottomNav />
 			</S.Content>
 			{isPopupOpen && currentPopup === "boost" && <PopBoost />}
