@@ -95,3 +95,12 @@ export const Number = styled.div<NumberProps>`
   font-weight: bold;
   z-index: 100;
 `;
+
+export const ImgBlock = styled.div`
+  min-width: 200px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+

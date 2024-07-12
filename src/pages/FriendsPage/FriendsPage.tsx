@@ -93,7 +93,7 @@ export const FriendsPage = () => {
 			<S.InviteFriend>
 				{copied ? <S.Success>Cсылка скопирована</S.Success> : null}
 
-				<S.InviteFriendContent to={link}>
+				<S.InviteFriendContent to={link} >
 					<S.InviteFriendContentText>
 						Пригласите друга
 					</S.InviteFriendContentText>

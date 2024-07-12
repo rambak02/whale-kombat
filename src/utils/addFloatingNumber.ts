@@ -27,8 +27,8 @@ export const addFloatingNumber = (config: FloatingNumberConfig) => {
     numberEl.innerText = config.value;
 
     numberEl.style.cssText = NUMBER_STYLES;
-    numberEl.style.left = `${config.left - 100}px`;
-    numberEl.style.top = `${config.top - 280}px`;
+    numberEl.style.left = `${config.left}px`;
+    numberEl.style.top = `${config.top}px`;
 
     config.target.append(numberEl);
 

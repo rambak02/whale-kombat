@@ -11,7 +11,13 @@ export default {
 		extend: {
       fontFamily: {
           'montserrat': ['Montserrat'],
-      }
+      },
+			colors: {
+				primary: '#03577F',
+				primaryDark: '#023145',
+				primaryLighter: '##1E7395',
+				primaryLight: '##5EC1CA'
+			}
   }
 	},
 	darkMode: "class",
