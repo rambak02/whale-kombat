@@ -17,13 +17,21 @@ export const userApi = createApi({
   }),
   tagTypes: ['User'],
   endpoints: (builder) => ({
-    initUser: builder.mutation({
+    authUser: builder.mutation({
       query: (body) => ({
         url: '/jwt/create',
         method: 'POST',
         body: { initData, ...body }
       }),
       invalidatesTags: ['User']
+    }),
+    refreshToken: builder.mutation({
+      query: (refreshToken: string) => ({
+         url: '/jwt/refresh',
+         method: 'POST',
+         body: { refresh: refreshToken }
+       }),
+       invalidatesTags: ['User']
     }),
     getUser: builder.query({
       query: () => '/users/me',
@@ -32,4 +40,4 @@ export const userApi = createApi({
   }),
 });
 
-export const { useInitUserMutation, useGetUserQuery } = userApi;
+export const { useAuthUserMutation, useGetUserQuery } = userApi;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useGetUserQuery, useInitUserMutation } from "../redux/services/userApi"
+import { useGetUserQuery, useAuthUserMutation } from "../redux/services/userApi"
 
 export const useInit = () => {
   const { data: user } = useGetUserQuery(null, {
@@ -7,12 +7,12 @@ export const useInit = () => {
 	});
   
   const [inizialised, setInizialised] = useState(false);
-	const [initUser] = useInitUserMutation();
+	const [authUser] = useAuthUserMutation();
 
 	useEffect(() => {
 		if (inizialised || user) return;
 
-		initUser({ referral_code: null })
+		authUser({ referral_code: null })
 			.unwrap()
 			.then((tokens) => {
 				setInizialised(true);
