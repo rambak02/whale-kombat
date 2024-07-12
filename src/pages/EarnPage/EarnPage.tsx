@@ -9,7 +9,7 @@ import { PopDailyReward } from "../../components/popups/PopDailyRewards/PopDaily
 // import xIcon from "../../assets/xtwitter.png";
 import { useEffect, useState } from "react";
 import $api from "../../components/http";
-import userImg from "../../assets/whale.png";
+import userImg from "../../assets/characters/whale.png";
 
 interface IQuest {
 	text: string;
