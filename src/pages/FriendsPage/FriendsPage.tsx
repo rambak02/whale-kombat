@@ -12,6 +12,7 @@ import copyLink from "../../assets/fluent_copy-20-regular.svg";
 import { useFriendsContext } from "../../context/hooks/useFriends";
 import { useUserContext } from "../../context/hooks/useUser";
 import { useEffect, useState } from "react";
+import { getShortNumber } from "../../utils/getShortNumber"
 
 export const FriendsPage = () => {
 	const { friends } = useFriendsContext();
@@ -28,18 +29,6 @@ export const FriendsPage = () => {
 			clearTimeout(timeout);
 		};
 	}, [copied]);
-
-	function formatNumber(number: number = 0) {
-		if (number >= 1000000000) {
-			return (number / 1000000000).toFixed(1) + "B";
-		} else if (number >= 1000000) {
-			return (number / 1000000).toFixed(1) + "м";
-		} else if (number >= 1000) {
-			return (number / 1000).toFixed(1) + "к";
-		} else {
-			return number.toString();
-		}
-	}
 
 	const TELEGRAM_APP_URL = "https://t.me/ocean_kombat_bot/start"
 	const invitationText = 'Отправь приглашение другу'
@@ -75,14 +64,14 @@ export const FriendsPage = () => {
 											<S.Level>Уровень {friend.invited.level}</S.Level>
 											<S.CoinImg src={coinGold} />
 											<S.FriendCash>
-												{formatNumber(friend.invited.coins)}
+												{getShortNumber(friend.invited.coins)}
 											</S.FriendCash>
 										</S.FriendLevel>
 									</S.FriendInfo>
 								</S.FriendBlock>
 								<S.FriendReward>
 									<S.CoinImg src={coinGold} />
-									<div>{formatNumber(friend.reward)}</div>
+									<div>{getShortNumber(friend.reward)}</div>
 								</S.FriendReward>
 							</S.Friends>
 						);

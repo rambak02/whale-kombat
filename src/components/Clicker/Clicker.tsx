@@ -3,7 +3,6 @@ import * as S from "./Clicker.styled";
 import { postMiningTaps } from "../../api";
 import { throttle } from "lodash";
 import { useUserContext } from "../../context/hooks/useUser";
-
 import { Character } from "../Character/Character";
 import { addFloatingNumber } from "./utils/addFloatingNumber";
 

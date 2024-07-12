@@ -101,3 +101,20 @@ export const postMiningPurchase = async (offer_id: string, level: number) => {
     console.error(error);
   }
 };
+
+export const resetEnergyApi = async (
+) => {
+  try {
+    const response = await fetch("/api/v1/mining/boosts/energy_reset", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error reset energy:", error);
+  }
+};

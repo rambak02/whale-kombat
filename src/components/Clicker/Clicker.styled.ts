@@ -1,7 +1,6 @@
-import { Img, ImgProps } from "react-image";
 import styled, { keyframes } from "styled-components";
 import { NumberProps } from "../../interfaces/interface";
-
+import { Img, ImgProps } from "react-image"
 
 const ClickeAnimation = keyframes`
  0% {
@@ -81,6 +80,7 @@ export const ClickerImg = styled(Img)<ImgProps>`
    max-height: 13rem
   }
 `;
+
 export const Number = styled.div<NumberProps>`
   max-width: 100%;
   max-height: 100%;
