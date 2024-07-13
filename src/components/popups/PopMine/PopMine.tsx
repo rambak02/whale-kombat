@@ -17,7 +17,7 @@ export const PopMine = ({ offer }: PopMineProps) => {
 
 	const handleBuyMine = () => {
 		if (offer) {
-			updateOffer({ offer_id: offer.id, level: offer.level })
+			updateOffer({ offer_id: offer.id, level: offer.level || 0 })
 				.unwrap()
 				.then(() => {
 					handleClosePopup();
@@ -57,7 +57,7 @@ export const PopMine = ({ offer }: PopMineProps) => {
 						size="lg"
 						color="secondary"
 						className="text-primary font-semibold text-lg mt-6"
-						onClick={() => handleBuyMine}
+						onClick={handleBuyMine}
 					>
 						Купить за
 						{<Image src={coinGold} alt="coin" width={30} height={30} />}

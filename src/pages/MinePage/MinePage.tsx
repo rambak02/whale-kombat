@@ -24,8 +24,8 @@ export const MinePage: React.FC = () => {
 
 	const tabs = [
 		{
-			id: "makets",
-			label: "Makets",
+			id: "markets",
+			label: "Markets",
 			content: (
 				<Market
 					onClick={setCurrentPopMine}
