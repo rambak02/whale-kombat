@@ -25,7 +25,7 @@ export const Container = styled.div`
 export const TopWrapper = styled.div`
   width: 100%;
   display: flex;
-  gap: 12px;
+  gap: 0px;
   flex-direction: column;
   justify-content: space-between;
 `;

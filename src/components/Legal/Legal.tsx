@@ -1,27 +1,20 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import * as S from "./Legal.styled";
 import { Boost } from "../Boost/Boost";
 import { Offer } from "../models/response/IOffers";
-import $api from "../http"
+import { useGetMiningOffersQuery } from "../../redux/services/miningApi"
 
 type LegalProps = {
   handleOpenPopup: () => void;
   onClick: Dispatch<SetStateAction<Offer | null>>;
 };
 export const Legal = ({ handleOpenPopup, onClick }: LegalProps) => {
-  const [offers, setOffers] = useState<Offer[]>([]);
-
-	useEffect(() => {
-		$api
-			.get(`/mining/offers/legal`)
-			.then(({ data }) => setOffers(data))
-			.catch((error) => console.log(error));
-	}, []);
+  const { data: offers } = useGetMiningOffersQuery('legal')
   
   return (
     <S.Container>
 			<S.Cards onClick={handleOpenPopup}>
-      {offers?.map((offer) => (
+      {offers?.map((offer: Offer) => (
         <Boost onClick={() => onClick(offer)} offer={offer} />
       ))}
 			</S.Cards>

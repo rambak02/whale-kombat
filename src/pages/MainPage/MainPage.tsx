@@ -5,11 +5,11 @@ import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
 import Container from "../../components/layout/Container";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
 import { usePopupContext } from "../../context/hooks/usePopup";
-import coinGold from "../../assets/coinGold.png";
 import { Energy } from "../../components/Energy/Energy";
 import { Header } from "../../components/Header/Header";
 import { useGetProgress } from "../../hooks/useGetProgress";
 import { useUserContext } from "../../context/hooks/useUser";
+import BalanceBlock from "../../components/BalanceBlock"
 
 export const MainPage = () => {
 	const { user } = useUserContext();
@@ -45,12 +45,7 @@ export const MainPage = () => {
 								</S.ProgressBarWrapper>
 							</S.ProgressBarBlock>
 
-							<S.BalanceBlock>
-								<S.BalanceIcon src={coinGold}></S.BalanceIcon>
-								<p className="text-3xl mt-[3px] font-bold text-white">
-									{user?.coins.toLocaleString("ru")}
-								</p>
-							</S.BalanceBlock>
+							<BalanceBlock />
 						</div>
 
 						<div className="relative flex flex-col justify-center">

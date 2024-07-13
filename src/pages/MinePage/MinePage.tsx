@@ -2,34 +2,69 @@ import { useState } from "react";
 import * as S from "./MinePage.styled";
 import { BottomNav } from "../../components/BottomNav/BottomNav";
 import { MiningInfo } from "../../components/MiningInfo/MiningInfo";
-import { NavMine } from "../../components/NavMine/NavMine";
 import { Market } from "../../components/Market/Market";
 import { PRTeam } from "../../components/PRTeam/PRTeam";
 import { Legal } from "../../components/Legal/Legal";
 import { Specials } from "../../components/Specials/Specials";
 import { usePopupContext } from "../../context/hooks/usePopup";
 import { PopBoost } from "../../components/popups/PopBoost/PopBoost";
-import { useUserContext } from "../../context/hooks/useUser";
 import { PopMine } from "../../components/popups/PopMine/PopMine";
-import coinGold from "../../assets/coinGold.png";
 import { Offer } from "../../components/models/response/IOffers";
 import { useGetProgress } from "../../hooks/useGetProgress";
 import Container from "../../components/layout/Container";
+import BalanceBlock from "../../components/BalanceBlock";
+import { Tab, Tabs } from "@nextui-org/react";
 
 export const MinePage: React.FC = () => {
 	const { forUpgrade } = useGetProgress();
-
-	const STATUS_MARKET = "Markets";
-	const STATUS_PRTEAM = "PR&Team";
-	const STATUS_LEGAL = "Legal";
-	const STATUS_SPECIALS = "Specials";
-	const [status, setStatus] = useState(STATUS_MARKET);
 
 	const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 
 	const [currentPopMine, setCurrentPopMine] = useState<Offer | null>(null);
 
-	const { user } = useUserContext();
+	const tabs = [
+		{
+			id: "makets",
+			label: "Makets",
+			content: (
+				<Market
+					onClick={setCurrentPopMine}
+					handleOpenPopup={() => handleOpenPopup("mine")}
+				/>
+			),
+		},
+		{
+			id: "pr&team",
+			label: "PR & Team",
+			content: (
+				<PRTeam
+					onClick={setCurrentPopMine}
+					handleOpenPopup={() => handleOpenPopup("mine")}
+				/>
+			),
+		},
+		{
+			id: "legal",
+			label: "Legal",
+			content: (
+				<Legal
+					onClick={setCurrentPopMine}
+					handleOpenPopup={() => handleOpenPopup("mine")}
+				/>
+			),
+		},
+		{
+			id: "specials",
+			label: "Specials",
+			content: (
+				<Specials
+					onClick={setCurrentPopMine}
+					handleOpenPopup={() => handleOpenPopup("mine")}
+				/>
+			),
+		},
+	];
+
 	return (
 		<Container>
 			<S.Content>
@@ -38,36 +73,23 @@ export const MinePage: React.FC = () => {
 						forUpgrade={forUpgrade}
 						onClick={() => handleOpenPopup("boost")}
 					/>
-					<S.BalanceBlock>
-						<S.BalanceIcon src={coinGold}></S.BalanceIcon>
-						<S.Balance>{user?.coins}</S.Balance>
-					</S.BalanceBlock>
-					<NavMine setStatus={setStatus} />
+					<BalanceBlock />
 
-					{status === STATUS_MARKET && (
-						<Market
-							onClick={setCurrentPopMine}
-							handleOpenPopup={() => handleOpenPopup("mine")}
-						/>
-					)}
-					{status === STATUS_PRTEAM && (
-						<PRTeam
-							onClick={setCurrentPopMine}
-							handleOpenPopup={() => handleOpenPopup("mine")}
-						/>
-					)}
-					{status === STATUS_LEGAL && (
-						<Legal
-							onClick={setCurrentPopMine}
-							handleOpenPopup={() => handleOpenPopup("mine")}
-						/>
-					)}
-					{status === STATUS_SPECIALS && (
-						<Specials
-							onClick={setCurrentPopMine}
-							handleOpenPopup={() => handleOpenPopup("mine")}
-						/>
-					)}
+					<div className="flex w-full flex-col mt-4">
+						<Tabs
+							aria-label="Dynamic tabs"
+							items={tabs}
+							color="primary"
+							fullWidth
+							className="dark"
+						>
+							{(item) => (
+								<Tab key={item.id} title={item.label}>
+									{item.content}
+								</Tab>
+							)}
+						</Tabs>
+					</div>
 				</S.TopWrapper>
 				<BottomNav />
 			</S.Content>

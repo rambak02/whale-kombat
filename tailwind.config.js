@@ -14,9 +14,13 @@ export default {
       },
 			colors: {
 				primary: '#03577F',
-				primaryDark: '#023145',
-				primaryLighter: '##1E7395',
-				primaryLight: '##5EC1CA'
+				"primary-dark": '#023145',
+				'primary-lighter': '#1E7395',
+				'primary-light': '#5EC1CA',
+				'default-100': '#1E7395',
+				'default-500': '#fff',
+				'primary-foreground': '5EC1CA',
+				secondary: '#F2BC1A'
 			}
   }
 	},
