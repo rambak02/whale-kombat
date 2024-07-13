@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+  padding-bottom: 80px;
 `;
 
 export const Cards = styled.div`
@@ -12,5 +13,5 @@ export const Cards = styled.div`
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: -2px;
+  margin-top: 0px;
 `;

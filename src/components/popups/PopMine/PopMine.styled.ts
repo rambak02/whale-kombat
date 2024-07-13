@@ -12,20 +12,20 @@ const slideIn = keyframes`
 
 export const PopupBackground = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   left: 0;
   bottom: 0;
   width: 100vw;
-  // height: 100vh;
-  background: radial-gradient(
-    170.59% 170.59% at 50% 50%,
-    #ffedd1bf 0%,
-    #de830005 100%
-  );
+  height: 100vh;
+  // background: radial-gradient(
+  //   170.59% 170.59% at 50% 50%,
+  //   #ffedd1bf 0%,
+  //   #de830005 100%
+  // );
 `;
 
 export const ModalOverlay = styled.div`
-  box-shadow: 0px -5px 80px 70px rgba(229, 153, 43, 0.7);
+  box-shadow: 0px -5px 180px 170px rgba(2, 49, 69, 0.9);
   position: fixed;
   z-index: 2;
   left: 0;
@@ -35,18 +35,19 @@ export const ModalOverlay = styled.div`
   animation: ${slideIn} 0.3s ease-in-out;
   min-width: 100%;
   min-height: 50vh;
-  border-radius: 36px 36px 0px 0px;
-  border: 3px;
+  border-radius: 16px 16px 0px 0px;
+  // border: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 16px 16px 92px 16px
 `;
 
 export const ModalButton = styled.button`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 0px;
   background: center;
   border: none;
 `;
@@ -68,30 +69,33 @@ export const RewardBlock = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
 `;
 export const RewardImg = styled(Img)<ImgProps>`
-  width: 36px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
 `;
 export const Reward = styled.div`
+  color: white;
   font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 36px;
+  font-weight: 700;
   line-height: 21px;
   text-align: center;
+  margin-top: 12px
 `;
 
 export const Image = styled(Img)`
-  max-width: 70%;
+  // max-width: 70%;
 `;
 
 export const Text = styled.div`
-  gap: 10px;
+  gap: 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
+  padding: 10px;
   text-align: center;
 `;
 
@@ -114,7 +118,7 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
+  padding: 12px;
   text-align: center;
 `;
 
@@ -132,9 +136,10 @@ export const CloseButton = styled.span`
 `;
 export const ButtonCheck = styled.button`
   color: black;
+  margin: 16px;
   border: none;
-  background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
-  width: 93%;
+  // background: linear-gradient(360deg, #de8300 0%, #ffedd1 100%);
+  width: 100%;
   height: 64px;
   padding: 12px 16px 12px 16px;
   border-radius: 20px;

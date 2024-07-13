@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const BoostContainer = styled.div`
   max-height: 110px;
-  background: #5ec1ca;
+  background: #E08F00;
   border-radius: 8px;
   padding: 10px;
   width: 100%;
