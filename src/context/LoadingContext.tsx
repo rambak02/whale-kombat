@@ -11,23 +11,23 @@ export const LoadingContext = createContext<LoadingContextProps | null>(null);
 
 export const LoadingProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [progress, setProgress] = useState(0);
+    const [loadingProgress, setLoadingProgress] = useState(0);
     const totalTasks = 4;
 
     useEffect(()=> {
-        if (progress >= totalTasks) {
+        if (loadingProgress >= totalTasks) {
                 setTimeout(() => {
                     setIsLoading(false);
                 }, 300)
             
         }
-    }, [progress])
+    }, [loadingProgress])
 
     const incrementProgress = () => {
-        setProgress(prev => prev + 1);
+        setLoadingProgress(prev => prev + 1);
     }
 
     return (
-        <LoadingContext.Provider value = {{ isLoading, loadingProgress: (progress /totalTasks) * 100, incrementProgress }}>{children}</LoadingContext.Provider>
+        <LoadingContext.Provider value = {{ isLoading, loadingProgress: (loadingProgress /totalTasks) * 100, incrementProgress }}>{children}</LoadingContext.Provider>
     )
 };

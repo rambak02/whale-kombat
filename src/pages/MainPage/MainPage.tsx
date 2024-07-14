@@ -10,10 +10,12 @@ import { Header } from "../../components/Header/Header";
 import { useGetProgress } from "../../hooks/useGetProgress";
 import { useUserContext } from "../../context/hooks/useUser";
 import BalanceBlock from "../../components/BalanceBlock"
+// import { Loader } from "../../components/Loader/Loader";
+// import { useLoadingContext } from "../../context/hooks/useLoading";
 
 export const MainPage = () => {
 	const { user } = useUserContext();
-
+    // const {loadingProgress} = useLoadingContext()
 	const { handleOpenPopup, isPopupOpen, currentPopup } = usePopupContext();
 	const { progress, forUpgrade } = useGetProgress();
 
