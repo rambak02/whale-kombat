@@ -9,7 +9,7 @@ export const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
     [miningApi.reducerPath]: miningApi.reducer,
   },
-  devTools: process.env.NODE_ENV !== "production",
+  // devTools: process.env.NODE_ENV !== "production",
   middleware: (getDefaultMiddleware) =>
     {
       return getDefaultMiddleware({}).concat([userApi.middleware, miningApi.middleware])
