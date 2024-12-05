@@ -45,10 +45,11 @@ export const UserProvider: FC<UserProviderProps> = ({ children }) => {
 
   const minusEnergy = () => {
     if (user) {
-      if (energy <= 0) {
-        return 
-      }
-      setEnergy(energy - user.multitap_lvl);
+ 
+      setEnergy(prevEnergy => {
+        const newEnergy = prevEnergy - user.multitap_lvl;
+        return Math.max(newEnergy, 0);
+      });
     }
     
   };
